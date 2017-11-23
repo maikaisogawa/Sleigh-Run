@@ -42,7 +42,7 @@ public class GraphicsContest extends GraphicsProgram {
 
 	private RandomGenerator rgen = RandomGenerator.getInstance();
 	
-	public GCompound[] houses = new GCompound[6];
+	public GCompound[] houses = new GCompound[5];
 //	private ArrayList<House> houses = new ArrayList<House>();
 
 	public void run() {
