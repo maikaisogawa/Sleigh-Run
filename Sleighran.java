@@ -49,7 +49,7 @@ public class Sleighran extends GCompound{
 		
 		ski = new GLine(0, 0, SKI_LENGTH, 0);
 		ski.setColor(gold);
-		add(ski, ARC_RADIUS, BACK_HEIGHT + ARC_RADIUS * 2);
+		add(ski, ARC_RADIUS, BACK_HEIGHT + ARC_RADIUS);
 		
 	}
 	
@@ -71,7 +71,7 @@ public class Sleighran extends GCompound{
 	private static final int SMALL_TRIANGLE = 10;
 	private static final int BOTTOM_RIGHT_RADIUS = 7;
 	
-	private static final int SKI_LENGTH = 30;
+	private static final int SKI_LENGTH = 50;
 	
 	private GRect base;
 	private GRect back;
