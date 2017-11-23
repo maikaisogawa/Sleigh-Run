@@ -77,7 +77,7 @@ public class GraphicsContest extends GraphicsProgram {
 		house.move(vx, vy);  // moves ball
 		if(house.getX() < 0) {
 			remove(house);
-			createHouses();
+			addHouse();
 		}
 } 
 	
@@ -109,6 +109,15 @@ public class GraphicsContest extends GraphicsProgram {
 			x += house.getWidth() - HOUSE_SPACE;
 			hexcolor = nextColor;
 		} 
+	}
+	
+	private void addHouse() {
+		double x = house.getWidth() * 3 - HOUSE_SPACE;
+		double y = getHeight() - house.getHeight() + BOTTOM_SPACE;
+		String nextColor = getRandomNewColor(house.getColor());
+		house = new House(hexcolor);
+		add(house, x, y);
+		hexcolor = nextColor;
 	}
 /*
  * This method generates the colors for the houses along the bottom of the screen
