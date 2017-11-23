@@ -52,7 +52,7 @@ public class Sleighran extends GCompound{
 		boots.setColor(shoes);
 		boots.setFilled(true);
 		boots.setFillColor(shoes);
-		add(boots, mehran.getWidth() + BODY_WIDTH * 3, BODY_HEIGHT - OTHER_LEGS_HEIGHT - 5);
+		add(boots, mehran.getWidth() + BODY_WIDTH * 3 + 2, BODY_HEIGHT - OTHER_LEGS_HEIGHT - 5);
 		
 		legs = makeTriangle(LEG_SIZE, LEG_SIZE);
 		legs.setColor(sweater);
@@ -204,6 +204,6 @@ public class Sleighran extends GCompound{
 	Color gold = Color.decode("#E4CB85");
 	Color red = Color.decode("#971835");
 	Color sweater = Color.decode("#6C8C85");
-	Color shoes = Color.decode("#B8867A");
+	Color shoes = Color.decode("#8E4E20");
 	
 }
