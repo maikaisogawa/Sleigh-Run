@@ -11,92 +11,108 @@ public class House extends GCompound {
 	
 	public House(String color) {
 
+		// decodes the hexcolor passed through 
 		Color theColor = Color.decode(color);
 		
+		// creates side portion of hosue
 		side = new GRect(SIDE_WIDTH, SIDE_HEIGHT);
 		side.setColor(walnut);
 		side.setFilled(true);
 		side.setFillColor(theColor);
 		
+		// base square of house
 		base = new GRect(HOUSE_WIDTH, HOUSE_HEIGHT);
 		base.setColor(walnut);
 		base.setFilled(true);
 		base.setFillColor(theColor);
 		
+		// fence of house
 		fence = new GRect(FENCE_LENGTH, FENCE_HEIGHT);
 		fence.setColor(Color.BLACK);
 		fence.setFilled(true);
 		fence.setFillColor(Color.LIGHT_GRAY);
 		
+		// big roof of main house
 		roof = createRoof(ROOF_WIDTH, ROOF_HEIGHT);
 		roof.setColor(walnut);
 		roof.setFilled(true);
 		roof.setFillColor(walnut);
 		
+		// small roof of side
 		sideRoof = createRoof(SIDE_ROOF_WIDTH, SIDE_ROOF_HEIGHT);
 		sideRoof.setColor(walnut);
 		sideRoof.setFilled(true);
 		sideRoof.setFillColor(cream);
 		
+		// front door square
 		doorFront = new GRect(DOOR_FRONT_WIDTH, DOOR_FRONT_HEIGHT);
 		doorFront.setColor(walnut);
 		doorFront.setFilled(true);
 		doorFront.setFillColor(theColor);
 		
+		// roof of door
 		doorRoof = createRoof(DOOR_ROOF_WIDTH, DOOR_ROOF_HEIGHT);
 		doorRoof.setColor(walnut);
 		doorRoof.setFilled(true);
 		doorRoof.setFillColor(walnut);
 		
+		// square on front of house
 		patio = new GRect(PATIO_WIDTH, PATIO_HEIGHT);
 		patio.setColor(walnut);
 		patio.setFilled(true);
 		patio.setFillColor(theColor);
 		
+		// roof for square on front of house
 		patioRoof = createRoof(PATIO_ROOF_WIDTH, PATIO_ROOF_HEIGHT);
 		patioRoof.setColor(walnut);
 		patioRoof.setFilled(true);
 		patioRoof.setFillColor(cream);
 		
+		// small line on square on front of house
 		patioDecor = new GRect(PATIO_DECOR_WIDTH, PATIO_DECOR_HEIGHT);
 		patioDecor.setColor(walnut);
 		patioDecor.setFilled(true);
 		patioDecor.setFillColor(cream);
 		
+		// decoration on side square
 		sideDeco = new GRect(SIDE_DECO_WIDTH, SIDE_DECO_HEIGHT);
 		sideDeco.setColor(walnut);
 		sideDeco.setFilled(true);
 		sideDeco.setFillColor(cream);
 		
+		// window on side
 		window1 = new GRect(WINDOW_WIDTH, WINDOW_HEIGHT);
 		window1.setColor(walnut);
 		window1.setFilled(true);
 		window1.setFillColor(lightBlue);
 		
+		// left window on main house
 		window2 = new GRect(WINDOW_WIDTH, WINDOW_HEIGHT);
 		window2.setColor(walnut);
 		window2.setFilled(true);
 		window2.setFillColor(lightBlue);
 		
+		// right window on main
 		window3 = new GRect(WINDOW_WIDTH, WINDOW_HEIGHT);
 		window3.setColor(walnut);
 		window3.setFilled(true);
 		window3.setFillColor(lightBlue);
 		
+		// door
 		door = new GRect(DOOR_WIDTH, DOOR_HEIGHT);
 		door.setColor(cream);
 		door.setFilled(true);
 		door.setFillColor(walnut);
 		
+		// adds all components
 		add(side, 0, 0);
 		add(sideRoof, SIDE_WIDTH / 2, 0 - SIDE_ROOF_HEIGHT / 2);
 		add(sideDeco, 0 - 5, SIDE_HEIGHT / 2 - SIDE_DECO_HEIGHT);
 		add(base, SIDE_WIDTH / 2, SIDE_HEIGHT - HOUSE_HEIGHT);
 		add(doorFront, 0, SIDE_HEIGHT - DOOR_FRONT_HEIGHT);
 		add(doorRoof, SIDE_WIDTH / 2, SIDE_HEIGHT / 2 + DOOR_ROOF_HEIGHT / 2);
-		add(patio, SIDE_WIDTH / 2 + HOUSE_WIDTH / 2 - PATIO_WIDTH / 2, SIDE_HEIGHT - PATIO_HEIGHT);
-		
-		double m = 1.0;
+		add(patio, SIDE_WIDTH / 2 + HOUSE_WIDTH / 2 - PATIO_WIDTH / 2, SIDE_HEIGHT - PATIO_HEIGHT);		
+		double m = 1.0;  // adds three windows on patio
 		for(int i = 0; i < 3; i++) {
 			GRect patioWindow = new GRect(WINDOW_WIDTH, WINDOW_HEIGHT);
 			patioWindow.setColor(walnut);
@@ -105,7 +121,6 @@ public class House extends GCompound {
 			add(patioWindow, SIDE_WIDTH + WINDOW_WIDTH * m, SIDE_HEIGHT - PATIO_HEIGHT - PATIO_ROOF_HEIGHT / 2 + WINDOW_HEIGHT / 2);
 			m += 1.5;
 		}
-		
 		add(patioRoof, SIDE_WIDTH / 2 + HOUSE_WIDTH / 2, SIDE_HEIGHT - PATIO_HEIGHT - PATIO_ROOF_HEIGHT / 2);
 		add(patioDecor, SIDE_WIDTH / 2 + HOUSE_WIDTH / 2 - PATIO_DECOR_WIDTH / 2, SIDE_HEIGHT - PATIO_HEIGHT / 2 + 5);
 		add(roof, SIDE_WIDTH / 2 + HOUSE_WIDTH / 2, SIDE_HEIGHT - HOUSE_HEIGHT - ROOF_HEIGHT / 2);
@@ -113,9 +128,8 @@ public class House extends GCompound {
 		add(window1, SIDE_WIDTH / 2 - WINDOW_WIDTH / 2, 0 + 2);
 		add(window2, HOUSE_WIDTH / 2 + WINDOW_WIDTH, SIDE_HEIGHT - HOUSE_HEIGHT);
 		add(window3, HOUSE_WIDTH / 2 + WINDOW_WIDTH * 2, SIDE_HEIGHT - HOUSE_HEIGHT);
-		add(door, SIDE_WIDTH / 2 - DOOR_WIDTH / 2, SIDE_HEIGHT - DOOR_HEIGHT - 13);
-		
-		int k = 0;
+		add(door, SIDE_WIDTH / 2 - DOOR_WIDTH / 2, SIDE_HEIGHT - DOOR_HEIGHT - 13);	
+		int k = 0;   // adds three steps leading up to door
 		for(int i = 0; i < 3; i++) {
 			GRect step = new GRect(STEP_WIDTH, STEP_HEIGHT);
 			step.setColor(cream);
@@ -123,9 +137,8 @@ public class House extends GCompound {
 			step.setFillColor(Color.LIGHT_GRAY);
 			add(step, SIDE_WIDTH / 2 - STEP_WIDTH / 2, SIDE_HEIGHT - 1 - (STEP_HEIGHT * 3) + k);
 			k += STEP_HEIGHT;
-		}
-		
-		int n = 1;
+		}	
+		int n = 1;   // adds fenceposts
 		for(int i = 0; i < 3; i++) {
 			GRect fencepost = new GRect(POST_WIDTH, POST_HEIGHT);
 			fencepost.setColor(Color.BLACK);
@@ -134,7 +147,6 @@ public class House extends GCompound {
 			add(fencepost, HOUSE_WIDTH + SIDE_WIDTH / 2 + POST_WIDTH * n, SIDE_HEIGHT - POST_HEIGHT);
 			n += 2;
 		}
-		
 		// this section adds the string of lights on the house
 		double r = HOUSE_WIDTH;     // make radius large enough to look good on house
 		double cx = SIDE_WIDTH / 2 + HOUSE_WIDTH / 2;   // x location of center of circle
@@ -152,7 +164,6 @@ public class House extends GCompound {
 			dx += 10;  // x location for next light
 			dy += 4 - i;   // makes lights strung on arc pattern
 		}
-		
 	}
 /*
  * This method provides random colors for the decorative lights. This method is taken from the 
@@ -252,16 +263,16 @@ public class House extends GCompound {
 	private GPolygon doorRoof;
 	private GPolygon patioRoof;
 	
-	
+	// new colors created for house compound
 	Color cream = Color.decode("#F0ECEB");
 	Color walnut = Color.decode("#584E52");
 	Color lightBlue = Color.decode("#8ECBF8");
 	
 	private RandomGenerator rgen = RandomGenerator.getInstance();
 				
-	public void filled(boolean b) {
-		// TODO Auto-generated method stub
-		
-	}
+//	public void filled(boolean b) {
+//		// TODO Auto-generated method stub
+//		
+//	}
 	
 }

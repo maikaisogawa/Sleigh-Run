@@ -1,4 +1,9 @@
+import acm.graphics.GCompound;
 
-public class Sleighran {
+public class Sleighran extends GCompound{
 
+	public Sleighran() {
+		
+	}
+	
 }

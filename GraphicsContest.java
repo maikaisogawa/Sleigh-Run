@@ -40,6 +40,7 @@ public class GraphicsContest extends GraphicsProgram {
 	private RandomGenerator rgen = RandomGenerator.getInstance();
 	
 	private House house; 
+	private Sleighran sleighran;
 	private boolean gameOver = false; 
 	public GCompound[] houses = new GCompound[5];
 	private String hexcolor = "#F29352";
