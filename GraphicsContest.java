@@ -79,18 +79,23 @@ public class GraphicsContest extends GraphicsProgram {
 	
 	private void housesMove() {
 		for(int i = 0; i < houses.length; i++) {
-	//		houses.add(house);
-	//		houses.get(i).move(vx, vy);
 			houses[i].move(vx,vy);
 		}
 	} 
 	
 	private void checkHouses() {
-		if(house.getX() < 0 - house.getWidth()) {
-			remove(house);
-	//		houses.remove(house);
-	//		createHouses();
-			addHouse();
+		for(int i = 0; i < houses.length; i++) {
+			if(houses[i].getX() < 0 - house.getWidth()) {
+				remove(houses[i]);
+				adjustArray();
+				addHouse();
+			}
+		}
+	}
+	
+	private void adjustArray() {
+		for(int i = 0; i < houses.length; i++) {
+			houses[i] = houses[i+1];
 		}
 	}
 	
@@ -117,7 +122,6 @@ public class GraphicsContest extends GraphicsProgram {
 			String nextColor = getRandomNewColor(house.getColor());
 			double y = getHeight() - house.getHeight() + BOTTOM_SPACE;  // y location of house
 			add(house, x, y);
-	//		houses.add(house);
 			houses[i] = house;
 			x += house.getWidth() - HOUSE_SPACE;
 			hexcolor = nextColor;
@@ -129,8 +133,8 @@ public class GraphicsContest extends GraphicsProgram {
 		double y = getHeight() - house.getHeight() + BOTTOM_SPACE;
 		String nextColor = getRandomNewColor(house.getColor());
 		house = new House(hexcolor);
-//		houses.add(house);
 		add(house, x, y);
+		houses[4] = house;
 		hexcolor = nextColor;
 	}
 /*
