@@ -75,7 +75,7 @@ public class GraphicsContest extends GraphicsProgram {
 	
 	private void housesMove() {
 		house.move(vx, vy);  // moves ball
-		if(house.getX() < 0) {
+		if(house.getX() < 0 - house.getWidth()) {
 			remove(house);
 			addHouse();
 		}
