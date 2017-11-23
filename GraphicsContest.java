@@ -89,7 +89,8 @@ public class GraphicsContest extends GraphicsProgram {
 		if(house.getX() < 0 - house.getWidth()) {
 			remove(house);
 			houses.remove(house);
-			addHouse();
+			createHouses();
+		//	addHouse();
 		}
 	}
 	
