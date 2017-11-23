@@ -52,7 +52,7 @@ public class Sleighran extends GCompound{
 		boots.setColor(shoes);
 		boots.setFilled(true);
 		boots.setFillColor(shoes);
-		add(boots, mehran.getWidth() + BODY_WIDTH * 2, BODY_HEIGHT - OTHER_LEGS_HEIGHT);
+		add(boots, mehran.getWidth() + BODY_WIDTH * 3, BODY_HEIGHT - OTHER_LEGS_HEIGHT);
 		
 		legs = makeTriangle(LEG_SIZE, LEG_SIZE);
 		legs.setColor(sweater);
