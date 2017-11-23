@@ -1,7 +1,13 @@
 import java.awt.Color;
+import java.awt.Image;
+import java.io.IOException;
+import java.io.InputStream;
+
+import javax.imageio.ImageIO;
 
 import acm.graphics.GArc;
 import acm.graphics.GCompound;
+import acm.graphics.GImage;
 import acm.graphics.GLine;
 import acm.graphics.GOval;
 import acm.graphics.GPolygon;
@@ -13,7 +19,16 @@ public class Sleighran extends GCompound{
 		
 	// This section creates the Mehran portion of SLeighran
 		
-		
+		Image mehranImage = null;	
+		ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
+		InputStream input = classLoader.getResourceAsStream("mehron.png");
+		try {
+			mehranImage = ImageIO.read(input);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		GImage mehran = new GImage(mehranImage);
+		add(mehran, 0, 0);
 		
 	// This section creates the sleigh portion of Sleighran
 		backTop = new GArc(2 * ARC_RADIUS, 2 * ARC_RADIUS, 20, 90);
@@ -99,6 +114,8 @@ public class Sleighran extends GCompound{
 	private static final int SKI_FRONT_RADIUS = 8;
 	private static final int SKI_BACK_RADIUS = 5;
 	private static final int SKI_LINE_LENGTH = 5;
+	
+	private static final int MEHRAN_RADIUS = 5;
 	
 	private GRect base;
 	private GRect back;

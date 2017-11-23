@@ -68,7 +68,6 @@ public class GraphicsContest extends GraphicsProgram {
 	private void addParty() {
 		sleighran = new Sleighran();
 		add(sleighran, getWidth() / 2, getHeight() / 2);
-		
 	}
 	
 	private void waitForPlayer() {
