@@ -4,6 +4,7 @@
  */
 
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
@@ -54,9 +55,12 @@ public class GraphicsContest extends GraphicsProgram {
 	
 	private void waitForPlayer() {
 		GLabel start = new GLabel("Click to start");  // creates starting prompt
+		double x = getWidth() / 2 - start.getWidth() / 2;
+		double y = getHeight() / 2 - 30;
 		start.setColor(Color.WHITE);
-		start.setFont("Arial - 28");
-		add(start, getWidth() / 2 - start.getWidth() / 2, getHeight() / 2 - 30); // add label
+		start.setFont(new Font("Arial", Font.BOLD, 20));
+		start.setLocation(x,y);
+		add(start); // add label
 		waitForClick();  // waits for player's click
 		remove(start);  // removes label from screen
 	}
