@@ -60,8 +60,15 @@ public class GraphicsContest extends GraphicsProgram {
 	private void setup() {
 		addBackground();
 		createHouses();	
+		addParty();
 		addMouseListeners();
 		addActionListeners();
+	}
+	
+	private void addParty() {
+		sleighran = new Sleighran();
+		add(sleighran, getWidth() / 2, getHeight() / 2);
+		
 	}
 	
 	private void waitForPlayer() {

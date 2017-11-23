@@ -269,10 +269,5 @@ public class House extends GCompound {
 	Color lightBlue = Color.decode("#8ECBF8");
 	
 	private RandomGenerator rgen = RandomGenerator.getInstance();
-				
-//	public void filled(boolean b) {
-//		// TODO Auto-generated method stub
-//		
-//	}
 	
 }
