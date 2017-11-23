@@ -45,7 +45,7 @@ public class Sleighran extends GCompound{
 		
 		hatLine = new GLine(0, 0, HAT_SIZE, 0);
 		hatLine.setColor(cream);
-		add(hatLine, mehran.getWidth() + 12, 0 - mehran.getHeight() - 3);
+		add(hatLine, mehran.getWidth() + 6, 0 - mehran.getHeight() + 3);
 		
 		
 	// This section creates the sleigh portion of Sleighran
