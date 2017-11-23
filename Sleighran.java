@@ -162,7 +162,7 @@ public class Sleighran extends GCompound{
 	private static final int HAT_SIZE = 12;
 	private static final int BODY_WIDTH = 10;
 	private static final int BODY_HEIGHT = 20;
-	private static final int LEG_SIZE = 20;
+	private static final int LEG_SIZE = 30;
 	
 	private GPolygon hat;
 	private GOval hatDecal;
