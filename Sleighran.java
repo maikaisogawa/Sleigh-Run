@@ -40,7 +40,7 @@ public class Sleighran extends GCompound{
 //	add(arc, cx - r, cy - r - SIDE_HEIGHT / 2);   // adds arc to correct place on screen
 	private static final int ARC_RADIUS = 15;
 	private static final int BACK_WIDTH = 15;
-	private static final int BACK_HEIGHT = 30;
+	private static final int BACK_HEIGHT = 25;
 	
 //	private static final int BASE_WIDTH = 50;
 //	private static final int BASE_HEIGHT = 15;
