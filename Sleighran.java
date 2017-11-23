@@ -61,7 +61,7 @@ public class Sleighran extends GCompound{
 		
 		skiLine = new GLine(0, 0, 0, SKI_LINE_LENGTH);
 		skiLine.setColor(gold);
-		add(skiLine, ARC_RADIUS + SKI_LINE_LENGTH * 3, BACK_HEIGHT + SKI_LINE_LENGTH * 3);
+		add(skiLine, ARC_RADIUS + SKI_LINE_LENGTH * 3, BACK_HEIGHT + SKI_LINE_LENGTH * 2);
 		
 	}
 	
