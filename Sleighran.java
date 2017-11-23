@@ -47,6 +47,12 @@ public class Sleighran extends GCompound{
 		hatLine.setColor(cream);
 		add(hatLine, mehran.getWidth() + 4, 0 - mehran.getHeight() + 3);
 		
+		body = new GRect(BODY_WIDTH, BODY_HEIGHT);
+		body.setColor(sweater);
+		body.setFilled(true);
+		body.setFillColor(sweater);
+		add(body, mehran.getWidth() - BODY_WIDTH / 2, mehran.getHeight() + BODY_HEIGHT);
+		
 		
 	// This section creates the sleigh portion of Sleighran
 		backTop = new GArc(2 * ARC_RADIUS, 2 * ARC_RADIUS, 20, 90);
@@ -147,10 +153,13 @@ public class Sleighran extends GCompound{
  */
 	private static final int MEHRAN_RADIUS = 5;
 	private static final int HAT_SIZE = 12;
+	private static final int BODY_WIDTH = 10;
+	private static final int BODY_HEIGHT = 20;
 	
 	private GPolygon hat;
 	private GOval hatDecal;
 	private GLine hatLine;
+	private GRect body;
 	
 /*
  * colors added for Sleighran compound
@@ -158,5 +167,6 @@ public class Sleighran extends GCompound{
 	Color cream = Color.decode("#F0ECEB");
 	Color gold = Color.decode("#E4CB85");
 	Color red = Color.decode("#971835");
+	Color sweater = Color.decode("#6C8C85");
 	
 }
