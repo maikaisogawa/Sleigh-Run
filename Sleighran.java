@@ -31,6 +31,12 @@ public class Sleighran extends GCompound{
 		mehran.scale(0.15);
 		add(mehran, mehran.getWidth(), 0 - mehran.getHeight());
 		
+		hat = makeTriangle(SMALL_TRIANGLE, SMALL_TRIANGLE);
+		hat.setColor(cream);
+		hat.setFilled(true);
+		hat.setFillColor(red);
+		add(hat, mehran.getWidth(), 0 - mehran.getHeight());
+		
 	// This section creates the sleigh portion of Sleighran
 		backTop = new GArc(2 * ARC_RADIUS, 2 * ARC_RADIUS, 20, 90);
 		backTop.setColor(red);
@@ -99,40 +105,38 @@ public class Sleighran extends GCompound{
 		return poly;
 	}
 /*	
- * Instance variables
+ * Instance variables for the sleigh portion
  */
 	private static final int ARC_RADIUS = 15;
 	private static final int BACK_WIDTH = 15;
 	private static final int BACK_HEIGHT = 25;
-	
 	private static final int BASE_WIDTH = 30;
 	private static final int BASE_HEIGHT = 15;
-	
 	private static final int SMALL_TRIANGLE = 10;
 	private static final int BOTTOM_RIGHT_RADIUS = 7;
-	
 	private static final int SKI_LENGTH = 50;
 	private static final int SKI_FRONT_RADIUS = 8;
 	private static final int SKI_BACK_RADIUS = 5;
 	private static final int SKI_LINE_LENGTH = 5;
 	
-	private static final int MEHRAN_RADIUS = 5;
-	
 	private GRect base;
 	private GRect back;
-	
 	private GPolygon fill;
 	private GPolygon fillFront;
-	
 	private GLine ski;
 	private GLine skiLine1;
 	private GLine skiLine2;
-	
 	private GOval bottomRight;
-	
 	private GArc backTop;
 	private GArc skiFront;
 	private GArc skiBack;
+
+/*	
+ * Instance variables for Mehran portion
+ */
+	private static final int MEHRAN_RADIUS = 5;
+	
+	private GPolygon hat;
 	
 /*
  * colors added for Sleighran compound
