@@ -36,6 +36,12 @@ public class Sleighran extends GCompound{
 		body.setFillColor(sweater);
 		add(body, mehran.getWidth() + BODY_WIDTH / 2, 0 - 2);
 		
+		arms = new GRect(ARMS_WIDTH, ARMS_HEIGHT);
+		arms.setColor(sweater);
+		arms.setFilled(true);
+		arms.setFillColor(sweater);
+		add(arms, mehran.getWidth() + BODY_WIDTH * 2, BODY_HEIGHT - OTHER_LEGS_HEIGHT * 3);
+		
 		otherLegs = new GRect(OTHER_LEGS_WIDTH, OTHER_LEGS_HEIGHT);
 		otherLegs.setColor(sweater);
 		otherLegs.setFilled(true);
@@ -171,6 +177,8 @@ public class Sleighran extends GCompound{
 	private static final int LEG_SIZE = 30;
 	private static final int OTHER_LEGS_WIDTH = 10;
 	private static final int OTHER_LEGS_HEIGHT = 5;
+	private static final int ARMS_WIDTH = 10;
+	private static final int ARMS_HEIGHT = 3;
 	
 	private GPolygon hat;
 	private GOval hatDecal;
@@ -178,6 +186,7 @@ public class Sleighran extends GCompound{
 	private GRect body;
 	private GPolygon legs;
 	private GRect otherLegs;
+	private GRect arms;
 	
 /*
  * colors added for Sleighran compound
