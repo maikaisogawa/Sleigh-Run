@@ -93,11 +93,12 @@ public class GraphicsContest extends GraphicsProgram {
 		add(background, 0, 0);
 	}
 	
-	House house; 
+	private House house; 
+	private String hexcolor = "#F29352";
 	
 	private void createHouses() {	
 		double x = 0;   // x location of house
-		String hexcolor = "#F29352";
+	//	String hexcolor = "#F29352";
 		for(int i = 0; i < 4; i++) {
 			house = new House(hexcolor);
 			//House house = new House(hexcolor);
