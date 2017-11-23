@@ -29,7 +29,7 @@ public class Sleighran extends GCompound{
 		}
 		GImage mehran = new GImage(mehranImage);
 		mehran.scale(0.15);
-		add(mehran, 0, 0);
+		add(mehran, mehran.getWidth(), 0 - mehran.getHeight());
 		
 	// This section creates the sleigh portion of Sleighran
 		backTop = new GArc(2 * ARC_RADIUS, 2 * ARC_RADIUS, 20, 90);
