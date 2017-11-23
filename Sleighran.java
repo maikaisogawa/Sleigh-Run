@@ -59,10 +59,13 @@ public class Sleighran extends GCompound{
 		skiBack.setColor(gold);
 		add(skiBack, SKI_BACK_RADIUS + 5, BACK_HEIGHT + SKI_BACK_RADIUS);
 		
-		skiLine = new GLine(0, 0, 0, SKI_LINE_LENGTH);
-		skiLine.setColor(gold);
-		add(skiLine, ARC_RADIUS + SKI_LINE_LENGTH * 3, BACK_HEIGHT + SKI_LINE_LENGTH * 2);
+		skiLine1 = new GLine(0, 0, 0, SKI_LINE_LENGTH);
+		skiLine1.setColor(gold);
+		add(skiLine1, ARC_RADIUS + SKI_LINE_LENGTH * 3, BACK_HEIGHT + SKI_LINE_LENGTH * 2);
 		
+		skiLine2 = new GLine(0, 0, 0, SKI_LINE_LENGTH);
+		skiLine2.setColor(gold);
+		add(skiLine2, ARC_RADIUS + SKI_LINE_LENGTH * 7, BACK_HEIGHT + SKI_LINE_LENGTH * 2);
 	}
 	
 	private GPolygon makeTriangle(double width, double height){ 
@@ -95,7 +98,8 @@ public class Sleighran extends GCompound{
 	private GPolygon fillFront;
 	
 	private GLine ski;
-	private GLine skiLine;
+	private GLine skiLine1;
+	private GLine skiLine2;
 	
 	private GOval bottomRight;
 	
