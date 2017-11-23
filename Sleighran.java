@@ -21,11 +21,12 @@ public class Sleighran extends GCompound{
 		back.setFillColor(red);
 		add(back, ARC_RADIUS, ARC_RADIUS - 5);
 		
-//		base = new GRect(BASE_WIDTH, BASE_HEIGHT);
-//		base.setColor(red);
-//		base.setFilled(true);
-//		base.setFillColor(red);
-//		
+		base = new GRect(BASE_WIDTH, BASE_HEIGHT);
+		base.setColor(red);
+		base.setFilled(true);
+		base.setFillColor(red);
+		add(base, ARC_RADIUS + BACK_WIDTH, ARC_RADIUS + BACK_HEIGHT);
+		
 //		bottomLeft = new GOval(BOTTOM_LEFT_RADIUS * 2, BOTTOM_LEFT_RADIUS * 2);
 //		bottomLeft.setColor(red);
 //		bottomLeft.setFilled(true);
@@ -42,11 +43,11 @@ public class Sleighran extends GCompound{
 	private static final int BACK_WIDTH = 15;
 	private static final int BACK_HEIGHT = 25;
 	
-//	private static final int BASE_WIDTH = 50;
-//	private static final int BASE_HEIGHT = 15;
+	private static final int BASE_WIDTH = 50;
+	private static final int BASE_HEIGHT = 15;
 //	private static final int BOTTOM_LEFT_RADIUS = 9;
 	
-//	private GRect base;
+	private GRect base;
 //	
 //	private GOval bottomLeft;
 	
