@@ -35,7 +35,7 @@ public class Sleighran extends GCompound{
 		hat.setColor(cream);
 		hat.setFilled(true);
 		hat.setFillColor(red);
-		add(hat, mehran.getWidth(), 0 - mehran.getHeight());
+		add(hat, mehran.getWidth() + 10, 0 - mehran.getHeight() - 3);
 		
 	// This section creates the sleigh portion of Sleighran
 		backTop = new GArc(2 * ARC_RADIUS, 2 * ARC_RADIUS, 20, 90);
