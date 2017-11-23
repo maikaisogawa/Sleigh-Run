@@ -21,7 +21,7 @@ public class Kareldolph extends GCompound{
 		
 		line = new GLine(0, 0, LINE_LENGTH, 0);
 		line.setColor(Color.BLACK);
-		add(line, 4 + SQUARE_WIDTH / 2, 10 + SQUARE_HEIGHT);
+		add(line, 4 + SQUARE_WIDTH / 2, 8 + SQUARE_HEIGHT);
 		
 		rightTriangle = makeRightTriangle(TRIANGLE, TRIANGLE);
 		rightTriangle.setColor(sky);
