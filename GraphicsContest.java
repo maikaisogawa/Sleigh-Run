@@ -42,7 +42,7 @@ public class GraphicsContest extends GraphicsProgram {
 
 	private RandomGenerator rgen = RandomGenerator.getInstance();
 	
-	ArrayList<House> houses;
+	public GCompound[] houses = new GCompound[6];
 
 	public void run() {
 		setup();
@@ -76,7 +76,9 @@ public class GraphicsContest extends GraphicsProgram {
 	private double vy = 0;
 	
 	private void housesMove() {
-		house.move(vx, vy);  // moves ball
+		for(int i = 0; i < houses.length; i++) {
+			houses[i].move(vx,vy);
+		}
 		if(house.getX() < 0 - house.getWidth()) {
 			remove(house);
 			addHouse();
@@ -101,13 +103,12 @@ public class GraphicsContest extends GraphicsProgram {
 	
 	private void createHouses() {	
 		double x = 0;   // x location of house
-	//	String hexcolor = "#F29352";
-		for(int i = 0; i < 4; i++) {
+		for(int i = 0; i < 6; i++) {
 			house = new House(hexcolor);
-			//House house = new House(hexcolor);
 			String nextColor = getRandomNewColor(house.getColor());
 			double y = getHeight() - house.getHeight() + BOTTOM_SPACE;  // y location of house
 			add(house, x, y);
+			houses.add(house);
 			x += house.getWidth() - HOUSE_SPACE;
 			hexcolor = nextColor;
 		} 
