@@ -9,7 +9,7 @@ public class Sleighran extends GCompound{
 		base = new GRect(BASE_WIDTH, BASE_HEIGHT);
 		base.setColor(cream);
 		base.setFilled(true);
-		base.setFillColor(Color.red);
+		base.setFillColor(red);
 		
 		add(base, 0, 0);
 		
@@ -25,6 +25,6 @@ public class Sleighran extends GCompound{
  */
 	Color cream = Color.decode("#F0ECEB");
 	Color gold = Color.decode("#E4CB85");
-	Color red = Color.decode("#A3483C");
+	Color red = Color.decode("#971835");
 	
 }
