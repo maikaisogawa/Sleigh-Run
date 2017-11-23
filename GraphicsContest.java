@@ -55,10 +55,10 @@ public class GraphicsContest extends GraphicsProgram {
 	
 	private void waitForPlayer() {
 		GLabel start = new GLabel("CLICK TO START");  // creates starting prompt
-		double x = getWidth() / 2 - start.getWidth() / 2;
+		double x = getWidth() / 2 - start.getWidth();
 		double y = getHeight() / 2 - 30;
 		start.setColor(Color.WHITE);
-		start.setFont(new Font("Arial", Font.BOLD, 30));
+		start.setFont(new Font("Arial", Font.BOLD, 38));
 		start.setLocation(x,y);
 		add(start); // add label
 		waitForClick();  // waits for player's click
