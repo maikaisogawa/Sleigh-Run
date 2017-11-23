@@ -98,7 +98,7 @@ public class GraphicsContest extends GraphicsProgram {
 	private void createHouses() {	
 		double x = 0;   // x location of house
 		String hexcolor = "#F29352";
-		for(int i = 0; i < 6; i++) {
+		for(int i = 0; i < 4; i++) {
 			house = new House(hexcolor);
 			//House house = new House(hexcolor);
 			String nextColor = getRandomNewColor(house.getColor());
