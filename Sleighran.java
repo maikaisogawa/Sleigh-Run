@@ -24,7 +24,7 @@ public class Sleighran extends GCompound{
 	
 	
 	private static final int BASE_WIDTH = 50;
-	private static final int BASE_HEIGHT = 20;
+	private static final int BASE_HEIGHT = 15;
 	private static final int BOTTOM_LEFT_RADIUS = 9;
 	
 	private GRect base;
