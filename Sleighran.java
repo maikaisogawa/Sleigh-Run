@@ -10,7 +10,10 @@ import acm.graphics.GRect;
 public class Sleighran extends GCompound{
 
 	public Sleighran() {
+	
 		
+		
+	// This section creates the sleigh portion of Sleighran
 		backTop = new GArc(2 * ARC_RADIUS, 2 * ARC_RADIUS, 20, 90);
 		backTop.setColor(red);
 		backTop.setFilled(true);
@@ -67,7 +70,9 @@ public class Sleighran extends GCompound{
 		skiLine2.setColor(gold);
 		add(skiLine2, ARC_RADIUS + SKI_LINE_LENGTH * 7, BACK_HEIGHT + SKI_LINE_LENGTH * 2);
 	}
-	
+/*
+ * This method makes a triangle shape to fill the sleigh
+ */
 	private GPolygon makeTriangle(double width, double height){ 
 		GPolygon poly = new GPolygon();
 		poly.addVertex(0, -height / 2);
@@ -75,7 +80,9 @@ public class Sleighran extends GCompound{
 		poly.addVertex(-width / 2, height / 2);
 		return poly;
 	}
-	
+/*	
+ * Instance variables
+ */
 	private static final int ARC_RADIUS = 15;
 	private static final int BACK_WIDTH = 15;
 	private static final int BACK_HEIGHT = 25;
