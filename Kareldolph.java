@@ -1,6 +1,7 @@
 import java.awt.Color;
 
 import acm.graphics.GCompound;
+import acm.graphics.GLine;
 import acm.graphics.GPolygon;
 import acm.graphics.GRect;
 
@@ -17,6 +18,10 @@ public class Kareldolph extends GCompound{
 		square = new GRect(SQUARE_WIDTH, SQUARE_HEIGHT);
 		square.setColor(Color.BLACK);
 		add(square, 4, 3);
+		
+		line = new GLine(0, 0, LINE_LENGTH, 0);
+		line.setColor(Color.BLACK);
+		add(line, 4 + SQUARE_WIDTH / 2, 6 + SQUARE_HEIGHT);
 		
 		rightTriangle = makeRightTriangle(TRIANGLE, TRIANGLE);
 		rightTriangle.setColor(sky);
@@ -53,11 +58,13 @@ public class Kareldolph extends GCompound{
 	private static final int TRIANGLE = 5;
 	private static final int SQUARE_WIDTH = 10;
 	private static final int SQUARE_HEIGHT = 15;
+	private static final int LINE_LENGTH = 8;
 	
 	private GRect body;
 	private GPolygon rightTriangle;
 	private GPolygon leftTriangle;
 	private GRect square;
+	private GLine line;
 	
 	Color cream = Color.decode("#F0ECEB");
 	Color sky = Color.decode("#1E2B55");
