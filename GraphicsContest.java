@@ -36,6 +36,8 @@ public class GraphicsContest extends GraphicsProgram {
 	
 	private static final int NUM_HOUSE_COLORS = 6;
 	private static final int DELAY = 20;
+	
+	private static final int PARTY_SPACE = 20;
 
 	private RandomGenerator rgen = RandomGenerator.getInstance();
 	
@@ -67,7 +69,7 @@ public class GraphicsContest extends GraphicsProgram {
 	
 	private void addParty() {
 		sleighran = new Sleighran();
-		add(sleighran, sleighran.getWidth() / 4, getHeight() / 2);
+		add(sleighran, PARTY_SPACE, getHeight() / 2);
 	}
 	
 	private void waitForPlayer() {
