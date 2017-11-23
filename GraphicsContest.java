@@ -36,6 +36,7 @@ public class GraphicsContest extends GraphicsProgram {
 	private static final int BOTTOM_SPACE = 30;
 	
 	private static final int NUM_HOUSE_COLORS = 6;
+	private static final int DELAY = 20;
 	
 	private boolean gameOver = false; 
 
@@ -78,6 +79,7 @@ public class GraphicsContest extends GraphicsProgram {
 		if(house.getX() < 0 - house.getWidth()) {
 			remove(house);
 			addHouse();
+			pause(DELAY);
 		}
 } 
 	
