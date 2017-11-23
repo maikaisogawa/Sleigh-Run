@@ -50,6 +50,7 @@ public class GraphicsContest extends GraphicsProgram {
 		waitForPlayer();
 		while(!gameOver) {
 			housesMove();
+			checkHouses();
 			pause(DELAY);
 		}
 	}
@@ -81,12 +82,16 @@ public class GraphicsContest extends GraphicsProgram {
 	//		houses.add(house);
 			houses.get(i).move(vx, vy);
 		//	houses[i].move(vx,vy);
-			if(house.getX() < 0 - house.getWidth()) {
-				remove(house);
-				addHouse();
-			}
 		}
 	} 
+	
+	private void checkHouses() {
+		if(house.getX() < 0 - house.getWidth()) {
+			remove(house);
+			houses.remove(house);
+			addHouse();
+		}
+	}
 	
 	private void addBackground() {		
 		Image logo = null;	
@@ -106,7 +111,7 @@ public class GraphicsContest extends GraphicsProgram {
 	
 	private void createHouses() {	
 		double x = 0;   // x location of house
-		for(int i = 0; i < 6; i++) {
+		for(int i = 0; i < 5; i++) {
 			house = new House(hexcolor);
 			String nextColor = getRandomNewColor(house.getColor());
 			double y = getHeight() - house.getHeight() + BOTTOM_SPACE;  // y location of house
@@ -119,7 +124,7 @@ public class GraphicsContest extends GraphicsProgram {
 	}
 	
 	private void addHouse() {
-		double x = house.getWidth() * 3 - HOUSE_SPACE;
+		double x = house.getWidth() * 4 - HOUSE_SPACE;
 		double y = getHeight() - house.getHeight() + BOTTOM_SPACE;
 		String nextColor = getRandomNewColor(house.getColor());
 		house = new House(hexcolor);
