@@ -19,7 +19,7 @@ public class Sleighran extends GCompound{
 		back.setColor(red);
 		back.setFilled(true);
 		back.setFillColor(red);
-		add(back, 3, ARC_RADIUS - 5);
+		add(back, ARC_RADIUS, ARC_RADIUS - 5);
 		
 //		base = new GRect(BASE_WIDTH, BASE_HEIGHT);
 //		base.setColor(red);
@@ -39,8 +39,8 @@ public class Sleighran extends GCompound{
 //	GArc arc = new GArc(2 * r, 2 * r, -60, -60);   // creates an upward-facing arc against house
 //	add(arc, cx - r, cy - r - SIDE_HEIGHT / 2);   // adds arc to correct place on screen
 	private static final int ARC_RADIUS = 15;
-	private static final int BACK_WIDTH = 5;
-	private static final int BACK_HEIGHT = 15;
+	private static final int BACK_WIDTH = 15;
+	private static final int BACK_HEIGHT = 30;
 	
 //	private static final int BASE_WIDTH = 50;
 //	private static final int BASE_HEIGHT = 15;
