@@ -31,7 +31,7 @@ public class Sleighran extends GCompound{
 		mehran.scale(0.15);
 		add(mehran, mehran.getWidth(), 0 - mehran.getHeight());
 		
-		hat = makeTriangle(SMALL_TRIANGLE + 2, SMALL_TRIANGLE + 2);
+		hat = makeTriangle(HAT_SIZE, HAT_SIZE);
 		hat.setColor(red);
 		hat.setFilled(true);
 		hat.setFillColor(red);
@@ -42,6 +42,10 @@ public class Sleighran extends GCompound{
 		hatDecal.setFilled(true);
 		hatDecal.setFillColor(cream);
 		add(hatDecal, mehran.getWidth() + 8, 0 - mehran.getHeight() - hat.getHeight());
+		
+		hatLine = new GLine(0, 0, HAT_SIZE, 0);
+		hatLine.setColor(cream);
+		add(hatLine, mehran.getWidth() + 8, 0 - mehran.getHeight());
 		
 		
 	// This section creates the sleigh portion of Sleighran
@@ -142,9 +146,11 @@ public class Sleighran extends GCompound{
  * Instance variables for Mehran portion
  */
 	private static final int MEHRAN_RADIUS = 5;
+	private static final int HAT_SIZE = 12;
 	
 	private GPolygon hat;
 	private GOval hatDecal;
+	private GLine hatLine;
 	
 /*
  * colors added for Sleighran compound
