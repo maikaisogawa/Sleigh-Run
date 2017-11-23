@@ -51,7 +51,7 @@ public class Sleighran extends GCompound{
 		body.setColor(sweater);
 		body.setFilled(true);
 		body.setFillColor(sweater);
-		add(body, mehran.getWidth() - BODY_WIDTH / 2, BODY_HEIGHT);
+		add(body, mehran.getWidth() - BODY_WIDTH / 2, BODY_HEIGHT / 2);
 		
 		
 	// This section creates the sleigh portion of Sleighran
