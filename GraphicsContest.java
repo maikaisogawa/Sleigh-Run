@@ -36,6 +36,8 @@ public class GraphicsContest extends GraphicsProgram {
 	private static final int BOTTOM_SPACE = 30;
 	
 	private static final int NUM_HOUSE_COLORS = 6;
+	
+	private boolean gameOver = false; 
 
 	private RandomGenerator rgen = RandomGenerator.getInstance();
 	
@@ -44,6 +46,9 @@ public class GraphicsContest extends GraphicsProgram {
 	public void run() {
 		setup();
 		waitForPlayer();
+//		while(!gameOver) {
+//			housesMove();
+//		}
 	}
 	
 	private void setup() {
@@ -65,10 +70,18 @@ public class GraphicsContest extends GraphicsProgram {
 		remove(start);  // removes label from screen
 	}
 	
-	private void addBackground() {	
-		
-		Image logo = null;
-		
+//	private void housesMove() {
+//		house.move(vx, vy);  // moves ball
+//		// makes ball 'bounce' off the left and right sides of window
+//		if(ball.getX() <= 0 || ball.getX() >= getWidth() - BALL_RADIUS * 2) vx = -vx;
+//		// makes ball 'bounce' off the top and bottom sides of window
+//		if(ball.getY() <= 0) vy = -vy;
+//		// if ball hits bottom of window, end of turn
+//		if(ball.getY() >= getHeight() - BALL_RADIUS * 2) nextTurn(); 
+//} 
+	
+	private void addBackground() {		
+		Image logo = null;	
 		ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
 		InputStream input = classLoader.getResourceAsStream("img.jpg");
 		try {
@@ -76,24 +89,18 @@ public class GraphicsContest extends GraphicsProgram {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
 		GImage background = new GImage(logo);
-
-		
-		// ranganath krishnamani
-
-//		Color darkSky = Color.decode("#161D6A");
-//		setBackground(darkSky);
-		
 		add(background, 0, 0);
-
 	}
+	
+	House house; 
 	
 	private void createHouses() {	
 		double x = 0;   // x location of house
 		String hexcolor = "#F29352";
 		for(int i = 0; i < 9; i++) {
-			House house = new House(hexcolor);
+			house = new House(hexcolor);
+			//House house = new House(hexcolor);
 			String nextColor = getRandomNewColor(house.getColor());
 			double y = getHeight() - house.getHeight() + BOTTOM_SPACE;  // y location of house
 			add(house, x, y);
