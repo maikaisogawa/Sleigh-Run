@@ -38,7 +38,7 @@ public class Sleighran extends GCompound{
 		bottomRight.setColor(red);
 		bottomRight.setFilled(true);
 		bottomRight.setFillColor(red);
-		add(bottomRight, ARC_RADIUS + BASE_WIDTH, BACK_HEIGHT + ARC_RADIUS - BOTTOM_RIGHT_RADIUS);
+		add(bottomRight, ARC_RADIUS + BASE_WIDTH + BOTTOM_RIGHT_RADIUS, BACK_HEIGHT - BOTTOM_RIGHT_RADIUS);
 		
 //		add(base, 0, 0);
 //		add(bottomLeft, 0 - BOTTOM_LEFT_RADIUS, 0 - (BOTTOM_LEFT_RADIUS * 2 - BASE_HEIGHT));
