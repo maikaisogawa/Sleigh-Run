@@ -11,7 +11,6 @@ import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.ArrayList;
 
 import javax.imageio.ImageIO;
 
@@ -37,13 +36,15 @@ public class GraphicsContest extends GraphicsProgram {
 	
 	private static final int NUM_HOUSE_COLORS = 6;
 	private static final int DELAY = 20;
-	
-	private boolean gameOver = false; 
 
 	private RandomGenerator rgen = RandomGenerator.getInstance();
 	
+	private boolean gameOver = false; 
 	public GCompound[] houses = new GCompound[5];
-//	private ArrayList<House> houses = new ArrayList<House>();
+	private House house; 
+	private String hexcolor = "#F29352";
+	private double hx = -2;   // houses moving left
+	private double hy = 0;    // houses do not move up or down
 
 	public void run() {
 		setup();
@@ -74,12 +75,9 @@ public class GraphicsContest extends GraphicsProgram {
 		remove(start);  // removes label from screen
 	}
 	
-	private double vx = -2;
-	private double vy = 0;
-	
 	private void housesMove() {
 		for(int i = 0; i < houses.length; i++) {
-			houses[i].move(vx,vy);
+			houses[i].move(hx,hy);
 		}
 	} 
 	
@@ -111,9 +109,6 @@ public class GraphicsContest extends GraphicsProgram {
 		GImage background = new GImage(logo);
 		add(background, 0, 0);
 	}
-	
-	private House house; 
-	private String hexcolor = "#F29352";
 	
 	private void createHouses() {	
 		double x = 0;   // x location of house
