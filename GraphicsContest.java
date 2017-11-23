@@ -39,9 +39,9 @@ public class GraphicsContest extends GraphicsProgram {
 
 	private RandomGenerator rgen = RandomGenerator.getInstance();
 	
+	private House house; 
 	private boolean gameOver = false; 
 	public GCompound[] houses = new GCompound[5];
-	private House house; 
 	private String hexcolor = "#F29352";
 	private double hx = -2;   // houses moving left
 	private double hy = 0;    // houses do not move up or down
