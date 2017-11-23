@@ -53,7 +53,7 @@ public class Sleighran extends GCompound{
 		
 		skiFront = new GArc(2 * SKI_FRONT_RADIUS, 2 * SKI_FRONT_RADIUS, -90, 270);
 		skiFront.setColor(gold);
-		add(skiFront, SKI_LENGTH - SKI_FRONT_RADIUS, BACK_HEIGHT);
+		add(skiFront, ARC_RADIUS + SKI_LENGTH - SKI_FRONT_RADIUS, BACK_HEIGHT);
 		
 	}
 	
