@@ -40,7 +40,7 @@ public class Kareldolph extends GCompound{
 		GPolygon poly = new GPolygon();
 		poly.addVertex(0, 0);
 		poly.addVertex(width, height);
-		poly.addVertex(width, 0);
+		poly.addVertex(0, height);
 		return poly;
 	}
 
