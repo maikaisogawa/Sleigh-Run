@@ -3,6 +3,7 @@ import java.awt.Color;
 import acm.graphics.GArc;
 import acm.graphics.GCompound;
 import acm.graphics.GOval;
+import acm.graphics.GPolygon;
 import acm.graphics.GRect;
 
 public class Sleighran extends GCompound{
@@ -27,6 +28,12 @@ public class Sleighran extends GCompound{
 		base.setFillColor(red);
 		add(base, ARC_RADIUS + BACK_WIDTH, BACK_HEIGHT - BASE_HEIGHT / 2 + 2);
 		
+		fill = makeTriangle(SMALL_TRIANGLE, SMALL_TRIANGLE);
+		fill.setColor(red);
+		fill.setFilled(true);
+		fill.setFillColor(red);
+		add(fill, ARC_RADIUS + BACK_WIDTH + SMALL_TRIANGLE, BACK_HEIGHT - BASE_HEIGHT);
+		
 //		bottomLeft = new GOval(BOTTOM_LEFT_RADIUS * 2, BOTTOM_LEFT_RADIUS * 2);
 //		bottomLeft.setColor(red);
 //		bottomLeft.setFilled(true);
@@ -37,15 +44,26 @@ public class Sleighran extends GCompound{
 		
 	}
 	
+	private GPolygon makeTriangle(double width, double height){ 
+		GPolygon poly = new GPolygon();
+		poly.addVertex(0, -height / 2);
+		poly.addVertex(width / 2, height / 2);
+		poly.addVertex(-width / 2, height / 2);
+		return poly;
+	}
+	
 	private static final int ARC_RADIUS = 15;
 	private static final int BACK_WIDTH = 15;
 	private static final int BACK_HEIGHT = 25;
 	
 	private static final int BASE_WIDTH = 30;
 	private static final int BASE_HEIGHT = 15;
+	
+	private static final int SMALL_TRIANGLE = 5;
 //	private static final int BOTTOM_LEFT_RADIUS = 9;
 	
 	private GRect base;
+	private GPolygon fill;
 //	
 //	private GOval bottomLeft;
 	
