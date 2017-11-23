@@ -46,9 +46,9 @@ public class GraphicsContest extends GraphicsProgram {
 	public void run() {
 		setup();
 		waitForPlayer();
-//		while(!gameOver) {
-//			housesMove();
-//		}
+		while(!gameOver) {
+			housesMove();
+		}
 	}
 	
 	private void setup() {
@@ -70,15 +70,16 @@ public class GraphicsContest extends GraphicsProgram {
 		remove(start);  // removes label from screen
 	}
 	
-//	private void housesMove() {
-//		house.move(vx, vy);  // moves ball
-//		// makes ball 'bounce' off the left and right sides of window
-//		if(ball.getX() <= 0 || ball.getX() >= getWidth() - BALL_RADIUS * 2) vx = -vx;
-//		// makes ball 'bounce' off the top and bottom sides of window
-//		if(ball.getY() <= 0) vy = -vy;
-//		// if ball hits bottom of window, end of turn
-//		if(ball.getY() >= getHeight() - BALL_RADIUS * 2) nextTurn(); 
-//} 
+	private double vx = -10;
+	private double vy = 0;
+	
+	private void housesMove() {
+		house.move(vx, vy);  // moves ball
+		if(house.getX() < 0) {
+			remove(house);
+			createHouses();
+		}
+} 
 	
 	private void addBackground() {		
 		Image logo = null;	
