@@ -2,6 +2,7 @@ import java.awt.Color;
 
 import acm.graphics.GArc;
 import acm.graphics.GCompound;
+import acm.graphics.GLine;
 import acm.graphics.GOval;
 import acm.graphics.GPolygon;
 import acm.graphics.GRect;
@@ -46,7 +47,9 @@ public class Sleighran extends GCompound{
 		fillFront.setFillColor(red);
 		add(fillFront, ARC_RADIUS + BASE_WIDTH + BOTTOM_RIGHT_RADIUS + SMALL_TRIANGLE - 1, BACK_HEIGHT - BOTTOM_RIGHT_RADIUS);
 		
-//		add(bottomLeft, 0 - BOTTOM_LEFT_RADIUS, 0 - (BOTTOM_LEFT_RADIUS * 2 - BASE_HEIGHT));
+		ski = new GLine(0, 0, SKI_LENGTH, 0);
+		ski.setColor(gold);
+		add(ski, ARC_RADIUS, BACK_HEIGHT + ARC_RADIUS * 2);
 		
 	}
 	
@@ -68,14 +71,20 @@ public class Sleighran extends GCompound{
 	private static final int SMALL_TRIANGLE = 10;
 	private static final int BOTTOM_RIGHT_RADIUS = 7;
 	
+	private static final int SKI_LENGTH = 30;
+	
 	private GRect base;
+	private GRect back;
+	
 	private GPolygon fill;
 	private GPolygon fillFront;
+	
+	private GLine ski;
 	
 	private GOval bottomRight;
 	
 	private GArc backTop;
-	private GRect back;
+	
 /*
  * colors added for Sleighran compound
  */
