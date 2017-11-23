@@ -70,7 +70,7 @@ public class GraphicsContest extends GraphicsProgram {
 		remove(start);  // removes label from screen
 	}
 	
-	private double vx = -10;
+	private double vx = -2;
 	private double vy = 0;
 	
 	private void housesMove() {
