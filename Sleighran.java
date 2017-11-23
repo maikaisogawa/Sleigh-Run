@@ -25,6 +25,6 @@ public class Sleighran extends GCompound{
  */
 	Color cream = Color.decode("#F0ECEB");
 	Color gold = Color.decode("#E4CB85");
-	Color red = Color.decode("#A6201A");
+	Color red = Color.decode("#A3483C");
 	
 }
