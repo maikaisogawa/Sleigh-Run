@@ -108,7 +108,7 @@ public class GraphicsContest extends GraphicsProgram {
 			String nextColor = getRandomNewColor(house.getColor());
 			double y = getHeight() - house.getHeight() + BOTTOM_SPACE;  // y location of house
 			add(house, x, y);
-			houses.add(house);
+			houses[i] = house;
 			x += house.getWidth() - HOUSE_SPACE;
 			hexcolor = nextColor;
 		} 
