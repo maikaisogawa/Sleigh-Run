@@ -28,7 +28,7 @@ public class Sleighran extends GCompound{
 			e.printStackTrace();
 		}
 		GImage mehran = new GImage(mehranImage);
-		mehran.scale(0.5);
+		mehran.scale(0.1);
 		add(mehran, 0, 0);
 		
 	// This section creates the sleigh portion of Sleighran
