@@ -94,8 +94,8 @@ public class GraphicsContest extends GraphicsProgram {
 	}
 	
 	private void adjustArray() {
-		for(int i = 0; i < houses.length + 1; i++) {
-			houses[i] = houses[i];
+		for(int i = 0; i < houses.length - 1; i++) {
+			houses[i] = houses[i + 1];
 		}
 	}
 	
