@@ -129,7 +129,7 @@ public class GraphicsContest extends GraphicsProgram {
 	}
 	
 	private void addHouse() {
-		double x = house.getWidth() * 4 - HOUSE_SPACE - 30;
+		double x = house.getWidth() * 4 - HOUSE_SPACE - 60;
 		double y = getHeight() - house.getHeight() + BOTTOM_SPACE;
 		String nextColor = getRandomNewColor(house.getColor());
 		house = new House(hexcolor);
