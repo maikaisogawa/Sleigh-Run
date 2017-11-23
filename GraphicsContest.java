@@ -49,6 +49,7 @@ public class GraphicsContest extends GraphicsProgram {
 		waitForPlayer();
 		while(!gameOver) {
 			housesMove();
+			pause(DELAY);
 		}
 	}
 	
@@ -79,7 +80,6 @@ public class GraphicsContest extends GraphicsProgram {
 		if(house.getX() < 0 - house.getWidth()) {
 			remove(house);
 			addHouse();
-			pause(DELAY);
 		}
 } 
 	
