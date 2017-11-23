@@ -10,7 +10,9 @@ import acm.graphics.GRect;
 public class Sleighran extends GCompound{
 
 	public Sleighran() {
-	
+		
+	// This section creates the Mehran portion of SLeighran
+		
 		
 		
 	// This section creates the sleigh portion of Sleighran
