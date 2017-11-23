@@ -204,6 +204,6 @@ public class Sleighran extends GCompound{
 	Color gold = Color.decode("#E4CB85");
 	Color red = Color.decode("#971835");
 	Color sweater = Color.decode("#6C8C85");
-	Color shoes = Color.decode("#473532");
+	Color shoes = Color.decode("#B8867A");
 	
 }
