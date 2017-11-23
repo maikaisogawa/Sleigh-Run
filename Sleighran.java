@@ -31,7 +31,7 @@ public class Sleighran extends GCompound{
 		mehran.scale(0.15);
 		add(mehran, mehran.getWidth(), 0 - mehran.getHeight());
 		
-		hat = makeTriangle(SMALL_TRIANGLE, SMALL_TRIANGLE);
+		hat = makeTriangle(SMALL_TRIANGLE + 2, SMALL_TRIANGLE + 2);
 		hat.setColor(cream);
 		hat.setFilled(true);
 		hat.setFillColor(red);
