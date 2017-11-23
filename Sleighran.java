@@ -32,7 +32,7 @@ public class Sleighran extends GCompound{
 	
 //	GArc arc = new GArc(2 * r, 2 * r, -60, -60);   // creates an upward-facing arc against house
 //	add(arc, cx - r, cy - r - SIDE_HEIGHT / 2);   // adds arc to correct place on screen
-	private static final int ARC_RADIUS = 10;
+	private static final int ARC_RADIUS = 20;
 	
 //	private static final int BASE_WIDTH = 50;
 //	private static final int BASE_HEIGHT = 15;
