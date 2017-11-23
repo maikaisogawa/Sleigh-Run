@@ -14,6 +14,10 @@ public class Kareldolph extends GCompound{
 		body.setFillColor(cream);
 		add(body, 0, 0);
 		
+		square = new GRect(SQUARE_WIDTH, SQUARE_HEIGHT);
+		square.setColor(Color.BLACK);
+		add(square, 3, 4);
+		
 		rightTriangle = makeRightTriangle(TRIANGLE, TRIANGLE);
 		rightTriangle.setColor(sky);
 		rightTriangle.setFilled(true);
@@ -47,10 +51,13 @@ public class Kareldolph extends GCompound{
 	private static final int BODY_WIDTH = 20;
 	private static final int BODY_HEIGHT = 30;
 	private static final int TRIANGLE = 5;
+	private static final int SQUARE_WIDTH = 8;
+	private static final int SQUARE_HEIGHT = 15;
 	
 	private GRect body;
 	private GPolygon rightTriangle;
 	private GPolygon leftTriangle;
+	private GRect square;
 	
 	Color cream = Color.decode("#F0ECEB");
 	Color sky = Color.decode("#1E2B55");
