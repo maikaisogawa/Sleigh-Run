@@ -6,7 +6,6 @@
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Image;
-import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 import java.io.IOException;
@@ -71,14 +70,14 @@ public class GraphicsContest extends GraphicsProgram {
 		createHouses();	
 		addParty();
 		addMouseListeners();
-		addActionListeners();
+		addKeyListeners();
 	}
-	
-	private int gravity = 1;
 
 	
 	private double xVel = 0;
 	private double yVel = 2;
+	
+	private static final int MAX_SPEED = 8;
 	
 	private double kareldolphX = PARTY_SPACE * 8;
 	private double kareldolphY = HEIGHT / 2;
@@ -86,7 +85,7 @@ public class GraphicsContest extends GraphicsProgram {
 	
 	private void moveParty() {
 		if(started) {
-			if(yVel < 8) {
+			if(yVel < MAX_SPEED) {
 				yVel++;
 			}
 			kareldolph.move(xVel, yVel);
@@ -99,6 +98,12 @@ public class GraphicsContest extends GraphicsProgram {
 	
 	public void jump() {
 		yVel = -15;
+	}
+	
+	public void keyReleased(KeyEvent e) {
+		if(e.getKeyCode() == KeyEvent.VK_SPACE ) {
+			jump();
+		}
 	}
 	
 	private void addParty() {
