@@ -20,6 +20,10 @@ import acm.program.*;
 import acm.util.*;
 import acm.graphics.*;
 
+/*
+ * Issue: score count only working after initial houses pass
+ */
+
 public class GraphicsContest extends GraphicsProgram {
 	
 	private static final long serialVersionUID = 1L;
@@ -61,9 +65,6 @@ public class GraphicsContest extends GraphicsProgram {
 	private double hy = 0;    // houses do not move up or down
 	private double dx = -2;   // drones move left
 	private double dy = 0;     // drones do not move up or down
-	
-//	private String scoreCount= new String(score.toString(score));
-//	private int score = 0;
 
 	public void run() {
 		while(true) {
@@ -71,6 +72,7 @@ public class GraphicsContest extends GraphicsProgram {
 			waitForPlayer();
 			while(!gameOver) {
 				keepScore();
+				somethingHardcore();
 				housesMove();
 				moveParty();
 				checkHouses();
@@ -99,8 +101,24 @@ public class GraphicsContest extends GraphicsProgram {
 	}
 /////////////////////////////////////////////////////////		
 ///////////////////// FIX THIS /////////////////////////
-//TASKS: Score count, countdown to something Hardcore (speedup), intro screen, make 
+//TASKS: countdown to something Hardcore (speedup), intro screen, make 
 //everything better, boundaries, 
+
+	private GLabel hardcoreCountdown;
+	private double hardcoreCountdownX;
+	private double hardcoreCountdownY;
+	
+	private void somethingHardcore() {
+		hardcoreCountdown = new GLabel("seconds until something HARDCORE!");
+		hardcoreCountdownX = getWidth() / 2 - hardcoreCountdown.getWidth() / 2 * 3;
+		hardcoreCountdownY = hardcoreCountdown.getHeight() * 3;
+		finalScore.setColor(Color.WHITE);
+		finalScore.setFont(new Font("Arial", Font.BOLD, 20));
+//		finalScore.setLocation(scoreX,scoreY);
+		add(finalScore, hardcoreCountdownX, hardcoreCountdownX);
+	}
+	
+	
 	private GLabel finalScore;
 	private double finalX;
 	private double finalY;
@@ -111,7 +129,7 @@ public class GraphicsContest extends GraphicsProgram {
 		finalY = finalScore.getHeight() * 3;
 		finalScore.setColor(Color.WHITE);
 		finalScore.setFont(new Font("Arial", Font.BOLD, 38));
-		finalScore.setLocation(scoreX,scoreY);
+//		finalScore.setLocation(scoreX,scoreY);
 		add(finalScore, finalX, finalY);
 	}
 	
