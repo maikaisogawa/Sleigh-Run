@@ -76,13 +76,17 @@ public class GraphicsContest extends GraphicsProgram {
 	
 	private static final double GRAVITY = 3;
 	
+	private double xVel = 0;
+	private double yVel = 0;
+	
 	private double kareldolphX = PARTY_SPACE * 8;
 	private double kareldolphY = HEIGHT / 2;
 
 	
 	private void moveParty() {
 		if(started) {
-			
+			yVel += GRAVITY;
+			sleighran.move(xVel, yVel);
 		}
 	}
 	
@@ -105,6 +109,7 @@ public class GraphicsContest extends GraphicsProgram {
 		add(start); // add label
 		waitForClick();  // waits for player's click
 		remove(start);  // removes label from screen
+		started = true;
 	}
 	
 	private void housesMove() {
