@@ -80,9 +80,6 @@ public class GraphicsContest extends GraphicsProgram {
 	
 	private GLabel finalScore;   // label declaring final score of player
 	
-
-
-
 /*
  * Run method for Sleigh Run Game
  */
@@ -92,19 +89,30 @@ public class GraphicsContest extends GraphicsProgram {
 			waitForPlayer();
 			while(!gameOver) {
 				keepScore();
-				housesMove();
-				moveParty();
-				checkHouses();
-				if(hardcore) {
-					dronesMove();
-					checkDrones();
-				}
+				gamePlay();
+//				housesMove();
+//				moveParty();
+//				checkHouses();
+//				if(hardcore) {
+//					dronesMove();
+//					checkDrones();
+//				}
 				checkForCollisions();
 				pause(delay);
 			}
 			playGameOver();
 			finalScore();
 			waitForRestart();
+		}
+	}
+	
+	private void gamePlay() {
+		housesMove();
+		moveParty();
+		checkHouses();
+		if(hardcore) {
+			dronesMove();
+			checkDrones();
 		}
 	}
 	
