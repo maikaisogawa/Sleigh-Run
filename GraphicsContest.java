@@ -55,6 +55,7 @@ public class GraphicsContest extends GraphicsProgram {
 	private double hy = 0;    // houses do not move up or down
 
 	public void run() {
+		while(true) {
 		setup();
 		waitForPlayer();
 		while(!gameOver) {
@@ -65,6 +66,8 @@ public class GraphicsContest extends GraphicsProgram {
 			pause(DELAY);
 		}
 		playGameOver();
+		waitForPlayer();
+		}
 	}
 	
 	private void setup() {
@@ -103,6 +106,15 @@ public class GraphicsContest extends GraphicsProgram {
 		endGame.setColor(Color.WHITE);
 		endGame.setFont(new Font("Arial", Font.BOLD, 38));
 		endGame.setLocation(x,y);
+		add(endGame);
+		started = false;
+		gameOver = false;
+		GLabel playAgain = new GLabel("CLICK TO PLAY AGAIN!");  // creates starting prompt
+		double dx = getWidth() / 2 - endGame.getWidth() - endGame.getWidth() / 2;
+		double dy = getHeight() / 2;
+		endGame.setColor(Color.WHITE);
+		endGame.setFont(new Font("Arial", Font.BOLD, 28));
+		endGame.setLocation(dx,dy);
 		add(endGame);
 	}
 
