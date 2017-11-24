@@ -8,6 +8,7 @@ import java.awt.Font;
 import java.awt.Image;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 
@@ -15,7 +16,8 @@ import javax.imageio.ImageIO;
 
 import acm.program.*;
 import acm.util.*;
-
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import acm.graphics.*;
 
 public class GraphicsContest extends GraphicsProgram {
@@ -48,6 +50,7 @@ public class GraphicsContest extends GraphicsProgram {
 	
 	private boolean gameOver = false; 
 	private boolean started = false;
+	private boolean musicStarted = false;
 	
 	public GCompound[] houses = new GCompound[5];
 	private String hexcolor = "#F29352";
@@ -94,6 +97,8 @@ public class GraphicsContest extends GraphicsProgram {
 	}
 	
 	private void playGameOver() {
+		musicStarted = false;
+		playMusic();
 		remove(sleighran);
 		remove(rope);
 		remove(kareldolph);
@@ -175,6 +180,21 @@ public class GraphicsContest extends GraphicsProgram {
 		waitForClick();  // waits for player's click
 		remove(start);  // removes label from screen
 		started = true;
+		musicStarted = true;
+		playMusic();
+	}
+	
+	MediaPlayer mediaPlayer;
+	
+	private void playMusic() {
+		if(musicStarted) {
+			String bip = "sarajevo.mp3";
+			Media hit = new Media(new File(bip).toURI().toString());
+			mediaPlayer = new MediaPlayer(hit);
+			mediaPlayer.play();
+		} else {
+			mediaPlayer.stop();
+		}
 	}
 	
 	private void waitForRestart() {
@@ -218,15 +238,10 @@ public class GraphicsContest extends GraphicsProgram {
 	
 	private void createHouses() {	
 		double x = 0;   // x location of house
-		house = new House(hexcolor);
-		String nextColor = getRandomNewColor(house.getColor());
-		double y = getHeight() - house.base.getHeight() - BOTTOM_SPACE;  // y location of house
-		add(house, x, y);
-		houses[0] = house;
-		for(int i = 1; i < 5; i++) {
+		for(int i = 0; i < 5; i++) {
 			house = new House(hexcolor);
-			nextColor = getRandomNewColor(house.getColor());
-	//		double y = getHeight() - house.base.getHeight() - BOTTOM_SPACE;  // y location of house
+			String nextColor = getRandomNewColor(house.getColor());
+			double y = getHeight() - house.base.getHeight() - BOTTOM_SPACE;  // y location of house
 			add(house, x, y);
 			houses[i] = house;
 			x += house.getWidth() - HOUSE_SPACE;
