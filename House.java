@@ -134,17 +134,7 @@ public class House extends GCompound {
 		add(side, 0, 0);
 		add(sideRoof, SIDE_WIDTH / 2, 0 - SIDE_ROOF_HEIGHT / 2);
 		add(sideDeco, 0 - 5, SIDE_HEIGHT / 2 - SIDE_DECO_HEIGHT);
-		add(chimney, SIDE_WIDTH + HOUSE_WIDTH / 2 + 10, 0);
-		
-		int x = rgen.nextInt(1, MAX_PUFFS);
-		double puffHeight = 0;
-		for(int i = 0; i < x; i++) {
-			smokePuff = new GImage(puff);
-			smokePuff.scale(0.2);
-			add(smokePuff, SIDE_WIDTH + HOUSE_WIDTH / 2 + 17 - smokePuff.getWidth() / 2, 0 - smokePuff.getHeight() - 5 - puffHeight);
-			puffHeight += smokePuff.getHeight() + 10;
-		}
-		
+		add(chimney, SIDE_WIDTH + HOUSE_WIDTH / 2 + 10, 0);		
 		add(base, SIDE_WIDTH / 2, SIDE_HEIGHT - HOUSE_HEIGHT);
 		add(doorFront, 0, SIDE_HEIGHT - DOOR_FRONT_HEIGHT);
 		add(doorRoof, SIDE_WIDTH / 2, SIDE_HEIGHT / 2 + DOOR_ROOF_HEIGHT / 2);
@@ -200,6 +190,14 @@ public class House extends GCompound {
 			add(light, SIDE_WIDTH / 2 + HOUSE_WIDTH / 4 + dx, SIDE_HEIGHT / 2 + dy);  // adds light to house
 			dx += 10;  // x location for next light
 			dy += 4 - i;   // makes lights strung on arc pattern
+		}
+		int x = rgen.nextInt(0, MAX_PUFFS);
+		double puffHeight = 0;
+		for(int i = 0; i < x; i++) {
+			smokePuff = new GImage(puff);
+			smokePuff.scale(0.2);
+			add(smokePuff, SIDE_WIDTH + HOUSE_WIDTH / 2 + 17 - smokePuff.getWidth() / 2, 0 - smokePuff.getHeight() - 5 - puffHeight);
+			puffHeight += smokePuff.getHeight() + 10;
 		}
 	}
 /*
