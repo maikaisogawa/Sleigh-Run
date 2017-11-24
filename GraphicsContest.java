@@ -13,6 +13,9 @@ import java.io.IOException;
 import java.io.InputStream;
 
 import javax.imageio.ImageIO;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
 
 import acm.program.*;
 import acm.util.*;
@@ -98,7 +101,7 @@ public class GraphicsContest extends GraphicsProgram {
 	
 	private void playGameOver() {
 		musicStarted = false;
-//		playMusic();
+		playMusic();
 		remove(sleighran);
 		remove(rope);
 		remove(kareldolph);
@@ -181,21 +184,21 @@ public class GraphicsContest extends GraphicsProgram {
 		remove(start);  // removes label from screen
 		started = true;
 		musicStarted = true;
-//		playMusic();
+		playMusic();
 	}
 	
 	MediaPlayer mediaPlayer;
 	
-//	private void playMusic() {
-//		if(musicStarted) {
-//			String bip = "sarajevo.mp3";
-//			Media hit = new Media(new File(bip).toURI().toString());
-//			mediaPlayer = new MediaPlayer(hit);
-//			mediaPlayer.play();
-//		} else {
-//			mediaPlayer.stop();
-//		}
-//	}
+	private void playMusic() {
+		if(musicStarted) {
+			String bip = "sarajevo.mp3";
+			Media hit = new Media(new File(bip).toURI().toString());
+			mediaPlayer = new MediaPlayer(hit);
+			mediaPlayer.play();
+		} else if(!musicStarted) {
+			mediaPlayer.stop();
+		}
+	}
 	
 	private void waitForRestart() {
 		waitForClick();  // waits for player's click
