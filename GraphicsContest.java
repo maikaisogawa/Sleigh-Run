@@ -101,6 +101,7 @@ public class GraphicsContest extends GraphicsProgram {
 	}
 	
 	public void keyReleased(KeyEvent e) {
+		started = true;
 		if(e.getKeyCode() == KeyEvent.VK_SPACE ) {
 			jump();
 		}
