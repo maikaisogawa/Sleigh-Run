@@ -68,7 +68,12 @@ public class GraphicsContest extends GraphicsProgram {
 
 	public void run() {
 		while(true) {
-		setup();
+		try {
+			setup();
+		} catch (InterruptedException | TimeoutException | ExecutionException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		waitForPlayer();
 		while(!gameOver) {
 			housesMove();
