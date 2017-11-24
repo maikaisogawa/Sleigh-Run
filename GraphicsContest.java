@@ -93,7 +93,7 @@ public class GraphicsContest extends GraphicsProgram {
 	
 	private void setTimer() {
 		timer = new Timer();
-	    timer.schedule(new ThisTask(), (long)38 * 1000);
+	    timer.schedule(new ThisTask(), (long)36 * 1000);
 	}
 	
 	class ThisTask extends TimerTask {
