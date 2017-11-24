@@ -66,7 +66,7 @@ public class GraphicsContest extends GraphicsProgram {
 			pause(DELAY);
 		}
 		playGameOver();
-		waitForPlayer();
+		waitForRestart();
 		}
 	}
 	
@@ -112,10 +112,10 @@ public class GraphicsContest extends GraphicsProgram {
 		GLabel playAgain = new GLabel("CLICK TO PLAY AGAIN!");  // creates starting prompt
 		double dx = getWidth() / 2 - endGame.getWidth() - endGame.getWidth() / 2;
 		double dy = getHeight() / 2;
-		endGame.setColor(Color.WHITE);
-		endGame.setFont(new Font("Arial", Font.BOLD, 28));
-		endGame.setLocation(dx,dy);
-		add(endGame);
+		playAgain.setColor(Color.WHITE);
+		playAgain.setFont(new Font("Arial", Font.BOLD, 28));
+		playAgain.setLocation(dx,dy);
+		add(playAgain);
 	}
 
 	private double xVel = 0;
@@ -170,6 +170,10 @@ public class GraphicsContest extends GraphicsProgram {
 		waitForClick();  // waits for player's click
 		remove(start);  // removes label from screen
 		started = true;
+	}
+	
+	private void waitForRestart() {
+		waitForClick();  // waits for player's click
 	}
 	
 	private void housesMove() {
