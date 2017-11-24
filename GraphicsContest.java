@@ -169,44 +169,54 @@ public class GraphicsContest extends GraphicsProgram {
 		double droneY;
 		double droneX = rgen.nextDouble(getWidth(), getWidth() * 2 - PARTY_SPACE);  // x location of drone random
 		double droneSpace;   // space between drones so visually appealing
-		for(int i = 0; i < drones.length; i++) {   
-			drone = new Drone();
-			droneSpace = rgen.nextDouble(drone.getWidth() * 2, getWidth() / 2);
-			droneY = rgen.nextDouble(0, getHeight() / 2 - drone.getHeight() * 2);
-			add(drone, droneX, droneY);
-			drones[i] = drone;
-			droneX += droneSpace;
+		for(int i = 0; i < drones.length; i++) {   // adds drones for as many drones exist in array
+			drone = new Drone();  // creates new drone
+			droneSpace = rgen.nextDouble(drone.getWidth() * 2, getWidth() / 2);  // random spacing
+			droneY = rgen.nextDouble(0, getHeight() / 2 - drone.getHeight() * 2);  // random height
+			add(drone, droneX, droneY);  // adds drone
+			drones[i] = drone;        // adds drone to array
+			droneX += droneSpace;       // increases drone space
 		}
 	}
-	
+/*
+ * This method makes the drones move
+ */
 	private void dronesMove() {
-		for(int i = 0; i < drones.length; i++) {
+		for(int i = 0; i < drones.length; i++) {  // makes all drones move
 			drones[i].move(dx,dy);
 		} 
 	}
-	
+/*	
+ * This method checks if the drone has gone off screen. if it has, it removes the drone,
+ * updates the array, and adds a new drone
+ */
 	private void checkDrones() {
 		for(int i = 0; i < drones.length; i++) {
-			if(drones[i].getX() < 0 - drone.getWidth()){
-				remove(drones[i]);
-				adjustDroneArray();
-				addDrone();
+			if(drones[i].getX() < 0 - drone.getWidth()){  // drone has gone out of bounds
+				remove(drones[i]);  // removes the drone that has gone off screen
+				adjustDroneArray();  // updates the drones array 
+				addDrone();        // adds a new drone to the array and screen
 			}
 		}	
 	}
-	
+/*
+ * This method updates the array so that the old drone is removed, the drones are shifted,
+ * and new drone is added to the end of the array
+ */
 	private void adjustDroneArray() {
 		for(int i = 0; i < drones.length - 1; i++) {
-			drones[i] = drones [i + 1];
+			drones[i] = drones [i + 1];  // next drone shifted to position of prior
 		}
 	}
-	
+/*
+ * This method adds a new drone to the array and screen
+ */
 	private void addDrone() {
-		drone = new Drone();
-		double droneX = getWidth() + getWidth() / 2;
-		double droneY = rgen.nextDouble(0, getHeight() / 2 - drone.getHeight() * 2);
-		add(drone, droneX, droneY);
-		drones[2] = drone;
+		drone = new Drone();  // creates new drone
+		double droneX = getWidth() + getWidth() / 2;  // new x location
+		double droneY = rgen.nextDouble(0, getHeight() / 2 - drone.getHeight() * 2);  // new y location
+		add(drone, droneX, droneY);  // adds drone to screen
+		drones[drones.length - 1] = drone;  // adds drone to end of drones array
 	}
 
 	Timer timer;
