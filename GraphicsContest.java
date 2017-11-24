@@ -353,6 +353,7 @@ public class GraphicsContest extends GraphicsProgram {
 	}
 	
 	private void waitForRestart() {
+		remove(hardcoreCountdown);
 		waitForClick();  // waits for player's click
 		score = 0;
 	}
