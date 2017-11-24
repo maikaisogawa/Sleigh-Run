@@ -213,6 +213,7 @@ public class GraphicsContest extends GraphicsProgram {
 		for(int i = 0; i < 5; i++) {
 			house = new House(hexcolor);
 			String nextColor = getRandomNewColor(house.getColor());
+			System.out.println("HEIGHT: " + getHeight() + "; HOUSE: " + house.getHeight() + "; BOTTOM:" + BOTTOM_SPACE);
 			double y = getHeight() - house.getHeight() + BOTTOM_SPACE;  // y location of house
 			add(house, x, y);
 			houses[i] = house;
