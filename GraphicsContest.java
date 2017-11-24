@@ -245,6 +245,7 @@ public class GraphicsContest extends GraphicsProgram {
 	
 	private void playGameOver() {
 		remove(scoreCount);
+		remove(hardcoreCountdown);
 		musicStarted = false;
 		playMusic();
 		remove(sleighran);
