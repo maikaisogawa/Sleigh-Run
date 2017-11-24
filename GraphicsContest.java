@@ -245,12 +245,12 @@ public class GraphicsContest extends GraphicsProgram {
 	
 	private void playGameOver() {
 		remove(scoreCount);
-		remove(hardcoreCountdown);
 		musicStarted = false;
 		playMusic();
 		remove(sleighran);
 		remove(rope);
 		remove(kareldolph);
+		remove(hardcoreCountdown);
 		GLabel endGame = new GLabel("THAT'S THE END!");  // creates starting prompt
 		double x = getWidth() / 2 - endGame.getWidth() - endGame.getWidth() / 2;
 		double y = getHeight() / 2 - 80;
