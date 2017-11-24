@@ -465,15 +465,17 @@ public class GraphicsContest extends GraphicsProgram {
 			hexcolor = nextColor; // gets new color for house
 		} 
 	}
-	
+/*
+ * This method adds a new house to the screen and houses array
+ */
 	private void addHouse() {
 		String nextColor = getRandomNewColor(house.getColor());
-		house = new House(hexcolor);
+		house = new House(hexcolor);  // generates new house
 		double x = house.getWidth() * 4 - HOUSE_SPACE - 60;
 		double y = getHeight() - house.base.getHeight() - BOTTOM_SPACE;
-		add(house, x, y);
-		houses[4] = house;
-		hexcolor = nextColor;
+		add(house, x, y);  // adds house to screen
+		houses[houses.length - 1] = house;  // adds new house to last space in array
+		hexcolor = nextColor;  // gets new color for array
 	}
 /*
  * This method generates the colors for the houses along the bottom of the screen
