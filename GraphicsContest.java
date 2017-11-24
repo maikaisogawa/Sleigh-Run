@@ -75,9 +75,7 @@ public class GraphicsContest extends GraphicsProgram {
 	}
 	
 	private static final double GRAVITY = 3;
-	
-	private double kareldolphStartX = PARTY_SPACE * 4 + sleighran.getWidth();
-	private double kareldolphStartY = getHeight() / 2;
+
 	
 	private void moveParty() {
 		if(started) {
@@ -89,7 +87,7 @@ public class GraphicsContest extends GraphicsProgram {
 		sleighran = new Sleighran();
 		add(sleighran, PARTY_SPACE, getHeight() / 2);
 		kareldolph = new Kareldolph();
-		add(kareldolph, kareldolphStartX, kareldolphStartY);
+		add(kareldolph, PARTY_SPACE * 4 + sleighran.getWidth(), getHeight() / 2);
 		rope = new Rope();
 		add(rope, PARTY_SPACE - 45, getHeight() / 2);
 	}
