@@ -105,6 +105,9 @@ public class GraphicsContest extends GraphicsProgram {
 	
 	private void finalScore() {
 		finalScore = new GLabel("Your score was: " + score);
+		finalScore.setColor(Color.WHITE);
+		finalScore.setFont(new Font("Arial", Font.BOLD, 38));
+		finalScore.setLocation(scoreX,scoreY);
 		add(finalScore, scoreX, scoreY);
 	}
 	
