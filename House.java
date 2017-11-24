@@ -142,7 +142,7 @@ public class House extends GCompound {
 			smokePuff = new GImage(puff);
 			smokePuff.scale(0.2);
 			add(smokePuff, SIDE_WIDTH + HOUSE_WIDTH / 2 + 17 - smokePuff.getWidth() / 2, 0 - smokePuff.getHeight() - 5 - puffHeight);
-			puffHeight += smokePuff.getHeight() + 20;
+			puffHeight += smokePuff.getHeight() + 10;
 		}
 		
 		add(base, SIDE_WIDTH / 2, SIDE_HEIGHT - HOUSE_HEIGHT);
