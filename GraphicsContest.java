@@ -218,10 +218,15 @@ public class GraphicsContest extends GraphicsProgram {
 	
 	private void createHouses() {	
 		double x = 0;   // x location of house
-		for(int i = 0; i < 5; i++) {
+		house = new House(hexcolor);
+		String nextColor = getRandomNewColor(house.getColor());
+		double y = getHeight() - house.base.getHeight() - BOTTOM_SPACE;  // y location of house
+		add(house, x, y);
+		houses[0] = house;
+		for(int i = 1; i < 5; i++) {
 			house = new House(hexcolor);
-			String nextColor = getRandomNewColor(house.getColor());
-			double y = getHeight() - house.base.getHeight() - BOTTOM_SPACE;  // y location of house
+			nextColor = getRandomNewColor(house.getColor());
+	//		double y = getHeight() - house.base.getHeight() - BOTTOM_SPACE;  // y location of house
 			add(house, x, y);
 			houses[i] = house;
 			x += house.getWidth() - HOUSE_SPACE;
