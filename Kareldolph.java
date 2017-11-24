@@ -38,7 +38,7 @@ public class Kareldolph extends GCompound{
 		leg = makeLeg(LEG_SIZE);
 		leg.setColor(cream);
 		leg.setFilled(true);
-		leg.setColor(Color.BLACK);
+		leg.setFillColor(Color.BLACK);
 		add(leg, BODY_WIDTH / 2, BODY_HEIGHT);
 		
 	}
@@ -76,7 +76,7 @@ public class Kareldolph extends GCompound{
 	private static final int SQUARE_WIDTH = 10;
 	private static final int SQUARE_HEIGHT = 15;
 	private static final int LINE_LENGTH = 8;
-	private static final int LEG_SIZE = 10;
+	private static final int LEG_SIZE = 8;
 	
 	private GRect body;
 	private GPolygon rightTriangle;
