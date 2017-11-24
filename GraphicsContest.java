@@ -75,8 +75,6 @@ public class GraphicsContest extends GraphicsProgram {
 					dronesMove();
 					checkDrones();
 				}
-//				dronesMove();
-//				checkDrones();
 				checkForCollisions();
 				pause(DELAY);
 			}
@@ -101,7 +99,6 @@ public class GraphicsContest extends GraphicsProgram {
 	
 	private void createDrones() {
 		double droneY;
-//		double droneX = rgen.nextDouble(getWidth() / 2, getWidth() - PARTY_SPACE);
 		double droneX = rgen.nextDouble(getWidth(), getWidth() * 2 - PARTY_SPACE);
 		double droneSpace;
 		for(int i = 0; i < 3; i++) {
@@ -148,7 +145,7 @@ public class GraphicsContest extends GraphicsProgram {
 	
 	private void setTimer() {
 		timer = new Timer();
-		timer.schedule(new ThisTask(), (long)33 * 1000);
+		timer.schedule(new ThisTask(), (long)34 * 1000);
 	}
 	
 	class ThisTask extends TimerTask {
@@ -163,15 +160,26 @@ public class GraphicsContest extends GraphicsProgram {
 	
 	private void checkForCollisions() {
 		for(int i = 0; i < houses.length; i++) {
-		if(getElementAt(kareldolph.getX(), kareldolph.getY()) == houses[i]) {   // upper left corner of kareldolph
-			gameOver = true;
-		} else if(getElementAt(kareldolph.getX() + kareldolph.getWidth(), kareldolph.getY()) == houses[i]) { // upper right corner
-			gameOver = true;
-		} else if(getElementAt(kareldolph.getX(), kareldolph.getY() + kareldolph.getHeight()) == houses[i]) { // bottom left corner
-			gameOver = true;
-		} else if(getElementAt(kareldolph.getX() + kareldolph.getWidth(), kareldolph.getY() + kareldolph.getHeight()) == houses[i]) {  // bottom right corner
-			gameOver = true;
+			if(getElementAt(kareldolph.getX(), kareldolph.getY()) == houses[i]) {   // upper left corner of kareldolph
+				gameOver = true;
+			} else if(getElementAt(kareldolph.getX() + kareldolph.getWidth(), kareldolph.getY()) == houses[i]) { // upper right corner
+				gameOver = true;
+			} else if(getElementAt(kareldolph.getX(), kareldolph.getY() + kareldolph.getHeight()) == houses[i]) { // bottom left corner
+				gameOver = true;
+			} else if(getElementAt(kareldolph.getX() + kareldolph.getWidth(), kareldolph.getY() + kareldolph.getHeight()) == houses[i]) {  // bottom right corner
+				gameOver = true;
+			}
 		}
+		for(int j = 0; j < drones.length; j++) {
+			if(getElementAt(kareldolph.getX(), kareldolph.getY()) == drones[j]) {   // upper left corner of kareldolph
+				gameOver = true;
+			} else if(getElementAt(kareldolph.getX() + kareldolph.getWidth(), kareldolph.getY()) == drones[j]) { // upper right corner
+				gameOver = true;
+			} else if(getElementAt(kareldolph.getX(), kareldolph.getY() + kareldolph.getHeight()) == drones[j]) { // bottom left corner
+				gameOver = true;
+			} else if(getElementAt(kareldolph.getX() + kareldolph.getWidth(), kareldolph.getY() + kareldolph.getHeight()) == drones[j]) {  // bottom right corner
+				gameOver = true;
+			}
 		}
 	}
 	
