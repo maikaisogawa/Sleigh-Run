@@ -61,7 +61,7 @@ public class GraphicsContest extends GraphicsProgram {
 			housesMove();
 			moveParty();
 			checkHouses();
-	//		checkForCollisions();
+			checkForCollisions();
 			pause(DELAY);
 		}
 		playGameOver();
@@ -75,13 +75,20 @@ public class GraphicsContest extends GraphicsProgram {
 		addKeyListeners();
 	}
 	
-//	private void checkForCollisions() {
-//		if(kareldolph.getY() + kareldolph.getHeight() >= house.getHeight()) { // if gets to tops of houses
-//			gameOver = true;
-//		} else if(kareldolph.getY() <= 0) { // if goes off top of screen
-//			gameOver = true;
-//		}
-//	}
+	private void checkForCollisions() {
+		
+		for(int i = 0; i < houses.length; i++) {
+		if(getElementAt(kareldolph.getX(), kareldolph.getY()) == houses[i]) {   // upper left corner of kareldolph
+			gameOver = true;
+		} else if(getElementAt(kareldolph.getX() + kareldolph.getWidth(), kareldolph.getY()) == houses[i]) { // upper right corner
+			gameOver = true;
+		} else if(getElementAt(kareldolph.getX(), kareldolph.getY() + kareldolph.getHeight()) == houses[i]) { // bottom left corner
+			gameOver = true;
+		} else if(getElementAt(kareldolph.getX() + kareldolph.getWidth(), kareldolph.getY() + kareldolph.getHeight()) == houses[i]) {  // bottom right corner
+			gameOver = true;
+		}
+		}
+	}
 	
 	private void playGameOver() {
 		remove(sleighran);
@@ -90,13 +97,13 @@ public class GraphicsContest extends GraphicsProgram {
 		remove(house);
 		addBackground();
 		createHouses();
-		addParty();
 		GLabel endGame = new GLabel("THAT'S THE END!");  // creates starting prompt
 		double x = getWidth() / 2 - endGame.getWidth() - endGame.getWidth() / 2;
 		double y = getHeight() / 2 - 80;
 		endGame.setColor(Color.WHITE);
 		endGame.setFont(new Font("Arial", Font.BOLD, 38));
 		endGame.setLocation(x,y);
+		add(endGame);
 	}
 
 	private double xVel = 0;
