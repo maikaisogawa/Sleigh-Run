@@ -86,7 +86,7 @@ public class GraphicsContest extends GraphicsProgram {
 	
 	private void moveParty() {
 		if(started) {
-			yVel += gravity;
+			yVel ++;
 			kareldolph.move(xVel, yVel);
 		}
 	}
