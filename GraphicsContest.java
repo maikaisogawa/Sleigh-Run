@@ -126,12 +126,14 @@ public class GraphicsContest extends GraphicsProgram {
  * This method creates the visuals and objects of the game
  */
 	private void createWorld() {
-		addBackground();
-		createHouses();	
-		addParty();
-		createDrones();
+		addBackground();   // adds starry night background
+		createHouses();	    // creates and adds houses
+		addParty();      // creates and adds sleighran, rope, and kareldolph
+		createDrones();    // creates drones and adds to screen
 	}
-	
+/*
+ * This method provides the player with the final score after the game has ended
+ */
 	private void finalScore() {
 		finalScore = new GLabel("Your score was: " + score);
 		finalX = getWidth() / 2 - finalScore.getWidth() / 2 * 3;
