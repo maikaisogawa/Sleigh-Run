@@ -136,6 +136,7 @@ public class GraphicsContest extends GraphicsProgram {
 				sY++;
 			}
 			sleighran.move(sX, sY);
+			rope.move(sX, sY);
 		}
 	}
 	
