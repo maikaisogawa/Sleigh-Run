@@ -250,7 +250,7 @@ public class House extends GCompound {
 	private static final int DOOR_HEIGHT = 30;
 	private static final int STEP_WIDTH = 25;
 	private static final int STEP_HEIGHT = 4;
-	private static final int CHIMNEY_WIDTH = 20;
+	private static final int CHIMNEY_WIDTH = 15;
 	private static final int CHIMNEY_HEIGHT = 40;
 	
 	private static final int NUM_COLORS = 5;
