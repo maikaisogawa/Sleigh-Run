@@ -74,7 +74,7 @@ public class GraphicsContest extends GraphicsProgram {
 		addActionListeners();
 	}
 	
-	private static final double GRAVITY = 3;
+	private static final double GRAVITY = 1;
 	
 	private double xVel = 0;
 	private double yVel = 0;
