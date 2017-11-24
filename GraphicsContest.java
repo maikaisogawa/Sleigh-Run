@@ -112,8 +112,8 @@ public class GraphicsContest extends GraphicsProgram {
 		hardcoreCountdown = new GLabel("seconds until something HARDCORE!");
 		hardcoreCountdownX = getWidth() / 2 - hardcoreCountdown.getWidth() / 2 * 3;
 		hardcoreCountdownY = hardcoreCountdown.getHeight() * 3;
-		finalScore.setColor(Color.WHITE);
-		finalScore.setFont(new Font("Arial", Font.BOLD, 20));
+		hardcoreCountdown.setColor(Color.WHITE);
+		hardcoreCountdown.setFont(new Font("Arial", Font.BOLD, 20));
 //		finalScore.setLocation(scoreX,scoreY);
 		add(finalScore, hardcoreCountdownX, hardcoreCountdownX);
 	}
