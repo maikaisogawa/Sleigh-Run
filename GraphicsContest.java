@@ -97,7 +97,6 @@ public class GraphicsContest extends GraphicsProgram {
 		remove(sleighran);
 		remove(rope);
 		remove(kareldolph);
-		remove(house);
 		GLabel endGame = new GLabel("THAT'S THE END!");  // creates starting prompt
 		double x = getWidth() / 2 - endGame.getWidth() - endGame.getWidth() / 2;
 		double y = getHeight() / 2 - 80;
