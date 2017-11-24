@@ -110,7 +110,7 @@ public class GraphicsContest extends GraphicsProgram {
 		started = false;
 		gameOver = false;
 		GLabel playAgain = new GLabel("CLICK TO PLAY AGAIN!");  // creates starting prompt
-		double dx = getWidth() / 2 - endGame.getWidth() - endGame.getWidth() / 2;
+		double dx = getWidth() / 2 - playAgain.getWidth() - playAgain.getWidth() / 2;
 		double dy = getHeight() / 2;
 		playAgain.setColor(Color.WHITE);
 		playAgain.setFont(new Font("Arial", Font.BOLD, 28));
