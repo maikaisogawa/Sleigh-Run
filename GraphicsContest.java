@@ -9,21 +9,15 @@ import java.awt.Font;
 import java.awt.Image;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Timer;
 import java.util.TimerTask;
 
 import javax.imageio.ImageIO;
-import javax.sound.sampled.AudioInputStream;
-import javax.sound.sampled.AudioSystem;
-import javax.sound.sampled.Clip;
 
 import acm.program.*;
 import acm.util.*;
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
 import acm.graphics.*;
 
 public class GraphicsContest extends GraphicsProgram {
@@ -44,7 +38,6 @@ public class GraphicsContest extends GraphicsProgram {
 	private static final int NUM_HOUSE_COLORS = 6;
 	
 	private int DELAY = 20;
-	private int houseDelay = 20;
 	
 	private static final int PARTY_SPACE = 20;
 
@@ -74,7 +67,6 @@ public class GraphicsContest extends GraphicsProgram {
 			moveParty();
 			checkHouses();
 			checkForCollisions();
-			house.pause(houseDelay);
 			pause(DELAY);
 		}
 		playGameOver();
@@ -100,7 +92,7 @@ public class GraphicsContest extends GraphicsProgram {
 	
 	class ThisTask extends TimerTask {
 		public void run() {
-			houseDelay = 10;
+			DELAY = 10;
 		}
 	}
 	
