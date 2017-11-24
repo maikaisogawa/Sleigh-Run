@@ -99,9 +99,8 @@ public class GraphicsContest extends GraphicsProgram {
 	public void jump() {
 		yVel = -15;
 	}
-	
+// can also use space bar to make party jump
 	public void keyReleased(KeyEvent e) {
-		started = true;
 		if(e.getKeyCode() == KeyEvent.VK_SPACE ) {
 			jump();
 		}
