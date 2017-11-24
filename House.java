@@ -125,7 +125,7 @@ public class House extends GCompound {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		GImage smokePuff = new GImage(puff);
+		smokePuff = new GImage(puff);
 		smokePuff.scale(0.2);
 		
 		
@@ -302,6 +302,8 @@ public class House extends GCompound {
 	private GPolygon sideRoof;
 	private GPolygon doorRoof;
 	private GPolygon patioRoof;
+	
+	public GImage smokePuff;
 	
 	// new colors created for house compound
 	Color cream = Color.decode("#F0ECEB");
