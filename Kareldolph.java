@@ -9,6 +9,12 @@ public class Kareldolph extends GCompound{
 	
 	public Kareldolph() {
 		
+		leg = makeLeg(LEG_SIZE);
+		leg.setColor(cream);
+		leg.setFilled(true);
+		leg.setFillColor(Color.BLACK);
+		add(leg, BODY_WIDTH / 2, BODY_HEIGHT);
+		
 		body = new GRect(BODY_WIDTH, BODY_HEIGHT);
 		body.setColor(cream);
 		body.setFilled(true);
@@ -34,12 +40,6 @@ public class Kareldolph extends GCompound{
 		leftTriangle.setFilled(true);
 		leftTriangle.setFillColor(sky);
 		add(leftTriangle, 0, BODY_HEIGHT - TRIANGLE);
-		
-		leg = makeLeg(LEG_SIZE);
-		leg.setColor(cream);
-		leg.setFilled(true);
-		leg.setFillColor(Color.BLACK);
-		add(leg, BODY_WIDTH / 2, BODY_HEIGHT);
 		
 	}
 	
