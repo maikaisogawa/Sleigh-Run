@@ -89,6 +89,12 @@ public class GraphicsContest extends GraphicsProgram {
 		}
 	}
 	
+	public void actionPerformed(ActionEvent e) {
+		if(started) {
+			kareldolph.move(xVel,  -yVel);
+		}
+	}
+	
 	private void addParty() {
 		sleighran = new Sleighran();
 		add(sleighran, PARTY_SPACE, getHeight() / 2);
