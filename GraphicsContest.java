@@ -71,6 +71,7 @@ public class GraphicsContest extends GraphicsProgram {
 			moveParty();
 			checkHouses();
 			dronesMove();
+			checkDrones();
 			checkForCollisions();
 			pause(DELAY);
 		}
@@ -107,36 +108,61 @@ public class GraphicsContest extends GraphicsProgram {
 		}
 	}
 	
-	
-	
 	private void dronesMove() {
 		for(int i = 0; i < drones.length; i++) {
 			drones[i].move(dx,dy);
 		} 
 	}
 	
+	private void checkDrones() {
+		for(int i = 0; i < drones.length; i++) {
+			if(drones[i].getX() < 0 - drone.getWidth()){
+				remove(drones[i]);
+				adjustDroneArray();
+				addDrone();
+			}
+		}	
+	}
+	
+	private void adjustDroneArray() {
+		for(int i = 0; i < drones.length - 1; i++) {
+			drones[i] = drones [i + 1];
+		}
+	}
+	
+	private void addDrone() {
+		drone = new Drone();
+		double droneX = rgen.nextDouble(WIDTH, WIDTH + WIDTH / 2);
+		double droneY = rgen.nextDouble(0, HEIGHT / 2 - drone.getHeight() * 2);
+		add(drone, droneX, droneY);
+		drones[2] = drone;
+	}
+	
+//	private void addHouse() {
+//		String nextColor = getRandomNewColor(house.getColor());
+//		house = new House(hexcolor);
+//		double x = house.getWidth() * 4 - HOUSE_SPACE - 60;
+//		double y = getHeight() - house.base.getHeight() - BOTTOM_SPACE;
+//		add(house, x, y);
+//		houses[4] = house;
+//		hexcolor = nextColor;
+//	}
+	
 
 	
 	Timer timer;
 	
 	private void setTimer() {
-		while(started) {
-			timer = new Timer();
-		    timer.schedule(new ThisTask(), (long)33 * 1000);
-		}
+		timer = new Timer();
+		timer.schedule(new ThisTask(), (long)33 * 1000);
 	}
 	
 	class ThisTask extends TimerTask {
 		public void run() {
-			DELAY = 10;
-			addDrones();
+			DELAY = 10;   // makes everything move faster
 		}
 	}
 	
-	private void addDrones() {
-		drone = new Drone();
-		add(drone, getWidth()/2, getHeight());
-	}
 ///////////////////// FIX THIS /////////////////////////
 /////////////////////////////////////////////////////////
 	
