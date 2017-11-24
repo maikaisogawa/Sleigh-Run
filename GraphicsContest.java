@@ -44,6 +44,7 @@ public class GraphicsContest extends GraphicsProgram {
 	private static final int NUM_HOUSE_COLORS = 6;
 	
 	private int DELAY = 20;
+	private int houseDelay = 20;
 	
 	private static final int PARTY_SPACE = 20;
 
@@ -73,6 +74,7 @@ public class GraphicsContest extends GraphicsProgram {
 			moveParty();
 			checkHouses();
 			checkForCollisions();
+			house.pause(houseDelay);
 			pause(DELAY);
 		}
 		playGameOver();
@@ -93,12 +95,12 @@ public class GraphicsContest extends GraphicsProgram {
 	
 	private void setTimer() {
 		timer = new Timer();
-	    timer.schedule(new ThisTask(), (long)36 * 1000);
+	    timer.schedule(new ThisTask(), (long)30 * 1000);
 	}
 	
 	class ThisTask extends TimerTask {
 		public void run() {
-			DELAY = 10;
+			houseDelay = 10;
 		}
 	}
 	
