@@ -151,11 +151,14 @@ public class GraphicsContest extends GraphicsProgram {
 		timer.schedule(new ThisTask(), (long)34 * 1000);
 	}
 	
+	private int delayChange = 10;
+	
 	class ThisTask extends TimerTask {
 		public void run() {
-			DELAY -= 10;   // makes everything move faster
+			DELAY = delayChange;   // makes everything move faster
 			hardcore = true;
 			setTimer();
+			delayChange--;
 		}
 	}
 	
