@@ -190,6 +190,7 @@ public class GraphicsContest extends GraphicsProgram {
 		started = false;
 		gameOver = false;
 		hardcore = false;
+		DELAY = 20;
 		timer.cancel();
 		GLabel playAgain = new GLabel("CLICK TO PLAY AGAIN?");  // creates starting prompt
 		double dx = getWidth() / 2 - playAgain.getWidth() + 20;
