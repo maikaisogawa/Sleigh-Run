@@ -153,7 +153,7 @@ public class GraphicsContest extends GraphicsProgram {
 	
 	class ThisTask extends TimerTask {
 		public void run() {
-			DELAY = 10;   // makes everything move faster
+			DELAY -= 10;   // makes everything move faster
 			hardcore = true;
 			setTimer();
 		}
