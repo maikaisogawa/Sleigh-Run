@@ -275,6 +275,25 @@ public class GraphicsContest extends GraphicsProgram {
 	private void playGameOver() {
 		resetFunctions();
 		removeLabels();
+		makeEndLabels();
+//		GLabel endGame = new GLabel("THAT'S THE END!");  // creates starting prompt
+//		double x = getWidth() / 2 - endGame.getWidth() - endGame.getWidth() / 2;
+//		double y = getHeight() / 2 - 80;
+//		endGame.setColor(Color.WHITE);
+//		endGame.setFont(new Font("Arial", Font.BOLD, 38));
+//		endGame.setLocation(x,y);
+//		add(endGame);
+//
+//		GLabel playAgain = new GLabel("CLICK TO PLAY AGAIN?");  // creates starting prompt
+//		double dx = getWidth() / 2 - playAgain.getWidth() + 20;
+//		double dy = getHeight() / 2;
+//		playAgain.setColor(Color.WHITE);
+//		playAgain.setFont(new Font("Arial", Font.BOLD, 20));
+//		playAgain.setLocation(dx,dy);
+//		add(playAgain);
+	}
+	
+	private void makeEndLabels() {
 		GLabel endGame = new GLabel("THAT'S THE END!");  // creates starting prompt
 		double x = getWidth() / 2 - endGame.getWidth() - endGame.getWidth() / 2;
 		double y = getHeight() / 2 - 80;
