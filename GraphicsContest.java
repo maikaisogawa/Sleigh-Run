@@ -131,9 +131,9 @@ public class GraphicsContest extends GraphicsProgram {
 			}
 			kareldolph.move(xVel, yVel);
 			if(yVel <= 0) {
-				sleighran.move(xVel, yVel);
+				sleighran.move(xVel, - yVel);
 			} else if(yVel > 0) {
-				sleighran.move(xVel, yVel);
+				sleighran.move(xVel, - yVel);
 			}
 		}
 	}
