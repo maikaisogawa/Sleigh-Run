@@ -120,8 +120,10 @@ public class GraphicsContest extends GraphicsProgram {
 	Timer timer;
 	
 	private void setTimer() {
-		timer = new Timer();
-	    timer.schedule(new ThisTask(), (long)33 * 1000);
+		if(started) {
+			timer = new Timer();
+		    timer.schedule(new ThisTask(), (long)33 * 1000);
+		}
 	}
 	
 	class ThisTask extends TimerTask {
