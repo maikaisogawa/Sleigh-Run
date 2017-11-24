@@ -114,7 +114,7 @@ public class House extends GCompound {
 		add(side, 0, 0);
 		add(sideRoof, SIDE_WIDTH / 2, 0 - SIDE_ROOF_HEIGHT / 2);
 		add(sideDeco, 0 - 5, SIDE_HEIGHT / 2 - SIDE_DECO_HEIGHT);
-		add(chimney, SIDE_WIDTH + HOUSE_WIDTH / 2 + 5, 0);
+		add(chimney, SIDE_WIDTH + HOUSE_WIDTH / 2 + 10, 0);
 		add(base, SIDE_WIDTH / 2, SIDE_HEIGHT - HOUSE_HEIGHT);
 		add(doorFront, 0, SIDE_HEIGHT - DOOR_FRONT_HEIGHT);
 		add(doorRoof, SIDE_WIDTH / 2, SIDE_HEIGHT / 2 + DOOR_ROOF_HEIGHT / 2);
