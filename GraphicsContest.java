@@ -74,9 +74,8 @@ public class GraphicsContest extends GraphicsProgram {
 		addActionListeners();
 	}
 	
-	private static final double GRAVITY = 1;
-	
-	private int JUMP_HEIGHT = 5;
+	private int gravity = 1;
+
 	
 	private double xVel = 0;
 	private double yVel = 2;
@@ -87,19 +86,13 @@ public class GraphicsContest extends GraphicsProgram {
 	
 	private void moveParty() {
 		if(started) {
+			yVel += gravity;
 			kareldolph.move(xVel, yVel);
 		}
 	}
 	
-	public void actionPerformed(ActionEvent e) {
-		if(started) {
-			while(JUMP_HEIGHT > 0) {
-				yVel = -2;
-				JUMP_HEIGHT--;
-			}
-			yVel = 2;
-			JUMP_HEIGHT = 5;
-		}
+	public void jump() {
+		yVel = -15;
 	}
 	
 	private void addParty() {
