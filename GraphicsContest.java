@@ -49,7 +49,6 @@ public class GraphicsContest extends GraphicsProgram {
 	private Rope rope;
 	private Drone drone;
 	
-	
 	private boolean gameOver = false; 
 	private boolean started = false;
 	private boolean musicStarted = false;
@@ -87,6 +86,7 @@ public class GraphicsContest extends GraphicsProgram {
 	}
 	
 	private void setup() {
+		setTitle("Sleigh Run");
 		addBackground();
 		createHouses();	
 		addParty();
@@ -98,7 +98,7 @@ public class GraphicsContest extends GraphicsProgram {
 /////////////////////////////////////////////////////////		
 ///////////////////// FIX THIS /////////////////////////
 //TASKS: Score count, countdown to something Hardcore (speedup), intro screen, make 
-//everything better, boundaries, drones end game too
+//everything better, boundaries, 
 	
 	private void createDrones() {
 		double droneY;
@@ -148,7 +148,7 @@ public class GraphicsContest extends GraphicsProgram {
 	
 	private void setTimer() {
 		timer = new Timer();
-		timer.schedule(new ThisTask(), (long)34 * 1000);
+		timer.schedule(new ThisTask(), (long)34 * 1000);   // cue on musical drop
 	}
 	
 	private int delayChange = 10;
@@ -158,7 +158,7 @@ public class GraphicsContest extends GraphicsProgram {
 			DELAY = delayChange;   // makes everything move faster
 			hardcore = true;
 			setTimer();
-			delayChange--;
+			delayChange--;    // makes movement faster every time 34 seconds pass
 		}
 	}
 	
