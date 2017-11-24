@@ -122,8 +122,6 @@ public class GraphicsContest extends GraphicsProgram {
 	
 	private double kareldolphX = PARTY_SPACE * 8;
 	private double kareldolphY = HEIGHT / 2;
-	
-	private double difference = kareldolph.getY() - sleighran.getY();
 
 	
 	private void moveParty() {
@@ -132,7 +130,7 @@ public class GraphicsContest extends GraphicsProgram {
 				yVel++;
 			}
 			kareldolph.move(xVel, yVel);
-			sleighran.move(xVel, difference);
+			sleighran.move(xVel, yVel + 1);
 		}
 	}
 	
