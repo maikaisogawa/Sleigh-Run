@@ -128,7 +128,7 @@ public class House extends GCompound {
 		GImage smokePuff = new GImage(puff);
 		smokePuff.scale(0.2);
 		
-		add(smokePuff, SIDE_WIDTH + HOUSE_WIDTH / 2 + 17 - smokePuff.getWidth() / 2, 0 - smokePuff.getHeight() - 5);
+//		add(smokePuff, SIDE_WIDTH + HOUSE_WIDTH / 2 + 17 - smokePuff.getWidth() / 2, 0 - smokePuff.getHeight() - 5);
 		
 		
 		// adds all components
