@@ -101,9 +101,10 @@ public class GraphicsContest extends GraphicsProgram {
 ///////////////////// FIX THIS /////////////////////////
 //TASKS: Score count, countdown to something Hardcore (speedup), intro screen, make 
 //everything better, boundaries, 
+	private GLabel finalScore;
 	
 	private void finalScore() {
-		GLabel finalScore = new GLabel("Your score was: " + score);
+		finalScore = new GLabel("Your score was: " + score);
 		add(finalScore, getWidth() / 2, 0 + 20);
 	}
 	
