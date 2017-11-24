@@ -194,7 +194,7 @@ public class House extends GCompound {
 		
 		numPuffs = rgen.nextInt(0, MAX_PUFFS);
 		double puffHeight = 0;
-		for(int i = 0; i < numPuffs; i++) {
+		for(int i = 0; i < 2; i++) {
 			smokePuff = new GImage(puff);
 			smokePuff.scale(0.2);
 			add(smokePuff, SIDE_WIDTH + HOUSE_WIDTH / 2 + 17 - smokePuff.getWidth() / 2, 0 - smokePuff.getHeight() - 5 - puffHeight);
