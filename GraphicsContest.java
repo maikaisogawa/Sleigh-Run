@@ -12,6 +12,8 @@ import java.awt.event.MouseEvent;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import javax.imageio.ImageIO;
 import javax.sound.sampled.AudioInputStream;
@@ -40,7 +42,8 @@ public class GraphicsContest extends GraphicsProgram {
 	private static final int BOTTOM_SPACE = 40;
 	
 	private static final int NUM_HOUSE_COLORS = 6;
-	private static final int DELAY = 20;
+	
+	private int DELAY = 20;
 	
 	private static final int PARTY_SPACE = 20;
 
@@ -81,12 +84,22 @@ public class GraphicsContest extends GraphicsProgram {
 		addBackground();
 		createHouses();	
 		addParty();
+		setTimer();
 		addMouseListeners();
 		addKeyListeners();
 	}
 	
+	Timer timer;
+	
+	private void setTimer() {
+		timer.schedule(new TimerTask() {
+			  public void run() {
+			    DELAY = 10;
+			  }
+			}, 38*1000);
+	}
+	
 	private void checkForCollisions() {
-		
 		for(int i = 0; i < houses.length; i++) {
 		if(getElementAt(kareldolph.getX(), kareldolph.getY()) == houses[i]) {   // upper left corner of kareldolph
 			gameOver = true;
@@ -204,7 +217,9 @@ public class GraphicsContest extends GraphicsProgram {
 		waitForClick();  // waits for player's click
 	}
 	
+	
 	private void housesMove() {
+		
 		for(int i = 0; i < houses.length; i++) {
 			houses[i].move(hx,hy);
 		}
