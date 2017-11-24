@@ -102,7 +102,7 @@ public class GraphicsContest extends GraphicsProgram {
 				pause(delay);     // delay in visuals for game play *speed* of game
 			}
 			playGameOver();  // provides end of game play and resets functions
-			finalScore();    // gives final score to player
+	//		finalScore();    // gives final score to player
 			waitForRestart();  // waits for player to click to restart game
 		}
 	}
@@ -194,6 +194,15 @@ public class GraphicsContest extends GraphicsProgram {
 				gameOver = true;
 			}
 		}
+	}
+/*
+ * This sequence runs when the game is over
+ */
+	private void playGameOver() {
+		resetFunctions();  // resets functions so game can be played again
+		removeStuff();   // remove labels and objects on the screen
+		makeEndLabels();  // creates labels to inform player
+		finalScore();
 	}
 /*
  * This method creates the visuals and objects of the game
@@ -289,14 +298,6 @@ public class GraphicsContest extends GraphicsProgram {
 	private void setTimer() {
 		timer = new Timer();  // creates timer
 		timer.schedule(new ThisTask(), (long)TIMER_LENGTH * 1000);   // cue on musical drop
-	}
-/*
- * This sequence runs when the game is over
- */
-	private void playGameOver() {
-		resetFunctions();  // resets functions so game can be played again
-		removeStuff();   // remove labels and objects on the screen
-		makeEndLabels();  // creates labels to inform player
 	}
 /*
  * This method adds the labels at the end of the game, notifying player of end of game
