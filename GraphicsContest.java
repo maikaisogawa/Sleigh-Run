@@ -107,8 +107,8 @@ public class GraphicsContest extends GraphicsProgram {
 	
 	private void finalScore() {
 		finalScore = new GLabel("Your score was: " + score);
-		finalX = getWidth() / 2 - finalScore.getWidth() / 2 * 2;
-		finalY = getHeight();
+		finalX = getWidth() / 2 - finalScore.getWidth() / 2 * 3;
+		finalY = finalScore.getHeight();
 		finalScore.setColor(Color.WHITE);
 		finalScore.setFont(new Font("Arial", Font.BOLD, 38));
 		finalScore.setLocation(scoreX,scoreY);
