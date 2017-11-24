@@ -1,7 +1,13 @@
 import java.awt.Color;
+import java.awt.Image;
+import java.io.IOException;
+import java.io.InputStream;
+
+import javax.imageio.ImageIO;
 
 import acm.graphics.GArc;
 import acm.graphics.GCompound;
+import acm.graphics.GImage;
 import acm.graphics.GOval;
 import acm.graphics.GPolygon;
 import acm.graphics.GRect;
@@ -110,11 +116,26 @@ public class House extends GCompound {
 		door.setFilled(true);
 		door.setFillColor(walnut);
 		
+		// little smoke puffs from chimney - emoji from internet
+		Image puff = null;	
+		ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
+		InputStream input = classLoader.getResourceAsStream("puff.png");
+		try {
+			puff = ImageIO.read(input);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		GImage smokePuff = new GImage(puff);
+	//	mehran.scale(1);
+		
+		
 		// adds all components
+		
 		add(side, 0, 0);
 		add(sideRoof, SIDE_WIDTH / 2, 0 - SIDE_ROOF_HEIGHT / 2);
 		add(sideDeco, 0 - 5, SIDE_HEIGHT / 2 - SIDE_DECO_HEIGHT);
 		add(chimney, SIDE_WIDTH + HOUSE_WIDTH / 2 + 10, 0);
+		add(smokePuff, SIDE_WIDTH + HOUSE_WIDTH / 2 + 10, 20);
 		add(base, SIDE_WIDTH / 2, SIDE_HEIGHT - HOUSE_HEIGHT);
 		add(doorFront, 0, SIDE_HEIGHT - DOOR_FRONT_HEIGHT);
 		add(doorRoof, SIDE_WIDTH / 2, SIDE_HEIGHT / 2 + DOOR_ROOF_HEIGHT / 2);
