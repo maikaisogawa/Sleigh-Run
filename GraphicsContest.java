@@ -102,13 +102,15 @@ public class GraphicsContest extends GraphicsProgram {
 //everything better, boundaries, 
 	
 	private int score = 0;
-	GLabel scoreCount;
-	private double scoreX = getWidth() / 2 - scoreCount.getWidth();
-	private double scoreY = getHeight() / 2 - 80;
+	private GLabel scoreCount;
+	private double scoreX;
+	private double scoreY;
 	
 	private void keepScore() {
 		remove(scoreCount);
 		scoreCount = new GLabel(String.valueOf(score));
+		scoreX = getWidth() / 2 - scoreCount.getWidth();
+		scoreY = getHeight() / 2 - 80;
 		scoreCount.setColor(Color.WHITE);
 		scoreCount.setFont(new Font("Arial", Font.BOLD, 38));
 		scoreCount.setLocation(scoreX,scoreY);
@@ -292,6 +294,8 @@ public class GraphicsContest extends GraphicsProgram {
 		waitForClick();  // waits for player's click
 		remove(start);  // removes label from screen
 		scoreCount = new GLabel(String.valueOf(score));
+		scoreX = getWidth() / 2 - scoreCount.getWidth();
+		scoreY = getHeight() / 2 - 80;
 		add(scoreCount, scoreX, scoreY);
 		started = true;
 		musicStarted = true;
