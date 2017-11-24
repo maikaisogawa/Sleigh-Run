@@ -118,6 +118,9 @@ public class GraphicsContest extends GraphicsProgram {
 	private double xVel = 0;
 	private double yVel = 2;
 	
+	private double sX = 0;
+	private double sY = 0;
+	
 	private static final int MAX_SPEED = 8;
 	
 	private double kareldolphX = PARTY_SPACE * 8;
@@ -127,13 +130,12 @@ public class GraphicsContest extends GraphicsProgram {
 	private void moveParty() {
 		if(started) {
 			if(yVel < MAX_SPEED) {
+				kareldolph.move(xVel, yVel);
 				yVel++;
 			}
-			kareldolph.move(xVel, yVel);
-			if(yVel <= 0) {
-				sleighran.move(xVel, - yVel);
-			} else if(yVel > 0) {
-				sleighran.move(xVel, - yVel);
+			if(sY < MAX_SPEED) {
+				sleighran.move(sX, sY);
+				sY++;
 			}
 		}
 	}
@@ -144,6 +146,7 @@ public class GraphicsContest extends GraphicsProgram {
 	
 	public void jump() {
 		yVel = -15;
+		sY = -15;
 	}
 	
 // can also use space bar to make party jump
