@@ -61,8 +61,10 @@ public class GraphicsContest extends GraphicsProgram {
 			housesMove();
 			moveParty();
 			checkHouses();
+			checkForCollisions();
 			pause(DELAY);
 		}
+		playGameOver();
 	}
 	
 	private void setup() {
@@ -72,8 +74,35 @@ public class GraphicsContest extends GraphicsProgram {
 		addMouseListeners();
 		addKeyListeners();
 	}
-
 	
+	private void checkForCollisions() {
+		if(getElementAt(kareldolph.getX(), kareldolph.getY()) != house) {   // upper left corner
+			gameOver = true;
+		} else if(getElementAt(kareldolph.getX() + kareldolph.getWidth(), kareldolph.getY()) != house) { // upper right corner
+			gameOver = true;
+		} else if(getElementAt(kareldolph.getX(), kareldolph.getY() + kareldolph.getHeight()) != house) { // bottom left corner
+			gameOver = true;
+		} else if(getElementAt(kareldolph.getX() + kareldolph.getWidth(), kareldolph.getY() + kareldolph.getHeight()) != house) {  // bottom right corner
+			gameOver = true;
+		} 
+	}
+	
+	private void playGameOver() {
+		remove(sleighran);
+		remove(rope);
+		remove(kareldolph);
+		remove(house);
+		addBackground();
+		createHouses();
+		addParty();
+		GLabel endGame = new GLabel("THAT'S THE END!");  // creates starting prompt
+		double x = getWidth() / 2 - endGame.getWidth() - endGame.getWidth() / 2;
+		double y = getHeight() / 2 - 80;
+		endGame.setColor(Color.WHITE);
+		endGame.setFont(new Font("Arial", Font.BOLD, 38));
+		endGame.setLocation(x,y);
+	}
+
 	private double xVel = 0;
 	private double yVel = 2;
 	
