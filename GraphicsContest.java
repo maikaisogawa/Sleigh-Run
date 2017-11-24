@@ -48,6 +48,8 @@ public class GraphicsContest extends GraphicsProgram {
 	
 	
 	private boolean gameOver = false; 
+	private boolean started = false;
+	
 	public GCompound[] houses = new GCompound[5];
 	private String hexcolor = "#F29352";
 	private double hx = -2;   // houses moving left
@@ -58,6 +60,7 @@ public class GraphicsContest extends GraphicsProgram {
 		waitForPlayer();
 		while(!gameOver) {
 			housesMove();
+			moveParty();
 			checkHouses();
 			pause(DELAY);
 		}
@@ -71,11 +74,22 @@ public class GraphicsContest extends GraphicsProgram {
 		addActionListeners();
 	}
 	
+	private static final double GRAVITY = 3;
+	
+	private double kareldolphStartX = PARTY_SPACE * 4 + sleighran.getWidth();
+	private double kareldolphStartY = getHeight() / 2;
+	
+	private void moveParty() {
+		if(started) {
+			
+		}
+	}
+	
 	private void addParty() {
 		sleighran = new Sleighran();
 		add(sleighran, PARTY_SPACE, getHeight() / 2);
 		kareldolph = new Kareldolph();
-		add(kareldolph, PARTY_SPACE * 4 + sleighran.getWidth(), getHeight() / 2);
+		add(kareldolph, kareldolphStartX, kareldolphStartY);
 		rope = new Rope();
 		add(rope, PARTY_SPACE - 45, getHeight() / 2);
 	}
