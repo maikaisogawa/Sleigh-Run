@@ -84,7 +84,8 @@ public class GraphicsContest extends GraphicsProgram {
 		addKeyListeners();
 /////////////////////////////////////////////////////////		
 ///////////////////// FIX THIS /////////////////////////
-// TASKS: Score count, countdown to something Hardcore (speedup), intro screen, make everything better
+// TASKS: Score count, countdown to something Hardcore (speedup), intro screen, make 
+// everything better, boundaries, drones end game too
 		drone = new Drone();
 		add(drone, WIDTH / 2, HEIGHT /2 );
 	}
