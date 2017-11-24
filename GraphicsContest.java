@@ -44,6 +44,7 @@ public class GraphicsContest extends GraphicsProgram {
 	private House house; 
 	private Sleighran sleighran;
 	private Kareldolph kareldolph;
+	private Rope rope;
 	
 	
 	private boolean gameOver = false; 
@@ -75,6 +76,8 @@ public class GraphicsContest extends GraphicsProgram {
 		add(sleighran, PARTY_SPACE, getHeight() / 2);
 		kareldolph = new Kareldolph();
 		add(kareldolph, PARTY_SPACE * 4 + sleighran.getWidth(), getHeight() / 2);
+		rope = new Rope();
+		add(rope, PARTY_SPACE + sleighran.getWidth() / 2, getHeight() / 2 - sleighran.getHeight());
 	}
 	
 	private void waitForPlayer() {
