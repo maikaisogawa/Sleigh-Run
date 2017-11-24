@@ -108,17 +108,9 @@ public class GraphicsContest extends GraphicsProgram {
 	
 	private void keepScore() {
 		remove(scoreCount);
-		if(houses[0].getX() + houses[0].getWidth() == kareldolph.getX()) {
+		if(houses[1].getX() + houses[0].getWidth() == kareldolph.getX()) {
 			score++;
-		} else if(houses[1].getX() + houses[0].getWidth() == kareldolph.getX()) {
-			score++;
-		} else if(houses[2].getX() + houses[0].getWidth() == kareldolph.getX()) {
-			score++;
-		} else if(houses[3].getX() + houses[0].getWidth() == kareldolph.getX()) {
-			score++;
-		} else if(houses[4].getX() + houses[0].getWidth() == kareldolph.getX()) {
-			score++;
-		}
+		} 
 		scoreCount = new GLabel(String.valueOf(score));
 		scoreX = getWidth() / 2 - scoreCount.getWidth();
 		scoreY = getHeight() / 2 - 80;
