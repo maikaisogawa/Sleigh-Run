@@ -105,7 +105,7 @@ public class GraphicsContest extends GraphicsProgram {
 	
 	private void finalScore() {
 		finalScore = new GLabel("Your score was: " + score);
-		add(finalScore, getWidth() / 2, 0 + 20);
+		add(finalScore, scoreX, scoreY);
 	}
 	
 	private int score = 0;
