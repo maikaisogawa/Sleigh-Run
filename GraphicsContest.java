@@ -62,6 +62,7 @@ public class GraphicsContest extends GraphicsProgram {
 	private boolean hardcore = false;   // keeps track if initial speed has increased
 	
 	private int delay = 20;   // speed of movement, speeds up every half-minute
+	private int score = 0;    // score of player updates when house is passed
 	
 	private double hx = -2;   // houses moving left
 	private double hy = 0;    // houses do not move up or down
@@ -73,12 +74,16 @@ public class GraphicsContest extends GraphicsProgram {
 	private double yVel = 2;  // y movement of kareldolph
 	private double kareldolphX = PARTY_SPACE * 8;  // x location of kareldolph 
 	private double kareldolphY = HEIGHT / 2;   // y location of kareldolph 
+	private double scoreX;   // x location of score label
+	private double scoreY;   // y location of score label
 	
 	public GCompound[] houses = new GCompound[5];  // Array of GCompounds for houses
 	public GCompound[] drones = new GCompound [3];  // Array of GCompounds for drones
 	private String hexcolor = "#F29352";  // initial hexcolor of house
 	
 	private GLabel finalScore;   // label declaring final score of player
+	private GLabel scoreCount;  // label to display score of player
+	
 	
 /*
  * Run method for Sleigh Run Game
@@ -142,11 +147,6 @@ public class GraphicsContest extends GraphicsProgram {
 		finalScore.setFont(new Font("Arial", Font.BOLD, 38));
 		add(finalScore, finalX, finalY);
 	}
-	
-	private int score = 0;
-	private GLabel scoreCount;
-	private double scoreX;
-	private double scoreY;
 	
 	private void keepScore() {
 		remove(scoreCount);
