@@ -108,7 +108,7 @@ public class GraphicsContest extends GraphicsProgram {
 	
 	private void keepScore() {
 		remove(scoreCount);
-		if(houses[0].getX() + houses[0].getWidth() <= kareldolph.getX()) {
+		if(houses[0].getX() + houses[0].getWidth() == kareldolph.getX()) {
 			score++;
 		}
 		scoreCount = new GLabel(String.valueOf(score));
