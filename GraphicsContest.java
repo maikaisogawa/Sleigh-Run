@@ -114,9 +114,16 @@ public class GraphicsContest extends GraphicsProgram {
 	}
 	
 	private void dronesMove() {
-		for(int i = 0; i < drones.length; i++) {
-			drones[i].move(dx,dy);
-		} 
+		try {
+			for(int i = 0; i < drones.length; i++) {
+				drones[i].move(dx,dy);
+			}
+		} catch (NullPointerException e) {
+		    // Maybe, invisible man. Who cares, anyway?
+		}
+//		for(int i = 0; i < drones.length; i++) {
+//			drones[i].move(dx,dy);
+//		} 
 	}
 	
 	private void checkDrones() {
