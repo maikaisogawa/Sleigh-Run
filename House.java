@@ -192,9 +192,9 @@ public class House extends GCompound {
 			dy += 4 - i;   // makes lights strung on arc pattern
 		}
 		
-		int numPuffs = rgen.nextInt(0, MAX_PUFFS);
+		numPuffs = rgen.nextInt(0, MAX_PUFFS);
 		double puffHeight = 0;
-		for(int i = 0; i < 3; i++) {
+		for(int i = 0; i < numPuffs; i++) {
 			smokePuff = new GImage(puff);
 			smokePuff.scale(0.2);
 			add(smokePuff, SIDE_WIDTH + HOUSE_WIDTH / 2 + 17 - smokePuff.getWidth() / 2, 0 - smokePuff.getHeight() - 5 - puffHeight);
@@ -304,6 +304,7 @@ public class House extends GCompound {
 	private GPolygon patioRoof;
 	
 	public GImage smokePuff;
+	public int numPuffs;
 	
 	// new colors created for house compound
 	Color cream = Color.decode("#F0ECEB");
