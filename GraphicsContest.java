@@ -59,6 +59,8 @@ public class GraphicsContest extends GraphicsProgram {
 	private String hexcolor = "#F29352";
 	private double hx = -2;   // houses moving left
 	private double hy = 0;    // houses do not move up or down
+	private double dx = -2;   // drones move left
+	private double dy = 0;     // drones do not move up or down
 
 	public void run() {
 		while(true) {
@@ -68,6 +70,7 @@ public class GraphicsContest extends GraphicsProgram {
 			housesMove();
 			moveParty();
 			checkHouses();
+			dronesMove();
 			checkForCollisions();
 			pause(DELAY);
 		}
@@ -102,18 +105,15 @@ public class GraphicsContest extends GraphicsProgram {
 		}
 	}
 	
-//	private void createHouses() {	
-//		double x = 0;   // x location of house
-//		for(int i = 0; i < 5; i++) {
-//			house = new House(hexcolor);
-//			String nextColor = getRandomNewColor(house.getColor());
-//			double y = getHeight() - house.base.getHeight() - BOTTOM_SPACE;  // y location of house
-//			add(house, x, y);
-//			houses[i] = house;
-//			x += house.getWidth() - HOUSE_SPACE;
-//			hexcolor = nextColor;
-//		} 
-//	}
+	
+	
+	private void dronesMove() {
+		for(int i = 0; i < drones.length; i++) {
+			drones[i].move(dx,dy);
+		} 
+	}
+	
+
 	
 	Timer timer;
 	
@@ -256,7 +256,6 @@ public class GraphicsContest extends GraphicsProgram {
 	
 	
 	private void housesMove() {
-		
 		for(int i = 0; i < houses.length; i++) {
 			houses[i].move(hx,hy);
 		}
