@@ -62,6 +62,9 @@ public class GraphicsContest extends GraphicsProgram {
 	private double hy = 0;    // houses do not move up or down
 	private double dx = -2;   // drones move left
 	private double dy = 0;     // drones do not move up or down
+	
+//	private String scoreCount= new String(score.toString(score));
+//	private int score = 0;
 
 	public void run() {
 		while(true) {
@@ -135,7 +138,8 @@ public class GraphicsContest extends GraphicsProgram {
 	
 	private void addDrone() {
 		drone = new Drone();
-		double droneX = rgen.nextDouble(getWidth(), getWidth() + getWidth() / 2);
+		double droneX = getWidth() + getWidth() / 2;
+//		double droneX = rgen.nextDouble(getWidth(), getWidth() + getWidth() / 2);
 		double droneY = rgen.nextDouble(0, getHeight() / 2 - drone.getHeight() * 2);
 		add(drone, droneX, droneY);
 		drones[2] = drone;
