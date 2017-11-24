@@ -77,7 +77,7 @@ public class GraphicsContest extends GraphicsProgram {
 	private static final double GRAVITY = 1;
 	
 	private double xVel = 0;
-	private double yVel = 0;
+	private double yVel = 1;
 	
 	private double kareldolphX = PARTY_SPACE * 8;
 	private double kareldolphY = HEIGHT / 2;
@@ -85,7 +85,6 @@ public class GraphicsContest extends GraphicsProgram {
 	
 	private void moveParty() {
 		if(started) {
-			yVel += GRAVITY;
 			kareldolph.move(xVel, yVel);
 		}
 	}
