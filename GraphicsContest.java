@@ -101,12 +101,12 @@ public class GraphicsContest extends GraphicsProgram {
 	
 	private void createDrones() {
 		double droneY;
-		double droneX = rgen.nextDouble(WIDTH / 2, WIDTH - PARTY_SPACE);
+		double droneX = rgen.nextDouble(getWidth() / 2, getWidth() - PARTY_SPACE);
 		double droneSpace;
 		for(int i = 0; i < 3; i++) {
 			drone = new Drone();
-			droneSpace = rgen.nextDouble(drone.getWidth() * 2, WIDTH / 2);
-			droneY = rgen.nextDouble(0, HEIGHT / 2 - drone.getHeight() * 2);
+			droneSpace = rgen.nextDouble(drone.getWidth() * 2, getWidth() / 2);
+			droneY = rgen.nextDouble(0, getHeight() / 2 - drone.getHeight() * 2);
 			add(drone, droneX, droneY);
 			drones[i] = drone;
 			droneX += droneSpace;
@@ -114,16 +114,9 @@ public class GraphicsContest extends GraphicsProgram {
 	}
 	
 	private void dronesMove() {
-		try {
-			for(int i = 0; i < drones.length; i++) {
-				drones[i].move(dx,dy);
-			}
-		} catch (NullPointerException e) {
-		    // Maybe, invisible man. Who cares, anyway?
-		}
-//		for(int i = 0; i < drones.length; i++) {
-//			drones[i].move(dx,dy);
-//		} 
+		for(int i = 0; i < drones.length; i++) {
+			drones[i].move(dx,dy);
+		} 
 	}
 	
 	private void checkDrones() {
@@ -144,8 +137,8 @@ public class GraphicsContest extends GraphicsProgram {
 	
 	private void addDrone() {
 		drone = new Drone();
-		double droneX = rgen.nextDouble(WIDTH, WIDTH + WIDTH / 2);
-		double droneY = rgen.nextDouble(0, HEIGHT / 2 - drone.getHeight() * 2);
+		double droneX = rgen.nextDouble(getWidth(), getWidth() + getWidth() / 2);
+		double droneY = rgen.nextDouble(0, getHeight() / 2 - drone.getHeight() * 2);
 		add(drone, droneX, droneY);
 		drones[2] = drone;
 	}
