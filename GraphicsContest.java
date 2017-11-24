@@ -114,7 +114,7 @@ public class GraphicsContest extends GraphicsProgram {
 		hardcoreCountdownY = hardcoreCountdown.getHeight() * 3;
 		hardcoreCountdown.setColor(Color.WHITE);
 		hardcoreCountdown.setFont(new Font("Arial", Font.BOLD, 20));
-		add(finalScore, hardcoreCountdownX, hardcoreCountdownY);
+		add(hardcoreCountdown, hardcoreCountdownX, hardcoreCountdownY);
 	}
 	
 	
