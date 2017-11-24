@@ -130,13 +130,13 @@ public class GraphicsContest extends GraphicsProgram {
 	private void moveParty() {
 		if(started) {
 			if(yVel < MAX_SPEED) {
-				kareldolph.move(xVel, yVel);
 				yVel++;
 			}
+			kareldolph.move(xVel, yVel);
 			if(sY < MAX_SPEED) {
-				sleighran.move(sX, sY);
 				sY++;
 			}
+			sleighran.move(sX, sY);
 		}
 	}
 	
