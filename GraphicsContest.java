@@ -55,6 +55,7 @@ public class GraphicsContest extends GraphicsProgram {
 	private boolean musicStarted = false;
 	
 	public GCompound[] houses = new GCompound[5];
+	public GCompound[] drones = new GCompound [3];
 	private String hexcolor = "#F29352";
 	private double hx = -2;   // houses moving left
 	private double hy = 0;    // houses do not move up or down
@@ -79,16 +80,40 @@ public class GraphicsContest extends GraphicsProgram {
 		addBackground();
 		createHouses();	
 		addParty();
+		createDrones();
 		setTimer();
 		addMouseListeners();
 		addKeyListeners();
+	}
 /////////////////////////////////////////////////////////		
 ///////////////////// FIX THIS /////////////////////////
-// TASKS: Score count, countdown to something Hardcore (speedup), intro screen, make 
-// everything better, boundaries, drones end game too
-		drone = new Drone();
-		add(drone, WIDTH / 2, HEIGHT /2 );
+//TASKS: Score count, countdown to something Hardcore (speedup), intro screen, make 
+//everything better, boundaries, drones end game too
+	
+	private void createDrones() {
+		double droneY;
+		double droneX = rgen.nextDouble(0, kareldolph.getWidth() + rope.getWidth() + sleighran.getWidth() + PARTY_SPACE * 2);
+		for(int i = 0; i < 3; i++) {
+			drone = new Drone();
+			droneY = rgen.nextDouble(0,  getWidth() / 2 - drone.getHeight());
+			add(drone, droneX, droneY);
+			drones[i] = drone;
+			droneX += drone.getWidth() + PARTY_SPACE;
+		}
 	}
+	
+//	private void createHouses() {	
+//		double x = 0;   // x location of house
+//		for(int i = 0; i < 5; i++) {
+//			house = new House(hexcolor);
+//			String nextColor = getRandomNewColor(house.getColor());
+//			double y = getHeight() - house.base.getHeight() - BOTTOM_SPACE;  // y location of house
+//			add(house, x, y);
+//			houses[i] = house;
+//			x += house.getWidth() - HOUSE_SPACE;
+//			hexcolor = nextColor;
+//		} 
+//	}
 	
 	Timer timer;
 	
