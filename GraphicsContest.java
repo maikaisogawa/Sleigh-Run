@@ -108,6 +108,9 @@ public class GraphicsContest extends GraphicsProgram {
 	
 	private void keepScore() {
 		remove(scoreCount);
+		if(houses[0].getX() + houses[0].getWidth() <= kareldolph.getX()) {
+			score++;
+		}
 		scoreCount = new GLabel(String.valueOf(score));
 		scoreX = getWidth() / 2 - scoreCount.getWidth();
 		scoreY = getHeight() / 2 - 80;
@@ -208,6 +211,7 @@ public class GraphicsContest extends GraphicsProgram {
 	}
 	
 	private void playGameOver() {
+		remove(scoreCount);
 		musicStarted = false;
 		playMusic();
 		remove(sleighran);
