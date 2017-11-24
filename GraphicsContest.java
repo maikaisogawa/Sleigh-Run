@@ -119,7 +119,7 @@ public class GraphicsContest extends GraphicsProgram {
 	private double yVel = 2;
 	
 	private double sX = 0;
-	private double sY = -2;
+	private double sY = -10;
 	
 	private static final int MAX_SPEED = 8;
 	
