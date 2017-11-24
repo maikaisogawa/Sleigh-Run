@@ -20,6 +20,12 @@ public class House extends GCompound {
 		side.setFilled(true);
 		side.setFillColor(theColor);
 		
+		// creates chimney
+		chimney = new GRect(CHIMNEY_WIDTH, CHIMNEY_HEIGHT);
+		chimney.setColor(Color.LIGHT_GRAY);
+		chimney.setFilled(true);
+		chimney.setFillColor(Color.LIGHT_GRAY);
+		
 		// base square of house
 		base = new GRect(HOUSE_WIDTH, HOUSE_HEIGHT);
 		base.setColor(walnut);
@@ -108,6 +114,7 @@ public class House extends GCompound {
 		add(side, 0, 0);
 		add(sideRoof, SIDE_WIDTH / 2, 0 - SIDE_ROOF_HEIGHT / 2);
 		add(sideDeco, 0 - 5, SIDE_HEIGHT / 2 - SIDE_DECO_HEIGHT);
+		add(chimney, SIDE_WIDTH + HOUSE_WIDTH / 2, 0);
 		add(base, SIDE_WIDTH / 2, SIDE_HEIGHT - HOUSE_HEIGHT);
 		add(doorFront, 0, SIDE_HEIGHT - DOOR_FRONT_HEIGHT);
 		add(doorRoof, SIDE_WIDTH / 2, SIDE_HEIGHT / 2 + DOOR_ROOF_HEIGHT / 2);
@@ -243,6 +250,8 @@ public class House extends GCompound {
 	private static final int DOOR_HEIGHT = 30;
 	private static final int STEP_WIDTH = 25;
 	private static final int STEP_HEIGHT = 4;
+	private static final int CHIMNEY_WIDTH = 20;
+	private static final int CHIMNEY_HEIGHT = 40;
 	
 	private static final int NUM_COLORS = 5;
 	
@@ -257,6 +266,7 @@ public class House extends GCompound {
 	private GRect window2;
 	private GRect window3;
 	private GRect door;
+	private GRect chimney;
 	
 	private GPolygon roof;
 	private GPolygon sideRoof;
