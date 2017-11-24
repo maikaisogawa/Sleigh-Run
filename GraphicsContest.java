@@ -191,9 +191,16 @@ public class GraphicsContest extends GraphicsProgram {
 	AudioClip sarajevo;
 	
 	private void playMusic() {
+		
 		if(musicStarted) {
-			sarajevo = MediaTools.loadAudioClip("sarajevo.mp3");
-			sarajevo.play();
+			try{
+				sarajevo = MediaTools.loadAudioClip("sarajevo.mp3");
+				sarajevo.play();
+			}catch (Exception e){
+				System.out.println(e.toString());
+			}
+//			sarajevo = MediaTools.loadAudioClip("sarajevo.mp3");
+//			sarajevo.play();
 		} else if(!musicStarted) {
 			sarajevo.stop();
 		}
