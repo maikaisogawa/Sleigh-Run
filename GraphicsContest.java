@@ -14,8 +14,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Timer;
 import java.util.TimerTask;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.TimeoutException;
 
 import javax.imageio.ImageIO;
 import javax.sound.sampled.AudioInputStream;
@@ -68,12 +66,7 @@ public class GraphicsContest extends GraphicsProgram {
 
 	public void run() {
 		while(true) {
-		try {
-			setup();
-		} catch (InterruptedException | TimeoutException | ExecutionException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		setup();
 		waitForPlayer();
 		while(!gameOver) {
 			housesMove();
@@ -87,7 +80,7 @@ public class GraphicsContest extends GraphicsProgram {
 		}
 	}
 	
-	private void setup() throws InterruptedException, TimeoutException, ExecutionException {
+	private void setup() {
 		addBackground();
 		createHouses();	
 		addParty();
@@ -98,12 +91,15 @@ public class GraphicsContest extends GraphicsProgram {
 	
 	Timer timer;
 	
-	private void setTimer() throws InterruptedException, TimeoutException, ExecutionException {
-		timer.schedule(new TimerTask() {
-			  public void run() {
-			    DELAY = 10;
-			  }
-			}, 38*1000);
+	private void setTimer() {
+		timer = new Timer();
+	    timer.schedule(new ThisTask(), (long)38 * 1000);
+	}
+	
+	class ThisTask extends TimerTask {
+		public void run() {
+			DELAY = 10;
+		}
 	}
 	
 	private void checkForCollisions() {
