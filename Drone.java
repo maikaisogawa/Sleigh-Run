@@ -20,7 +20,7 @@ public class Drone extends GCompound {
 			e.printStackTrace();
 		}
 		GImage drone = new GImage(droneImage);
-		drone.scale(0.25);
+		drone.scale(0.4);
 		add(drone, 0, 0);
 	}
 }
