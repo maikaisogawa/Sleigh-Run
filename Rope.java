@@ -11,7 +11,7 @@ public class Rope extends GCompound {
 		add(ropeStart, 0, 0);
 	}
 	
-	private static final int RADIUS = 80;
+	private static final int RADIUS = 100;
 	
 	private GArc ropeStart;
 	
