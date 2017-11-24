@@ -84,18 +84,18 @@ public class GraphicsContest extends GraphicsProgram {
  * Run method for Sleigh Run Game
  */
 	public void run() {
-		while(true) {
-			setup();
-			waitForPlayer();
-			while(!gameOver) {
-				keepScore();
-				gamePlay();
-				checkForCollisions();
-				pause(delay);
+		while(true) {  // runs in continuous loop so player can enjoy the game and BE HARDCORE
+			setup();  // sets up game
+			waitForPlayer();  // waits for player to click to start game
+			while(!gameOver) {   // while player has not yet lost
+				keepScore();     // tracks score of player
+				gamePlay();      // provides motion and housekeeping of objects
+				checkForCollisions();   // checks for collisions of kareldolph and anything
+				pause(delay);     // delay in visuals for game play *speed* of game
 			}
-			playGameOver();
-			finalScore();
-			waitForRestart();
+			playGameOver();  // provides end of game play and resets functions
+			finalScore();    // gives final score to player
+			waitForRestart();  // waits for player to click to restart game
 		}
 	}
 /*
@@ -103,12 +103,12 @@ public class GraphicsContest extends GraphicsProgram {
  * to be removed from screen and new ones added
  */
 	private void gamePlay() {
-		housesMove();
-		moveParty();
-		checkHouses();
-		if(hardcore) {
-			dronesMove();
-			checkDrones();
+		housesMove();   // motion of houses
+		moveParty();    // motion of party
+		checkHouses();  // if houses have gone off screen, removes house and adds another (array housekeeping)
+		if(hardcore) {  // if music has dropped/double speed has started
+			dronesMove();   // drones begin to move 
+			checkDrones();  // drone housekeeping add/remove to array and screen
 		}
 	}
 /*
@@ -116,17 +116,15 @@ public class GraphicsContest extends GraphicsProgram {
  * and adds Mouse/Key Listeners
  */
 	private void setup() {
-		createWorld();
-		setTitle("Sleigh Run");
-//		addBackground();
-//		createHouses();	
-//		addParty();
-//		createDrones();
-		setTimer();
+		createWorld();  // adds graphics and objects to screen
+		setTitle("Sleigh Run");  // sets title of game
+		setTimer();   // sets timer
 		addMouseListeners();
 		addKeyListeners();
 	}
-	
+/*
+ * This method creates the visuals and objects of the game
+ */
 	private void createWorld() {
 		addBackground();
 		createHouses();	
