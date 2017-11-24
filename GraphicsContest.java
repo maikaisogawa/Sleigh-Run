@@ -107,6 +107,54 @@ public class GraphicsContest extends GraphicsProgram {
 		}
 	}
 /*
+ * This method sets up the graphics and creates the objects in the game. It also sets the timer
+ * and adds Mouse/Key Listeners
+ */
+	private void setup() {
+		createWorld();  // adds graphics and objects to screen
+		setTitle("Sleigh Run");  // sets title of game
+		setTimer();   // sets timer
+		addMouseListeners();
+		addKeyListeners();
+	}
+/*	
+ * Waits for player's click to play game
+ */
+	private void waitForPlayer() {
+		GLabel start = new GLabel("CLICK TO START");  // creates starting prompt
+		double x = getWidth() / 2 - start.getWidth() - start.getWidth() / 2;
+		double y = getHeight() / 2 - 80;
+		start.setColor(Color.WHITE);
+		start.setFont(new Font("Arial", Font.BOLD, 38));
+		start.setLocation(x,y);
+		add(start); // add label
+		waitForClick();            // waits for player's click
+		remove(start);             // removes label from screen
+		scoreCount = new GLabel(String.valueOf(score));  // creates score count label
+		scoreX = getWidth() / 2 - scoreCount.getWidth();
+		scoreY = getHeight() / 2 - 80;
+		add(scoreCount, scoreX, scoreY);     // adds score count label to screen
+		started = true;         // starts game function
+		musicStarted = true;      // starts music function
+		playMusic();            // plays the music
+	}
+/*
+ * This method keeps track of the player's score and adds the score label to the screen
+ */
+	private void keepScore() {
+		remove(scoreCount);  // removes previously placed label
+		if(houses[0].getX() + houses[0].getWidth() == kareldolph.getX()) { // if house has passed
+			score++;  // increases score count
+		} 
+		scoreCount = new GLabel(String.valueOf(score));  // creates new score label
+		scoreX = getWidth() / 2 - scoreCount.getWidth();  // x location of label
+		scoreY = getHeight() / 2 - 80;                     // y location of label
+		scoreCount.setColor(Color.WHITE);                // sets color of label
+		scoreCount.setFont(new Font("Arial", Font.BOLD, 38));  // sets font of label
+		scoreCount.setLocation(scoreX,scoreY);             // sets location of label
+		add(scoreCount);                                 // add label
+	}
+/*
  * This method provides the motion of the objects in the game as well as checks if objects need
  * to be removed from screen and new ones added
  */
@@ -120,15 +168,32 @@ public class GraphicsContest extends GraphicsProgram {
 		}
 	}
 /*
- * This method sets up the graphics and creates the objects in the game. It also sets the timer
- * and adds Mouse/Key Listeners
+ * This method checks for collisions of kareldolph with houses or drones or boundaries.
+ * Any collision ends the game
  */
-	private void setup() {
-		createWorld();  // adds graphics and objects to screen
-		setTitle("Sleigh Run");  // sets title of game
-		setTimer();   // sets timer
-		addMouseListeners();
-		addKeyListeners();
+	private void checkForCollisions() {
+		for(int i = 0; i < houses.length; i++) { // checks every hosue for collision
+			if(getElementAt(kareldolph.getX(), kareldolph.getY()) == houses[i]) {   // upper left corner of kareldolph
+				gameOver = true;
+			} else if(getElementAt(kareldolph.getX() + kareldolph.getWidth(), kareldolph.getY()) == houses[i]) { // upper right corner
+				gameOver = true;
+			} else if(getElementAt(kareldolph.getX(), kareldolph.getY() + kareldolph.getHeight()) == houses[i]) { // bottom left corner
+				gameOver = true;
+			} else if(getElementAt(kareldolph.getX() + kareldolph.getWidth(), kareldolph.getY() + kareldolph.getHeight()) == houses[i]) {  // bottom right corner
+				gameOver = true;
+			}
+		}
+		for(int j = 0; j < drones.length; j++) {  // checks all drones for collision
+			if(getElementAt(kareldolph.getX(), kareldolph.getY()) == drones[j]) {   // upper left corner of kareldolph
+				gameOver = true;
+			} else if(getElementAt(kareldolph.getX() + kareldolph.getWidth(), kareldolph.getY()) == drones[j]) { // upper right corner
+				gameOver = true;
+			} else if(getElementAt(kareldolph.getX(), kareldolph.getY() + kareldolph.getHeight()) == drones[j]) { // bottom left corner
+				gameOver = true;
+			} else if(getElementAt(kareldolph.getX() + kareldolph.getWidth(), kareldolph.getY() + kareldolph.getHeight()) == drones[j]) {  // bottom right corner
+				gameOver = true;
+			}
+		}
 	}
 /*
  * This method creates the visuals and objects of the game
@@ -149,22 +214,6 @@ public class GraphicsContest extends GraphicsProgram {
 		finalScore.setColor(Color.WHITE);    // sets color of label
 		finalScore.setFont(new Font("Arial", Font.BOLD, 38));  // sets font of label
 		add(finalScore, finalX, finalY);  // adds label to screen
-	}
-/*
- * This method keeps track of the player's score and adds the score label to the screen
- */
-	private void keepScore() {
-		remove(scoreCount);  // removes previously placed label
-		if(houses[0].getX() + houses[0].getWidth() == kareldolph.getX()) { // if house has passed
-			score++;  // increases score count
-		} 
-		scoreCount = new GLabel(String.valueOf(score));  // creates new score label
-		scoreX = getWidth() / 2 - scoreCount.getWidth();  // x location of label
-		scoreY = getHeight() / 2 - 80;                     // y location of label
-		scoreCount.setColor(Color.WHITE);                // sets color of label
-		scoreCount.setFont(new Font("Arial", Font.BOLD, 38));  // sets font of label
-		scoreCount.setLocation(scoreX,scoreY);             // sets location of label
-		add(scoreCount);                                 // add label
 	}
 /*	
  * This method adds the drones to the screen and to the drones array
@@ -240,34 +289,6 @@ public class GraphicsContest extends GraphicsProgram {
 	private void setTimer() {
 		timer = new Timer();  // creates timer
 		timer.schedule(new ThisTask(), (long)TIMER_LENGTH * 1000);   // cue on musical drop
-	}
-/*
- * This method checks for collisions of kareldolph with houses or drones or boundaries.
- * Any collision ends the game
- */
-	private void checkForCollisions() {
-		for(int i = 0; i < houses.length; i++) { // checks every hosue for collision
-			if(getElementAt(kareldolph.getX(), kareldolph.getY()) == houses[i]) {   // upper left corner of kareldolph
-				gameOver = true;
-			} else if(getElementAt(kareldolph.getX() + kareldolph.getWidth(), kareldolph.getY()) == houses[i]) { // upper right corner
-				gameOver = true;
-			} else if(getElementAt(kareldolph.getX(), kareldolph.getY() + kareldolph.getHeight()) == houses[i]) { // bottom left corner
-				gameOver = true;
-			} else if(getElementAt(kareldolph.getX() + kareldolph.getWidth(), kareldolph.getY() + kareldolph.getHeight()) == houses[i]) {  // bottom right corner
-				gameOver = true;
-			}
-		}
-		for(int j = 0; j < drones.length; j++) {  // checks all drones for collision
-			if(getElementAt(kareldolph.getX(), kareldolph.getY()) == drones[j]) {   // upper left corner of kareldolph
-				gameOver = true;
-			} else if(getElementAt(kareldolph.getX() + kareldolph.getWidth(), kareldolph.getY()) == drones[j]) { // upper right corner
-				gameOver = true;
-			} else if(getElementAt(kareldolph.getX(), kareldolph.getY() + kareldolph.getHeight()) == drones[j]) { // bottom left corner
-				gameOver = true;
-			} else if(getElementAt(kareldolph.getX() + kareldolph.getWidth(), kareldolph.getY() + kareldolph.getHeight()) == drones[j]) {  // bottom right corner
-				gameOver = true;
-			}
-		}
 	}
 /*
  * This sequence runs when the game is over
@@ -367,27 +388,6 @@ public class GraphicsContest extends GraphicsProgram {
 		add(kareldolph, kareldolphX, kareldolphY);   // adds kareldolph to screen
 		rope = new Rope();        // creates new rope
 		add(rope, PARTY_SPACE - 45, getHeight() / 2);    // adds rope to screen
-	}
-/*	
- * Waits for player's click to play game
- */
-	private void waitForPlayer() {
-		GLabel start = new GLabel("CLICK TO START");  // creates starting prompt
-		double x = getWidth() / 2 - start.getWidth() - start.getWidth() / 2;
-		double y = getHeight() / 2 - 80;
-		start.setColor(Color.WHITE);
-		start.setFont(new Font("Arial", Font.BOLD, 38));
-		start.setLocation(x,y);
-		add(start); // add label
-		waitForClick();            // waits for player's click
-		remove(start);             // removes label from screen
-		scoreCount = new GLabel(String.valueOf(score));  // creates score count label
-		scoreX = getWidth() / 2 - scoreCount.getWidth();
-		scoreY = getHeight() / 2 - 80;
-		add(scoreCount, scoreX, scoreY);     // adds score count label to screen
-		started = true;         // starts game function
-		musicStarted = true;      // starts music function
-		playMusic();            // plays the music
 	}
 /*
  * This method plays music if the game has started, stops music if game is over or not started
