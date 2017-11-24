@@ -6,7 +6,7 @@ import acm.graphics.GCompound;
 public class Rope extends GCompound {
 
 	public Rope() {
-		ropeStart = new GArc(2 * RADIUS, 2 * RADIUS, 20, 90);
+		ropeStart = new GArc(2 * RADIUS, 2 * RADIUS, 80, 30);
 		ropeStart.setColor(gold);
 		add(ropeStart, 0, 0);
 	}
