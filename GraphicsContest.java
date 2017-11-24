@@ -82,6 +82,7 @@ public class GraphicsContest extends GraphicsProgram {
 		setTimer();
 		addMouseListeners();
 		addKeyListeners();
+		drone = new Drone();
 		add(drone, WIDTH / 2, HEIGHT /2 );
 	}
 	
