@@ -212,7 +212,6 @@ public class GraphicsContest extends GraphicsProgram {
 	
 	private void playGameOver() {
 		remove(scoreCount);
-		score = 0;
 		musicStarted = false;
 		playMusic();
 		remove(sleighran);
@@ -237,6 +236,8 @@ public class GraphicsContest extends GraphicsProgram {
 		playAgain.setFont(new Font("Arial", Font.BOLD, 20));
 		playAgain.setLocation(dx,dy);
 		add(playAgain);
+		GLabel finalScore = new GLabel("Your score was: " + score);
+		add(finalScore, getWidth() / 2 - finalScore.getWidth() / 2, getHeight() / 2 + 30);
 	}
 
 	private double xVel = 0;
@@ -321,6 +322,7 @@ public class GraphicsContest extends GraphicsProgram {
 	
 	private void waitForRestart() {
 		waitForClick();  // waits for player's click
+		score = 0;
 	}
 	
 	
