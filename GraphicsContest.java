@@ -95,7 +95,7 @@ public class GraphicsContest extends GraphicsProgram {
 		double droneX = rgen.nextDouble(0, kareldolph.getWidth() + rope.getWidth() + sleighran.getWidth() + PARTY_SPACE * 2);
 		for(int i = 0; i < 3; i++) {
 			drone = new Drone();
-			droneY = rgen.nextDouble(0,  getWidth() / 2 - drone.getHeight());
+			droneY = rgen.nextDouble(getWidth() / 2 - drone.getHeight(), getWidth() - drone.getWidth());
 			add(drone, droneX, droneY);
 			drones[i] = drone;
 			droneX += drone.getWidth() + PARTY_SPACE;
