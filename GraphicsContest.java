@@ -91,6 +91,10 @@ public class GraphicsContest extends GraphicsProgram {
 		}
 	}
 	
+	public void actionPerformed(ActionEvent e) {
+		jump();
+	}
+	
 	public void jump() {
 		yVel = -15;
 	}
