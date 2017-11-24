@@ -285,7 +285,7 @@ public class House extends GCompound {
 	private static final int NUM_COLORS = 5;
 	private static final int MAX_PUFFS = 5;
 	
-	private GRect base;
+	public GRect base;
 	private GRect fence;
 	private GRect side;
 	private GRect sideDeco;
