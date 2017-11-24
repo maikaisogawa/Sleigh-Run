@@ -126,7 +126,7 @@ public class House extends GCompound {
 			e.printStackTrace();
 		}
 		GImage smokePuff = new GImage(puff);
-	//	mehran.scale(1);
+		smokePuff.scale(0.1);
 		
 		
 		// adds all components
