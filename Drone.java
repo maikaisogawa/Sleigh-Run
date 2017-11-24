@@ -21,5 +21,6 @@ public class Drone extends GCompound {
 		}
 		GImage drone = new GImage(droneImage);
 		drone.scale(1);
+		add(drone, 0, 0);
 	}
 }
