@@ -274,12 +274,12 @@ public class GraphicsContest extends GraphicsProgram {
  */
 	private void playGameOver() {
 		resetFunctions();
-		remove(scoreCount);
-	//	musicStarted = false;
+		removeLabels();
+	//	remove(scoreCount);
 		playMusic();
-		remove(sleighran);
-		remove(rope);
-		remove(kareldolph);
+//		remove(sleighran);
+//		remove(rope);
+//		remove(kareldolph);
 		GLabel endGame = new GLabel("THAT'S THE END!");  // creates starting prompt
 		double x = getWidth() / 2 - endGame.getWidth() - endGame.getWidth() / 2;
 		double y = getHeight() / 2 - 80;
@@ -287,11 +287,8 @@ public class GraphicsContest extends GraphicsProgram {
 		endGame.setFont(new Font("Arial", Font.BOLD, 38));
 		endGame.setLocation(x,y);
 		add(endGame);
-	//	started = false;
-	//	gameOver = false;
-	//	hardcore = false;
-		delay = 20;
-		timer.cancel();
+//		delay = 20;
+//		timer.cancel();
 		GLabel playAgain = new GLabel("CLICK TO PLAY AGAIN?");  // creates starting prompt
 		double dx = getWidth() / 2 - playAgain.getWidth() + 20;
 		double dy = getHeight() / 2;
@@ -301,11 +298,20 @@ public class GraphicsContest extends GraphicsProgram {
 		add(playAgain);
 	}
 	
+	private void removeLabels() {
+		remove(scoreCount);
+		remove(sleighran);
+		remove(rope);
+		remove(kareldolph);
+	}
+	
 	private void resetFunctions() {
 		musicStarted = false;
 		started = false;
 		gameOver = false;
 		hardcore = false;
+		delay = 20;
+		timer.cancel();
 	}
 /*
  * This method moves kareldolph, sleighran, and rope on the screen
