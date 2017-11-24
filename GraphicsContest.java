@@ -61,7 +61,7 @@ public class GraphicsContest extends GraphicsProgram {
 			housesMove();
 			moveParty();
 			checkHouses();
-			checkForCollisions();
+	//		checkForCollisions();
 			pause(DELAY);
 		}
 		playGameOver();
@@ -75,13 +75,13 @@ public class GraphicsContest extends GraphicsProgram {
 		addKeyListeners();
 	}
 	
-	private void checkForCollisions() {
-		if(kareldolph.getY() + kareldolph.getHeight() >= house.getHeight()) { // if gets to tops of houses
-			gameOver = true;
-		} else if(kareldolph.getY() <= 0) { // if goes off top of screen
-			gameOver = true;
-		}
-	}
+//	private void checkForCollisions() {
+//		if(kareldolph.getY() + kareldolph.getHeight() >= house.getHeight()) { // if gets to tops of houses
+//			gameOver = true;
+//		} else if(kareldolph.getY() <= 0) { // if goes off top of screen
+//			gameOver = true;
+//		}
+//	}
 	
 	private void playGameOver() {
 		remove(sleighran);
