@@ -64,19 +64,19 @@ public class GraphicsContest extends GraphicsProgram {
 
 	public void run() {
 		while(true) {
-		setup();
-		waitForPlayer();
-		while(!gameOver) {
-			housesMove();
-			moveParty();
-			checkHouses();
-			dronesMove();
-			checkDrones();
-			checkForCollisions();
-			pause(DELAY);
-		}
-		playGameOver();
-		waitForRestart();
+			setup();
+			waitForPlayer();
+			while(!gameOver) {
+				housesMove();
+				moveParty();
+				checkHouses();
+				dronesMove();
+				checkDrones();
+				checkForCollisions();
+				pause(DELAY);
+			}
+			playGameOver();
+			waitForRestart();
 		}
 	}
 	
@@ -137,19 +137,7 @@ public class GraphicsContest extends GraphicsProgram {
 		add(drone, droneX, droneY);
 		drones[2] = drone;
 	}
-	
-//	private void addHouse() {
-//		String nextColor = getRandomNewColor(house.getColor());
-//		house = new House(hexcolor);
-//		double x = house.getWidth() * 4 - HOUSE_SPACE - 60;
-//		double y = getHeight() - house.base.getHeight() - BOTTOM_SPACE;
-//		add(house, x, y);
-//		houses[4] = house;
-//		hexcolor = nextColor;
-//	}
-	
 
-	
 	Timer timer;
 	
 	private void setTimer() {
@@ -195,6 +183,7 @@ public class GraphicsContest extends GraphicsProgram {
 		add(endGame);
 		started = false;
 		gameOver = false;
+		timer.cancel();
 		GLabel playAgain = new GLabel("CLICK TO PLAY AGAIN?");  // creates starting prompt
 		double dx = getWidth() / 2 - playAgain.getWidth() + 20;
 		double dy = getHeight() / 2;
