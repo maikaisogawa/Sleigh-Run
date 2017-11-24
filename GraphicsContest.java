@@ -91,7 +91,7 @@ public class GraphicsContest extends GraphicsProgram {
 		}
 	}
 	
-	public void actionPerformed(ActionEvent e) {
+	public void mouseClicked(MouseEvent e) {
 		jump();
 	}
 	
