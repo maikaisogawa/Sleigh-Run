@@ -70,6 +70,7 @@ public class GraphicsContest extends GraphicsProgram {
 			setup();
 			waitForPlayer();
 			while(!gameOver) {
+				keepScore();
 				housesMove();
 				moveParty();
 				checkHouses();
@@ -99,6 +100,19 @@ public class GraphicsContest extends GraphicsProgram {
 ///////////////////// FIX THIS /////////////////////////
 //TASKS: Score count, countdown to something Hardcore (speedup), intro screen, make 
 //everything better, boundaries, 
+	
+	private int score = 0;
+	GLabel scoreCount = new GLabel(String.valueOf(score));
+	private double scoreX = getWidth() / 2 - scoreCount.getWidth();
+	private double scoreY = getHeight() / 2 - 80;
+	
+	private void keepScore() {
+		remove(scoreCount);
+		scoreCount.setColor(Color.WHITE);
+		scoreCount.setFont(new Font("Arial", Font.BOLD, 38));
+		scoreCount.setLocation(scoreX,scoreY);
+		add(scoreCount); // add label
+	}
 	
 	private void createDrones() {
 		double droneY;
@@ -276,6 +290,7 @@ public class GraphicsContest extends GraphicsProgram {
 		add(start); // add label
 		waitForClick();  // waits for player's click
 		remove(start);  // removes label from screen
+		add(scoreCount);
 		started = true;
 		musicStarted = true;
 		playMusic();
