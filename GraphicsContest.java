@@ -203,6 +203,13 @@ public class GraphicsContest extends GraphicsProgram {
 		makeEndLabels();  // creates labels to inform player
 		finalScore();  // gives final score to player
 	}
+/*	
+ * This method occurs after game has ended, and waits for user to click again. resets score
+ */
+	private void waitForRestart() {
+		waitForClick();  // waits for player's click
+		score = 0;  // resets player's score
+	}	
 /*
  * This method creates the visuals and objects of the game
  */
@@ -213,15 +220,45 @@ public class GraphicsContest extends GraphicsProgram {
 		createDrones();    // creates drones and adds to screen
 	}
 /*
- * This method provides the player with the final score after the game has ended
+ * This method adds the starry night background image
  */
-	private void finalScore() {
-		finalScore = new GLabel("Your score was: " + score);  // creates label
-		finalX = getWidth() / 2 - finalScore.getWidth() / 2 * 3;  // x location
-		finalY = finalScore.getHeight() * 3;   // y location
-		finalScore.setColor(Color.WHITE);    // sets color of label
-		finalScore.setFont(new Font("Arial", Font.BOLD, 38));  // sets font of label
-		add(finalScore, finalX, finalY);  // adds label to screen
+	private void addBackground() {		
+		Image logo = null;	
+		ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
+		InputStream input = classLoader.getResourceAsStream("img.jpg");
+		try {
+			logo = ImageIO.read(input);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		GImage background = new GImage(logo);
+		add(background, 0, 0);  // adds background to screen
+	}
+/*
+ * This method creates the initial houses on the screen
+ */
+	private void createHouses() {	
+		double x = 0;   // x location of house
+		for(int i = 0; i < houses.length; i++) {
+			house = new House(hexcolor);  // creates new house with random color
+			String nextColor = getRandomNewColor(house.getColor());
+			double y = getHeight() - house.base.getHeight() - BOTTOM_SPACE;  // y location of house
+			add(house, x, y);  // adds house to screen
+			houses[i] = house;  // adds house to array
+			x += house.getWidth() - HOUSE_SPACE;   // space between houses
+			hexcolor = nextColor; // gets new color for house
+		} 
+	}
+/*
+ * This method adds sleighran, kareldolph, and rope to screen
+ */
+	private void addParty() {
+		sleighran = new Sleighran();   // creates new sleighran
+		add(sleighran, PARTY_SPACE, getHeight() / 2);  // adds sleighran to screen
+		kareldolph = new Kareldolph();   // creates new kareldolph
+		add(kareldolph, kareldolphX, kareldolphY);   // adds kareldolph to screen
+		rope = new Rope();        // creates new rope
+		add(rope, PARTY_SPACE - 45, getHeight() / 2);    // adds rope to screen
 	}
 /*	
  * This method adds the drones to the screen and to the drones array
@@ -238,6 +275,93 @@ public class GraphicsContest extends GraphicsProgram {
 			drones[i] = drone;        // adds drone to array
 			droneX += droneSpace;       // increases drone space
 		}
+	}
+/*
+ * Timer class to keep track of when to speed up game
+ */
+	class ThisTask extends TimerTask {
+		public void run() {
+			delay = delayChange;   // makes everything move faster
+			hardcore = true;     // makes game hardcore
+			setTimer();        // sets the timer
+			delayChange--;    // makes movement faster every time 34 seconds pass
+		}
+	}
+/*	
+ * Sets the timer
+ */
+	private void setTimer() {
+		timer = new Timer();  // creates timer
+		timer.schedule(new ThisTask(), (long)TIMER_LENGTH * 1000);   // cue on musical drop
+	}
+/*
+ * This method plays music if the game has started, stops music if game is over or not started
+ */
+	private void playMusic() {
+		if(musicStarted) {        // if the game has started
+			sarajevo = MediaTools.loadAudioClip("sarajevo.wav");  // new audio 
+			sarajevo.play();      // plays song
+		} else if(!musicStarted) {   // if game over or game not started
+			sarajevo.stop();   // stops music
+		}
+	}
+/*	
+ * This method moves the houses horizontally across the screen
+ */
+	private void housesMove() {
+		for(int i = 0; i < houses.length; i++) {  // moves all houses in array
+			houses[i].move(hx,hy);
+		}
+	}
+/*
+ * This method moves kareldolph, sleighran, and rope on the screen
+ */
+	private void moveParty() { // sleighran moves slightly behind kareldolph, for 'natural' motion
+		double sX = 0;    // party does not move in horizontally across screen
+		double sY = kareldolph.getY() - (sleighran.getY() + 2); // difference between kareldolph and sleighran
+		if(started) {   // moves when game starts
+			if(yVel < MAX_SPEED) {   // if not yet max speed of 'falling' kareldolph
+				yVel++;              // increases falling speed - simulates 'gravity'
+			}
+			kareldolph.move(xVel, yVel);   // moves kareldolph
+			if(sY < MAX_SPEED) {  // if not yet max speed of 'falling' sleighran
+				sY++;               // increases falling speed - simulates 'gravity'
+			}
+			sleighran.move(sX, sY);  // sleighran and rope move together
+			rope.move(sX, sY);       // sleighran and rope move together
+		}
+	}
+/*
+ * This method checks if house has gone off screen, removes house if so, and adds new house to array
+ */
+	private void checkHouses() {
+		for(int i = 0; i < houses.length; i++) {  // checks all houses
+			if(houses[i].getX() < 0 - house.getWidth()) { // if the house is off screen
+				remove(houses[i]);  // removes the house that went off screen
+				adjustArray();   // updates the array
+				addHouse();       // adds a new house to the game and array
+			}
+		}
+	}
+/*
+ * This method adjusts the array so that next house is moved to prior
+ */
+	private void adjustArray() {
+		for(int i = 0; i < houses.length - 1; i++) {
+			houses[i] = houses[i + 1];  // moves houses in array
+		}
+	}
+/*
+ * This method adds a new house to the screen and houses array
+ */
+	private void addHouse() {
+		String nextColor = getRandomNewColor(house.getColor());
+		house = new House(hexcolor);  // generates new house
+		double x = house.getWidth() * 4 - HOUSE_SPACE - 60;
+		double y = getHeight() - house.base.getHeight() - BOTTOM_SPACE;
+		add(house, x, y);  // adds house to screen
+		houses[houses.length - 1] = house;  // adds new house to last space in array
+		hexcolor = nextColor;  // gets new color for array
 	}
 /*
  * This method makes the drones move
@@ -279,55 +403,6 @@ public class GraphicsContest extends GraphicsProgram {
 		add(drone, droneX, droneY);  // adds drone to screen
 		drones[drones.length - 1] = drone;  // adds drone to end of drones array
 	}
-
-/*
- * Timer class to keep track of when to speed up game
- */
-	class ThisTask extends TimerTask {
-		public void run() {
-			delay = delayChange;   // makes everything move faster
-			hardcore = true;     // makes game hardcore
-			setTimer();        // sets the timer
-			delayChange--;    // makes movement faster every time 34 seconds pass
-		}
-	}
-/*	
- * Sets the timer
- */
-	private void setTimer() {
-		timer = new Timer();  // creates timer
-		timer.schedule(new ThisTask(), (long)TIMER_LENGTH * 1000);   // cue on musical drop
-	}
-/*
- * This method adds the labels at the end of the game, notifying player of end of game
- * and prompting another play
- */
-	private void makeEndLabels() {
-		GLabel endGame = new GLabel("THAT'S THE END!");  // notifies player end of game
-		double x = getWidth() / 2 - endGame.getWidth() - endGame.getWidth() / 2;
-		double y = getHeight() / 2 - 80;
-		endGame.setColor(Color.WHITE);
-		endGame.setFont(new Font("Arial", Font.BOLD, 38));
-		endGame.setLocation(x,y);
-		add(endGame);  // adds label to screen
-
-		GLabel playAgain = new GLabel("CLICK TO PLAY AGAIN?");  // creates restart prompt
-		double dx = getWidth() / 2 - playAgain.getWidth() + 20;
-		double dy = getHeight() / 2;
-		playAgain.setColor(Color.WHITE);
-		playAgain.setFont(new Font("Arial", Font.BOLD, 20));
-		playAgain.setLocation(dx,dy);
-		add(playAgain);  // adds label to screen
-	}
-/*
- * This method removes labels and party from screen	
- */
-	private void removeStuff() {
-		remove(scoreCount); 
-		remove(sleighran);   
-		remove(rope);
-		remove(kareldolph);
-	}
 /*
  * This method resets functions so that the game can be played again
  */
@@ -341,22 +416,44 @@ public class GraphicsContest extends GraphicsProgram {
 		playMusic();    // stops music
 	}
 /*
- * This method moves kareldolph, sleighran, and rope on the screen
+ * This method removes labels and party from screen	
  */
-	private void moveParty() { // sleighran moves slightly behind kareldolph, for 'natural' motion
-		double sX = 0;    // party does not move in horizontally across screen
-		double sY = kareldolph.getY() - (sleighran.getY() + 2); // difference between kareldolph and sleighran
-		if(started) {   // moves when game starts
-			if(yVel < MAX_SPEED) {   // if not yet max speed of 'falling' kareldolph
-				yVel++;              // increases falling speed - simulates 'gravity'
-			}
-			kareldolph.move(xVel, yVel);   // moves kareldolph
-			if(sY < MAX_SPEED) {  // if not yet max speed of 'falling' sleighran
-				sY++;               // increases falling speed - simulates 'gravity'
-			}
-			sleighran.move(sX, sY);  // sleighran and rope move together
-			rope.move(sX, sY);       // sleighran and rope move together
-		}
+	private void removeStuff() {
+		remove(scoreCount); 
+		remove(sleighran);   
+		remove(rope);
+		remove(kareldolph);
+	}
+/*
+ * This method adds the labels at the end of the game, notifying player of end of game
+ * and prompting another play
+ */
+	private void makeEndLabels() {
+		GLabel endGame = new GLabel("THAT'S THE END!");  // notifies player end of game
+		double x = getWidth() / 2 - endGame.getWidth() - endGame.getWidth() / 2;
+		double y = getHeight() / 2 - 80;
+		endGame.setColor(Color.WHITE);
+		endGame.setFont(new Font("Arial", Font.BOLD, 38));
+		endGame.setLocation(x,y);
+		add(endGame);  // adds label to screen
+		GLabel playAgain = new GLabel("CLICK TO PLAY AGAIN?");  // creates restart prompt
+		double dx = getWidth() / 2 - playAgain.getWidth() + 20;
+		double dy = getHeight() / 2;
+		playAgain.setColor(Color.WHITE);
+		playAgain.setFont(new Font("Arial", Font.BOLD, 20));
+		playAgain.setLocation(dx,dy);
+		add(playAgain);  // adds label to screen
+	}
+/*
+ * This method provides the player with the final score after the game has ended
+ */
+	private void finalScore() {
+		finalScore = new GLabel("Your score was: " + score);  // creates label
+		finalX = getWidth() / 2 - finalScore.getWidth() / 2 * 3;  // x location
+		finalY = finalScore.getHeight() * 3;   // y location
+		finalScore.setColor(Color.WHITE);    // sets color of label
+		finalScore.setFont(new Font("Arial", Font.BOLD, 38));  // sets font of label
+		add(finalScore, finalX, finalY);  // adds label to screen
 	}
 /*	
  * In the event that the mouse is clicked, party jumps
@@ -377,106 +474,7 @@ public class GraphicsContest extends GraphicsProgram {
 		if(e.getKeyCode() == KeyEvent.VK_SPACE ) {
 			jump();
 		}
-	}
-/*
- * This method adds sleighran, kareldolph, and rope to screen
- */
-	private void addParty() {
-		sleighran = new Sleighran();   // creates new sleighran
-		add(sleighran, PARTY_SPACE, getHeight() / 2);  // adds sleighran to screen
-		kareldolph = new Kareldolph();   // creates new kareldolph
-		add(kareldolph, kareldolphX, kareldolphY);   // adds kareldolph to screen
-		rope = new Rope();        // creates new rope
-		add(rope, PARTY_SPACE - 45, getHeight() / 2);    // adds rope to screen
-	}
-/*
- * This method plays music if the game has started, stops music if game is over or not started
- */
-	private void playMusic() {
-		if(musicStarted) {        // if the game has started
-			sarajevo = MediaTools.loadAudioClip("sarajevo.wav");  // new audio 
-			sarajevo.play();      // plays song
-		} else if(!musicStarted) {   // if game over or game not started
-			sarajevo.stop();   // stops music
-		}
-	}
-/*	
- * This method occurs after game has ended, and waits for user to click again. resets score
- */
-	private void waitForRestart() {
-		waitForClick();  // waits for player's click
-		score = 0;  // resets player's score
-	}	
-/*	
- * This method moves the houses horizontally across the screen
- */
-	private void housesMove() {
-		for(int i = 0; i < houses.length; i++) {  // moves all houses in array
-			houses[i].move(hx,hy);
-		}
 	} 
-/*
- * This method checks if house has gone off screen, removes house if so, and adds new house to array
- */
-	private void checkHouses() {
-		for(int i = 0; i < houses.length; i++) {  // checks all houses
-			if(houses[i].getX() < 0 - house.getWidth()) { // if the house is off screen
-				remove(houses[i]);  // removes the house that went off screen
-				adjustArray();   // updates the array
-				addHouse();       // adds a new house to the game and array
-			}
-		}
-	}
-/*
- * This method adjusts the array so that next house is moved to prior
- */
-	private void adjustArray() {
-		for(int i = 0; i < houses.length - 1; i++) {
-			houses[i] = houses[i + 1];  // moves houses in array
-		}
-	}
-/*
- * This method adds the starry night background image
- */
-	private void addBackground() {		
-		Image logo = null;	
-		ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
-		InputStream input = classLoader.getResourceAsStream("img.jpg");
-		try {
-			logo = ImageIO.read(input);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		GImage background = new GImage(logo);
-		add(background, 0, 0);  // adds background to screen
-	}
-/*
- * This method creates the initial houses on the screen
- */
-	private void createHouses() {	
-		double x = 0;   // x location of house
-		for(int i = 0; i < houses.length; i++) {
-			house = new House(hexcolor);  // creates new house with random color
-			String nextColor = getRandomNewColor(house.getColor());
-			double y = getHeight() - house.base.getHeight() - BOTTOM_SPACE;  // y location of house
-			add(house, x, y);  // adds house to screen
-			houses[i] = house;  // adds house to array
-			x += house.getWidth() - HOUSE_SPACE;   // space between houses
-			hexcolor = nextColor; // gets new color for house
-		} 
-	}
-/*
- * This method adds a new house to the screen and houses array
- */
-	private void addHouse() {
-		String nextColor = getRandomNewColor(house.getColor());
-		house = new House(hexcolor);  // generates new house
-		double x = house.getWidth() * 4 - HOUSE_SPACE - 60;
-		double y = getHeight() - house.base.getHeight() - BOTTOM_SPACE;
-		add(house, x, y);  // adds house to screen
-		houses[houses.length - 1] = house;  // adds new house to last space in array
-		hexcolor = nextColor;  // gets new color for array
-	}
 /*
  * This method generates the colors for the houses along the bottom of the screen
  */
