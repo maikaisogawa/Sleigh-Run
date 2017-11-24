@@ -82,6 +82,9 @@ public class GraphicsContest extends GraphicsProgram {
 		setTimer();
 		addMouseListeners();
 		addKeyListeners();
+/////////////////////////////////////////////////////////		
+///////////////////// FIX THIS /////////////////////////
+// TASKS: Score count, countdown to something Hardcore (speedup), intro screen, make everything better
 		drone = new Drone();
 		add(drone, WIDTH / 2, HEIGHT /2 );
 	}
@@ -104,6 +107,8 @@ public class GraphicsContest extends GraphicsProgram {
 		drone = new Drone();
 		add(drone, getWidth()/2, getHeight());
 	}
+///////////////////// FIX THIS /////////////////////////
+/////////////////////////////////////////////////////////
 	
 	private void checkForCollisions() {
 		for(int i = 0; i < houses.length; i++) {
