@@ -76,15 +76,11 @@ public class GraphicsContest extends GraphicsProgram {
 	}
 	
 	private void checkForCollisions() {
-		if(getElementAt(kareldolph.getX(), kareldolph.getY()) == house) {   // upper left corner
+		if(kareldolph.getY() + kareldolph.getHeight() >= house.getHeight()) { // if gets to tops of houses
 			gameOver = true;
-		} else if(getElementAt(kareldolph.getX() + kareldolph.getWidth(), kareldolph.getY()) == house) { // upper right corner
+		} else if(kareldolph.getY() <= 0) { // if goes off top of screen
 			gameOver = true;
-		} else if(getElementAt(kareldolph.getX(), kareldolph.getY() + kareldolph.getHeight()) == house) { // bottom left corner
-			gameOver = true;
-		} else if(getElementAt(kareldolph.getX() + kareldolph.getWidth(), kareldolph.getY() + kareldolph.getHeight()) == house) {  // bottom right corner
-			gameOver = true;
-		} 
+		}
 	}
 	
 	private void playGameOver() {
