@@ -42,12 +42,15 @@ public class GraphicsContest extends GraphicsProgram {
 	private static final int NUM_HOUSE_COLORS = 6;  // number of house colors
 	private static final int PARTY_SPACE = 20; // space between sleigh and left side of screen
 	private static final int MAX_SPEED = 8;  // maximum speed of falling *gravity* so not too fast
+	private static final int TIMER_LENGTH = 34;  // seconds for timer
 /*	
  * Instance Variables
  */
 	public static GraphicsContest sleighRun;
 	
 	private AudioClip sarajevo;
+	
+	private Timer timer;
 
 	private RandomGenerator rgen = RandomGenerator.getInstance();
 	private House house; 
@@ -218,9 +221,6 @@ public class GraphicsContest extends GraphicsProgram {
 		add(drone, droneX, droneY);  // adds drone to screen
 		drones[drones.length - 1] = drone;  // adds drone to end of drones array
 	}
-
-	Timer timer;
-	private static final int TIMER_LENGTH = 34;
 	
 	private void setTimer() {
 		timer = new Timer();
