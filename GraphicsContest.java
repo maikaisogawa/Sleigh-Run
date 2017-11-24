@@ -53,6 +53,7 @@ public class GraphicsContest extends GraphicsProgram {
 	private boolean gameOver = false; 
 	private boolean started = false;
 	private boolean musicStarted = false;
+	private boolean hardcore = false;
 	
 	public GCompound[] houses = new GCompound[5];
 	public GCompound[] drones = new GCompound [3];
@@ -70,8 +71,12 @@ public class GraphicsContest extends GraphicsProgram {
 				housesMove();
 				moveParty();
 				checkHouses();
-				dronesMove();
-				checkDrones();
+				if(hardcore) {
+					dronesMove();
+					checkDrones();
+				}
+//				dronesMove();
+//				checkDrones();
 				checkForCollisions();
 				pause(DELAY);
 			}
@@ -148,6 +153,7 @@ public class GraphicsContest extends GraphicsProgram {
 	class ThisTask extends TimerTask {
 		public void run() {
 			DELAY = 10;   // makes everything move faster
+			hardcore = true;
 		}
 	}
 	
@@ -183,6 +189,7 @@ public class GraphicsContest extends GraphicsProgram {
 		add(endGame);
 		started = false;
 		gameOver = false;
+		hardcore = false;
 		timer.cancel();
 		GLabel playAgain = new GLabel("CLICK TO PLAY AGAIN?");  // creates starting prompt
 		double dx = getWidth() / 2 - playAgain.getWidth() + 20;
