@@ -35,6 +35,12 @@ public class Kareldolph extends GCompound{
 		leftTriangle.setFillColor(sky);
 		add(leftTriangle, 0, BODY_HEIGHT - TRIANGLE);
 		
+		leg = makeLeg(LEG_SIZE);
+		leg.setColor(cream);
+		leg.setFilled(true);
+		leg.setColor(Color.BLACK);
+		add(leg, BODY_WIDTH / 2, BODY_HEIGHT);
+		
 	}
 	
 	private GPolygon makeRightTriangle(double width, double height){ 
@@ -52,6 +58,17 @@ public class Kareldolph extends GCompound{
 		poly.addVertex(0, height);
 		return poly;
 	}
+	
+	private GPolygon makeLeg(double size){
+		GPolygon poly = new GPolygon();
+		poly.addVertex(0, 0);
+		poly.addVertex(LEG_SIZE / 2, 0);
+		poly.addVertex(LEG_SIZE / 2, LEG_SIZE / 2);
+		poly.addVertex(LEG_SIZE, LEG_SIZE / 2);
+		poly.addVertex(LEG_SIZE, LEG_SIZE);
+		poly.addVertex(0, LEG_SIZE);
+		return poly;
+	}
 
 	private static final int BODY_WIDTH = 20;
 	private static final int BODY_HEIGHT = 30;
@@ -59,12 +76,14 @@ public class Kareldolph extends GCompound{
 	private static final int SQUARE_WIDTH = 10;
 	private static final int SQUARE_HEIGHT = 15;
 	private static final int LINE_LENGTH = 8;
+	private static final int LEG_SIZE = 10;
 	
 	private GRect body;
 	private GPolygon rightTriangle;
 	private GPolygon leftTriangle;
 	private GRect square;
 	private GLine line;
+	private GPolygon leg;
 	
 	Color cream = Color.decode("#F0ECEB");
 	Color sky = Color.decode("#1E2B55");
