@@ -3,6 +3,7 @@
  * --------------------------
  */
 
+import java.applet.AudioClip;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Image;
@@ -187,22 +188,14 @@ public class GraphicsContest extends GraphicsProgram {
 		playMusic();
 	}
 	
-	MediaPlayer mediaPlayer;
+	AudioClip sarajevo;
 	
 	private void playMusic() {
 		if(musicStarted) {
-			String bip = "sarajevo.mp3";
-			Media hit = null;
-			try{
-				hit = new Media(new File(bip).toURI().toString());
-				mediaPlayer = new MediaPlayer(hit);
-				mediaPlayer.play();
-			}catch(Exception e){
-				System.out.println(e.toString());
-			}
-			
+			sarajevo = MediaTools.loadAudioClip("sarajevo.mp3");
+			sarajevo.play();
 		} else if(!musicStarted) {
-			mediaPlayer.stop();
+			sarajevo.stop();
 		}
 	}
 	
