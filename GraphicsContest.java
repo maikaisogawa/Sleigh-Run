@@ -31,7 +31,7 @@ public class GraphicsContest extends GraphicsProgram {
 	
 	public static GraphicsContest sleighRun;
 	private static final int HOUSE_SPACE = 15;
-	private static final int BOTTOM_SPACE = 30;
+	private static final int BOTTOM_SPACE = 50;
 	
 	private static final int NUM_HOUSE_COLORS = 6;
 	private static final int DELAY = 20;
