@@ -126,7 +126,7 @@ public class GraphicsContest extends GraphicsProgram {
 	
 	private void moveParty() {
 		double sX = 0;
-		double sY = kareldolph.getY() - sleighran.getY();
+		double sY = kareldolph.getY() - (sleighran.getY() + 2);
 		if(started) {
 			if(yVel < MAX_SPEED) {
 				yVel++;
