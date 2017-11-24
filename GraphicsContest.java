@@ -82,6 +82,7 @@ public class GraphicsContest extends GraphicsProgram {
 				pause(DELAY);
 			}
 			playGameOver();
+			finalScore();
 			waitForRestart();
 		}
 	}
@@ -100,6 +101,11 @@ public class GraphicsContest extends GraphicsProgram {
 ///////////////////// FIX THIS /////////////////////////
 //TASKS: Score count, countdown to something Hardcore (speedup), intro screen, make 
 //everything better, boundaries, 
+	
+	private void finalScore() {
+		GLabel finalScore = new GLabel("Your score was: " + score);
+		add(finalScore, getWidth() / 2, 0 + 20);
+	}
 	
 	private int score = 0;
 	private GLabel scoreCount;
@@ -236,8 +242,6 @@ public class GraphicsContest extends GraphicsProgram {
 		playAgain.setFont(new Font("Arial", Font.BOLD, 20));
 		playAgain.setLocation(dx,dy);
 		add(playAgain);
-		GLabel finalScore = new GLabel("Your score was: " + score);
-		add(finalScore, getWidth() / 2, 0 + 20);
 	}
 
 	private double xVel = 0;
