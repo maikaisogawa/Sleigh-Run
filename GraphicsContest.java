@@ -102,7 +102,6 @@ public class GraphicsContest extends GraphicsProgram {
 				pause(delay);     // delay in visuals for game play *speed* of game
 			}
 			playGameOver();  // provides end of game play and resets functions
-	//		finalScore();    // gives final score to player
 			waitForRestart();  // waits for player to click to restart game
 		}
 	}
@@ -202,7 +201,7 @@ public class GraphicsContest extends GraphicsProgram {
 		resetFunctions();  // resets functions so game can be played again
 		removeStuff();   // remove labels and objects on the screen
 		makeEndLabels();  // creates labels to inform player
-		finalScore();
+		finalScore();  // gives final score to player
 	}
 /*
  * This method creates the visuals and objects of the game
