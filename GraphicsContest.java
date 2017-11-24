@@ -222,10 +222,10 @@ public class GraphicsContest extends GraphicsProgram {
 	}
 	
 	private void addHouse() {
-		double x = house.getWidth() * 4 - HOUSE_SPACE - 60;
-		double y = getHeight() - house.getHeight() + BOTTOM_SPACE;
 		String nextColor = getRandomNewColor(house.getColor());
 		house = new House(hexcolor);
+		double x = house.getWidth() * 4 - HOUSE_SPACE - 60;
+		double y = getHeight() - house.getHeight() + BOTTOM_SPACE;
 		add(house, x, y);
 		houses[4] = house;
 		hexcolor = nextColor;
