@@ -90,13 +90,6 @@ public class GraphicsContest extends GraphicsProgram {
 			while(!gameOver) {
 				keepScore();
 				gamePlay();
-//				housesMove();
-//				moveParty();
-//				checkHouses();
-//				if(hardcore) {
-//					dronesMove();
-//					checkDrones();
-//				}
 				checkForCollisions();
 				pause(delay);
 			}
@@ -105,7 +98,10 @@ public class GraphicsContest extends GraphicsProgram {
 			waitForRestart();
 		}
 	}
-	
+/*
+ * This method provides the motion of the objects in the game as well as checks if objects need
+ * to be removed from screen and new ones added
+ */
 	private void gamePlay() {
 		housesMove();
 		moveParty();
@@ -115,16 +111,27 @@ public class GraphicsContest extends GraphicsProgram {
 			checkDrones();
 		}
 	}
-	
+/*
+ * This method sets up the graphics and creates the objects in the game. It also sets the timer
+ * and adds Mouse/Key Listeners
+ */
 	private void setup() {
+		createWorld();
 		setTitle("Sleigh Run");
+//		addBackground();
+//		createHouses();	
+//		addParty();
+//		createDrones();
+		setTimer();
+		addMouseListeners();
+		addKeyListeners();
+	}
+	
+	private void createWorld() {
 		addBackground();
 		createHouses();	
 		addParty();
 		createDrones();
-		setTimer();
-		addMouseListeners();
-		addKeyListeners();
 	}
 	
 	private void finalScore() {
