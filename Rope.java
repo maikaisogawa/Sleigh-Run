@@ -7,7 +7,7 @@ public class Rope extends GCompound {
 
 	public Rope() {
 		ropeStart = new GArc(2 * RADIUS, 2 * RADIUS, 60, 43);
-		ropeStart.setColor(gold);
+		ropeStart.setColor(Color.RED);
 		add(ropeStart, 0, 0);
 	}
 	
