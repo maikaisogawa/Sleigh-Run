@@ -77,7 +77,7 @@ public class GraphicsContest extends GraphicsProgram {
 		kareldolph = new Kareldolph();
 		add(kareldolph, PARTY_SPACE * 4 + sleighran.getWidth(), getHeight() / 2);
 		rope = new Rope();
-		add(rope, PARTY_SPACE + sleighran.getWidth() / 2, getHeight() / 2 - sleighran.getHeight());
+		add(rope, PARTY_SPACE + sleighran.getWidth() / 2, getHeight() / 2);
 	}
 	
 	private void waitForPlayer() {
