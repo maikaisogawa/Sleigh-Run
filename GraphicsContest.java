@@ -139,7 +139,6 @@ public class GraphicsContest extends GraphicsProgram {
 	private void addDrone() {
 		drone = new Drone();
 		double droneX = getWidth() + getWidth() / 2;
-//		double droneX = rgen.nextDouble(getWidth(), getWidth() + getWidth() / 2);
 		double droneY = rgen.nextDouble(0, getHeight() / 2 - drone.getHeight() * 2);
 		add(drone, droneX, droneY);
 		drones[2] = drone;
@@ -156,6 +155,7 @@ public class GraphicsContest extends GraphicsProgram {
 		public void run() {
 			DELAY = 10;   // makes everything move faster
 			hardcore = true;
+			setTimer();
 		}
 	}
 	
