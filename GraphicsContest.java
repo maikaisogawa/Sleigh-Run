@@ -122,6 +122,8 @@ public class GraphicsContest extends GraphicsProgram {
 	
 	private double kareldolphX = PARTY_SPACE * 8;
 	private double kareldolphY = HEIGHT / 2;
+	
+	private double difference = kareldolph.getY() - sleighran.getY();
 
 	
 	private void moveParty() {
@@ -130,6 +132,7 @@ public class GraphicsContest extends GraphicsProgram {
 				yVel++;
 			}
 			kareldolph.move(xVel, yVel);
+			sleighran.move(xVel, difference);
 		}
 	}
 	
@@ -140,6 +143,7 @@ public class GraphicsContest extends GraphicsProgram {
 	public void jump() {
 		yVel = -15;
 	}
+	
 // can also use space bar to make party jump
 	public void keyReleased(KeyEvent e) {
 		if(e.getKeyCode() == KeyEvent.VK_SPACE ) {
