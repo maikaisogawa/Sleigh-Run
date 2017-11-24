@@ -83,7 +83,7 @@ public class Kareldolph extends GCompound{
 		poly.addVertex(LEG_SIZE, LEG_SIZE / 2);
 		poly.addVertex(LEG_SIZE / 2, LEG_SIZE / 2);
 		poly.addVertex(LEG_SIZE / 2, LEG_SIZE);
-		poly.addVertex(LEG_SIZE, 0);
+		poly.addVertex(0, LEG_SIZE);
 		return poly;
 	}
 
