@@ -102,13 +102,17 @@ public class GraphicsContest extends GraphicsProgram {
 //TASKS: Score count, countdown to something Hardcore (speedup), intro screen, make 
 //everything better, boundaries, 
 	private GLabel finalScore;
+	private double finalX;
+	private double finalY;
 	
 	private void finalScore() {
 		finalScore = new GLabel("Your score was: " + score);
+		finalX = getWidth() / 2 - finalScore.getWidth() / 2;
+		finalY = getHeight();
 		finalScore.setColor(Color.WHITE);
 		finalScore.setFont(new Font("Arial", Font.BOLD, 38));
 		finalScore.setLocation(scoreX,scoreY);
-		add(finalScore, scoreX, scoreY);
+		add(finalScore, finalX, finalY);
 	}
 	
 	private int score = 0;
