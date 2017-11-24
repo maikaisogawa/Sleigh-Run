@@ -134,7 +134,7 @@ public class GraphicsContest extends GraphicsProgram {
 			}
 			kareldolph.move(xVel, yVel);
 			if(sY < MAX_SPEED) {
-				sY += 0.5;
+				sY += 1.5;
 			}
 			sleighran.move(sX, sY);
 		}
