@@ -2,6 +2,7 @@ import java.awt.Color;
 
 import acm.graphics.GCompound;
 import acm.graphics.GLine;
+import acm.graphics.GOval;
 import acm.graphics.GPolygon;
 import acm.graphics.GRect;
 
@@ -46,6 +47,12 @@ public class Kareldolph extends GCompound{
 		leftTriangle.setFilled(true);
 		leftTriangle.setFillColor(sky);
 		add(leftTriangle, 0, BODY_HEIGHT - TRIANGLE);
+		
+		nose = new GOval(NOSE_RADIUS * 2, NOSE_RADIUS * 2);
+		nose.setColor(Color.RED);
+		nose.setFilled(true);
+		nose.setFillColor(Color.RED);
+		add(nose, BODY_WIDTH, TRIANGLE);
 		
 	}
 	
@@ -94,6 +101,7 @@ public class Kareldolph extends GCompound{
 	private static final int SQUARE_HEIGHT = 15;
 	private static final int LINE_LENGTH = 8;
 	private static final int LEG_SIZE = 8;
+	private static final int NOSE_RADIUS = 2;
 	
 	private GRect body;
 	private GPolygon rightTriangle;
@@ -102,6 +110,7 @@ public class Kareldolph extends GCompound{
 	private GLine line;
 	private GPolygon leg;
 	private GPolygon sideLeg;
+	private GOval nose;
 	
 	Color cream = Color.decode("#F0ECEB");
 	Color sky = Color.decode("#1E2B55");
