@@ -237,7 +237,7 @@ public class GraphicsContest extends GraphicsProgram {
 		playAgain.setLocation(dx,dy);
 		add(playAgain);
 		GLabel finalScore = new GLabel("Your score was: " + score);
-		add(finalScore, getWidth() / 2 - finalScore.getWidth() / 2, 0 + 20);
+		add(finalScore, getWidth() / 2, 0 + 20);
 	}
 
 	private double xVel = 0;
