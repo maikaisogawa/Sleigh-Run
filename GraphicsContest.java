@@ -108,8 +108,10 @@ public class GraphicsContest extends GraphicsProgram {
 	private double hardcoreCountdownX;
 	private double hardcoreCountdownY;
 	
+	private int clock = TIMER_LENGTH;
+	
 	private void somethingHardcore() {
-		hardcoreCountdown = new GLabel("seconds until something HARDCORE!");
+		hardcoreCountdown = new GLabel(clock + " seconds until something HARDCORE!");
 		hardcoreCountdownX = getWidth() / 2 - hardcoreCountdown.getWidth() / 2 -20;
 		hardcoreCountdownY = hardcoreCountdown.getHeight() * 3;
 		hardcoreCountdown.setColor(Color.WHITE);
@@ -195,10 +197,11 @@ public class GraphicsContest extends GraphicsProgram {
 	}
 
 	Timer timer;
+	private static final int TIMER_LENGTH = 34;
 	
 	private void setTimer() {
 		timer = new Timer();
-		timer.schedule(new ThisTask(), (long)34 * 1000);   // cue on musical drop
+		timer.schedule(new ThisTask(), (long)TIMER_LENGTH * 1000);   // cue on musical drop
 	}
 	
 	private int delayChange = 10;
