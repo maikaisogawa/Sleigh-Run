@@ -192,9 +192,15 @@ public class GraphicsContest extends GraphicsProgram {
 	private void playMusic() {
 		if(musicStarted) {
 			String bip = "sarajevo.mp3";
-			Media hit = new Media(new File(bip).toURI().toString());
-			mediaPlayer = new MediaPlayer(hit);
-			mediaPlayer.play();
+			Media hit = null;
+			try{
+				hit = new Media(new File(bip).toURI().toString());
+				mediaPlayer = new MediaPlayer(hit);
+				mediaPlayer.play();
+			}catch(Exception e){
+				System.out.println(e.toString());
+			}
+			
 		} else if(!musicStarted) {
 			mediaPlayer.stop();
 		}
