@@ -66,6 +66,7 @@ public class GraphicsContest extends GraphicsProgram {
 	
 	private int delay = 20;   // speed of movement, speeds up every half-minute
 	private int score = 0;    // score of player updates when house is passed
+	private int delayChange = 10; // gradual speed-up of game as player progresses
 	
 	private double hx = -2;   // houses moving left
 	private double hy = 0;    // houses do not move up or down
@@ -221,25 +222,31 @@ public class GraphicsContest extends GraphicsProgram {
 		add(drone, droneX, droneY);  // adds drone to screen
 		drones[drones.length - 1] = drone;  // adds drone to end of drones array
 	}
-	
-	private void setTimer() {
-		timer = new Timer();
-		timer.schedule(new ThisTask(), (long)TIMER_LENGTH * 1000);   // cue on musical drop
-	}
-	
-	private int delayChange = 10;
-	
+
+/*
+ * Timer class to keep track of when to speed up game
+ */
 	class ThisTask extends TimerTask {
 		public void run() {
 			delay = delayChange;   // makes everything move faster
-			hardcore = true;
-			setTimer();
+			hardcore = true;     // makes game hardcore
+			setTimer();        // sets the timer
 			delayChange--;    // makes movement faster every time 34 seconds pass
 		}
 	}
-	
+/*	
+ * Sets the timer
+ */
+	private void setTimer() {
+		timer = new Timer();  // creates timer
+		timer.schedule(new ThisTask(), (long)TIMER_LENGTH * 1000);   // cue on musical drop
+	}
+/*
+ * This method checks for collisions of kareldolph with houses or drones or boundaries.
+ * Any collision ends the game
+ */
 	private void checkForCollisions() {
-		for(int i = 0; i < houses.length; i++) {
+		for(int i = 0; i < houses.length; i++) { // checks every hosue for collision
 			if(getElementAt(kareldolph.getX(), kareldolph.getY()) == houses[i]) {   // upper left corner of kareldolph
 				gameOver = true;
 			} else if(getElementAt(kareldolph.getX() + kareldolph.getWidth(), kareldolph.getY()) == houses[i]) { // upper right corner
@@ -250,7 +257,7 @@ public class GraphicsContest extends GraphicsProgram {
 				gameOver = true;
 			}
 		}
-		for(int j = 0; j < drones.length; j++) {
+		for(int j = 0; j < drones.length; j++) {  // checks all drones for collision
 			if(getElementAt(kareldolph.getX(), kareldolph.getY()) == drones[j]) {   // upper left corner of kareldolph
 				gameOver = true;
 			} else if(getElementAt(kareldolph.getX() + kareldolph.getWidth(), kareldolph.getY()) == drones[j]) { // upper right corner
@@ -262,10 +269,13 @@ public class GraphicsContest extends GraphicsProgram {
 			}
 		}
 	}
-	
+/*
+ * This sequence runs when the game is over
+ */
 	private void playGameOver() {
+		resetFunctions();
 		remove(scoreCount);
-		musicStarted = false;
+	//	musicStarted = false;
 		playMusic();
 		remove(sleighran);
 		remove(rope);
@@ -277,9 +287,9 @@ public class GraphicsContest extends GraphicsProgram {
 		endGame.setFont(new Font("Arial", Font.BOLD, 38));
 		endGame.setLocation(x,y);
 		add(endGame);
-		started = false;
-		gameOver = false;
-		hardcore = false;
+	//	started = false;
+	//	gameOver = false;
+	//	hardcore = false;
 		delay = 20;
 		timer.cancel();
 		GLabel playAgain = new GLabel("CLICK TO PLAY AGAIN?");  // creates starting prompt
@@ -290,7 +300,16 @@ public class GraphicsContest extends GraphicsProgram {
 		playAgain.setLocation(dx,dy);
 		add(playAgain);
 	}
-
+	
+	private void resetFunctions() {
+		musicStarted = false;
+		started = false;
+		gameOver = false;
+		hardcore = false;
+	}
+/*
+ * This method moves kareldolph, sleighran, and rope on the screen
+ */
 	private void moveParty() {
 		double sX = 0;
 		double sY = kareldolph.getY() - (sleighran.getY() + 2);
