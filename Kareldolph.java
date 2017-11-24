@@ -15,6 +15,12 @@ public class Kareldolph extends GCompound{
 		leg.setFillColor(Color.BLACK);
 		add(leg, BODY_WIDTH / 2, BODY_HEIGHT);
 		
+		sideLeg = makeSideLeg(LEG_SIZE);
+		sideLeg.setColor(cream);
+		sideLeg.setFilled(true);
+		sideLeg.setFillColor(Color.BLACK);
+		add(sideLeg, 0 - LEG_SIZE, BODY_HEIGHT / 2);
+		
 		body = new GRect(BODY_WIDTH, BODY_HEIGHT);
 		body.setColor(cream);
 		body.setFilled(true);
@@ -69,6 +75,17 @@ public class Kareldolph extends GCompound{
 		poly.addVertex(0, LEG_SIZE);
 		return poly;
 	}
+	
+	private GPolygon makeSideLeg(double size) {
+		GPolygon poly = new GPolygon();
+		poly.addVertex(0, 0);
+		poly.addVertex(LEG_SIZE, 0);
+		poly.addVertex(LEG_SIZE, LEG_SIZE / 2);
+		poly.addVertex(LEG_SIZE / 2, LEG_SIZE / 2);
+		poly.addVertex(LEG_SIZE / 2, LEG_SIZE);
+		poly.addVertex(LEG_SIZE, 0);
+		return poly;
+	}
 
 	private static final int BODY_WIDTH = 20;
 	private static final int BODY_HEIGHT = 30;
@@ -84,6 +101,7 @@ public class Kareldolph extends GCompound{
 	private GRect square;
 	private GLine line;
 	private GPolygon leg;
+	private GPolygon sideLeg;
 	
 	Color cream = Color.decode("#F0ECEB");
 	Color sky = Color.decode("#1E2B55");
