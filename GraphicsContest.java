@@ -76,6 +76,8 @@ public class GraphicsContest extends GraphicsProgram {
 	
 	private static final double GRAVITY = 1;
 	
+	private static final double JUMP_HEIGHT = 5;
+	
 	private double xVel = 0;
 	private double yVel = 2;
 	
@@ -90,8 +92,11 @@ public class GraphicsContest extends GraphicsProgram {
 	}
 	
 	public void actionPerformed(ActionEvent e) {
+		
 		if(started) {
-			kareldolph.move(xVel,  -yVel);
+			for(int i = 0; i < JUMP_HEIGHT; i++) {
+				kareldolph.move(xVel, - yVel * 2);
+			}
 		}
 	}
 	
