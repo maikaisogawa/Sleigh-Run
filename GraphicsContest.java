@@ -22,31 +22,31 @@ import acm.graphics.*;
 
 /*
  * Issue: score count only working after initial houses pass
+ * TASKS: make everything look better, top boundary
  */
 
 public class GraphicsContest extends GraphicsProgram {
-	
+
+/*
+ * Program Constants
+ */
 	private static final long serialVersionUID = 1L;
-	
 	/* Width and height of application window in pixels. */
 	public static final int APPLICATION_WIDTH = 700;
 	public static final int APPLICATION_HEIGHT = 700;
-	
 	public static final int WIDTH = APPLICATION_WIDTH;
 	public static final int HEIGHT = APPLICATION_HEIGHT;
 	
-	public static GraphicsContest sleighRun;
-	private static final int HOUSE_SPACE = 15;
-	private static final int BOTTOM_SPACE = 40;
+	private static final int HOUSE_SPACE = 15; // space between houses to be reduced to visual appeal
+	private static final int BOTTOM_SPACE = 40; // house space from bottom of screen
+	private static final int NUM_HOUSE_COLORS = 6;  // number of house colors
+	private static final int PARTY_SPACE = 20; // space between sleigh and left side of screen
 	
-	private static final int NUM_HOUSE_COLORS = 6;
-	
-	private int DELAY = 20;
-	
-	private static final int PARTY_SPACE = 20;
+	private int delay = 20;
 
 	private RandomGenerator rgen = RandomGenerator.getInstance();
 	
+	public static GraphicsContest sleighRun;
 	private House house; 
 	private Sleighran sleighran;
 	private Kareldolph kareldolph;
@@ -65,14 +65,15 @@ public class GraphicsContest extends GraphicsProgram {
 	private double hy = 0;    // houses do not move up or down
 	private double dx = -2;   // drones move left
 	private double dy = 0;     // drones do not move up or down
-
+/*
+ * Run method for Sleigh Run Game
+ */
 	public void run() {
 		while(true) {
 			setup();
 			waitForPlayer();
 			while(!gameOver) {
 				keepScore();
-				somethingHardcore();
 				housesMove();
 				moveParty();
 				checkHouses();
@@ -81,7 +82,7 @@ public class GraphicsContest extends GraphicsProgram {
 					checkDrones();
 				}
 				checkForCollisions();
-				pause(DELAY);
+				pause(delay);
 			}
 			playGameOver();
 			finalScore();
@@ -101,24 +102,8 @@ public class GraphicsContest extends GraphicsProgram {
 	}
 /////////////////////////////////////////////////////////		
 ///////////////////// FIX THIS /////////////////////////
-//TASKS: countdown to something Hardcore (speedup), intro screen, make 
+//TASKSmake 
 //everything better, boundaries, 
-
-	private GLabel hardcoreCountdown;
-	private double hardcoreCountdownX;
-	private double hardcoreCountdownY;
-	
-	private int clock = TIMER_LENGTH;
-	
-	private void somethingHardcore() {
-		hardcoreCountdown = new GLabel(clock + " seconds until something HARDCORE!");
-		hardcoreCountdownX = getWidth() / 2 - hardcoreCountdown.getWidth() / 2 -60;
-		hardcoreCountdownY = hardcoreCountdown.getHeight() * 3;
-		hardcoreCountdown.setColor(Color.WHITE);
-		hardcoreCountdown.setFont(new Font("Arial", Font.BOLD, 20));
-		add(hardcoreCountdown, hardcoreCountdownX, hardcoreCountdownY);
-	}
-	
 	
 	private GLabel finalScore;
 	private double finalX;
@@ -208,7 +193,7 @@ public class GraphicsContest extends GraphicsProgram {
 	
 	class ThisTask extends TimerTask {
 		public void run() {
-			DELAY = delayChange;   // makes everything move faster
+			delay = delayChange;   // makes everything move faster
 			hardcore = true;
 			setTimer();
 			delayChange--;    // makes movement faster every time 34 seconds pass
@@ -244,7 +229,6 @@ public class GraphicsContest extends GraphicsProgram {
 	}
 	
 	private void playGameOver() {
-		remove(hardcoreCountdown);
 		remove(scoreCount);
 		musicStarted = false;
 		playMusic();
@@ -261,7 +245,7 @@ public class GraphicsContest extends GraphicsProgram {
 		started = false;
 		gameOver = false;
 		hardcore = false;
-		DELAY = 20;
+		delay = 20;
 		timer.cancel();
 		GLabel playAgain = new GLabel("CLICK TO PLAY AGAIN?");  // creates starting prompt
 		double dx = getWidth() / 2 - playAgain.getWidth() + 20;
@@ -353,7 +337,6 @@ public class GraphicsContest extends GraphicsProgram {
 	}
 	
 	private void waitForRestart() {
-		remove(hardcoreCountdown);
 		waitForClick();  // waits for player's click
 		score = 0;
 	}
