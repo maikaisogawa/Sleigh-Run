@@ -41,30 +41,48 @@ public class GraphicsContest extends GraphicsProgram {
 	private static final int BOTTOM_SPACE = 40; // house space from bottom of screen
 	private static final int NUM_HOUSE_COLORS = 6;  // number of house colors
 	private static final int PARTY_SPACE = 20; // space between sleigh and left side of screen
+	private static final int MAX_SPEED = 8;  // maximum speed of falling *gravity* so not too fast
+/*	
+ * Instance Variables
+ */
+	public static GraphicsContest sleighRun;
 	
-	private int delay = 20;
+	private AudioClip sarajevo;
 
 	private RandomGenerator rgen = RandomGenerator.getInstance();
-	
-	public static GraphicsContest sleighRun;
 	private House house; 
 	private Sleighran sleighran;
 	private Kareldolph kareldolph;
 	private Rope rope;
 	private Drone drone;
 	
-	private boolean gameOver = false; 
-	private boolean started = false;
-	private boolean musicStarted = false;
-	private boolean hardcore = false;
+	private boolean gameOver = false; // keeps track if game is over
+	private boolean started = false;  // keeps track if game has started
+	private boolean musicStarted = false;  // keeps track if music has started
+	private boolean hardcore = false;   // keeps track if initial speed has increased
 	
-	public GCompound[] houses = new GCompound[5];
-	public GCompound[] drones = new GCompound [3];
-	private String hexcolor = "#F29352";
+	private int delay = 20;   // speed of movement, speeds up every half-minute
+	
 	private double hx = -2;   // houses moving left
 	private double hy = 0;    // houses do not move up or down
 	private double dx = -2;   // drones move left
 	private double dy = 0;     // drones do not move up or down
+	private double finalX;  // x location of final score label
+	private double finalY;   // y location of final score label
+	private double xVel = 0;  // x movement of kareldolph
+	private double yVel = 2;  // y movement of kareldolph
+	private double kareldolphX = PARTY_SPACE * 8;  // x location of kareldolph 
+	private double kareldolphY = HEIGHT / 2;   // y location of kareldolph 
+	
+	public GCompound[] houses = new GCompound[5];  // Array of GCompounds for houses
+	public GCompound[] drones = new GCompound [3];  // Array of GCompounds for drones
+	private String hexcolor = "#F29352";  // initial hexcolor of house
+	
+	private GLabel finalScore;   // label declaring final score of player
+	
+
+
+
 /*
  * Run method for Sleigh Run Game
  */
@@ -100,14 +118,6 @@ public class GraphicsContest extends GraphicsProgram {
 		addMouseListeners();
 		addKeyListeners();
 	}
-/////////////////////////////////////////////////////////		
-///////////////////// FIX THIS /////////////////////////
-//TASKSmake 
-//everything better, boundaries, 
-	
-	private GLabel finalScore;
-	private double finalX;
-	private double finalY;
 	
 	private void finalScore() {
 		finalScore = new GLabel("Your score was: " + score);
@@ -200,9 +210,6 @@ public class GraphicsContest extends GraphicsProgram {
 		}
 	}
 	
-///////////////////// FIX THIS /////////////////////////
-/////////////////////////////////////////////////////////
-	
 	private void checkForCollisions() {
 		for(int i = 0; i < houses.length; i++) {
 			if(getElementAt(kareldolph.getX(), kareldolph.getY()) == houses[i]) {   // upper left corner of kareldolph
@@ -256,15 +263,6 @@ public class GraphicsContest extends GraphicsProgram {
 		add(playAgain);
 	}
 
-	private double xVel = 0;
-	private double yVel = 2;
-	
-	private static final int MAX_SPEED = 8;
-	
-	private double kareldolphX = PARTY_SPACE * 8;
-	private double kareldolphY = HEIGHT / 2;
-
-	
 	private void moveParty() {
 		double sX = 0;
 		double sY = kareldolph.getY() - (sleighran.getY() + 2);
@@ -280,17 +278,22 @@ public class GraphicsContest extends GraphicsProgram {
 			rope.move(sX, sY);
 		}
 	}
-	
+/*	
+ * In the event that the mouse is clicked, party jumps
+ */
 	public void mouseClicked(MouseEvent e) {
 		jump();
 	}
-	
-	public void jump() {
+/*
+ * This method creates the 'jump' height of the party when space bar/ mouse clicked
+ */
+	public void jump() {  
 		yVel = -15;
 	}
-	
-// can also use space bar to make party jump
-	public void keyReleased(KeyEvent e) {
+/*
+ * This method allows use space bar to make party jump also
+ */
+	public void keyReleased(KeyEvent e) { 
 		if(e.getKeyCode() == KeyEvent.VK_SPACE ) {
 			jump();
 		}
@@ -323,8 +326,6 @@ public class GraphicsContest extends GraphicsProgram {
 		musicStarted = true;
 		playMusic();
 	}
-	
-	AudioClip sarajevo;
 	
 	private void playMusic() {
 		
