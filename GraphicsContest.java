@@ -84,7 +84,6 @@ public class GraphicsContest extends GraphicsProgram {
 	private GLabel finalScore;   // label declaring final score of player
 	private GLabel scoreCount;  // label to display score of player
 	
-	
 /*
  * Run method for Sleigh Run Game
  */
@@ -140,33 +139,37 @@ public class GraphicsContest extends GraphicsProgram {
  * This method provides the player with the final score after the game has ended
  */
 	private void finalScore() {
-		finalScore = new GLabel("Your score was: " + score);
-		finalX = getWidth() / 2 - finalScore.getWidth() / 2 * 3;
-		finalY = finalScore.getHeight() * 3;
-		finalScore.setColor(Color.WHITE);
-		finalScore.setFont(new Font("Arial", Font.BOLD, 38));
-		add(finalScore, finalX, finalY);
+		finalScore = new GLabel("Your score was: " + score);  // creates label
+		finalX = getWidth() / 2 - finalScore.getWidth() / 2 * 3;  // x location
+		finalY = finalScore.getHeight() * 3;   // y location
+		finalScore.setColor(Color.WHITE);    // sets color of label
+		finalScore.setFont(new Font("Arial", Font.BOLD, 38));  // sets font of label
+		add(finalScore, finalX, finalY);  // adds label to screen
 	}
-	
+/*
+ * This method keeps track of the player's score and adds the score label to the screen
+ */
 	private void keepScore() {
-		remove(scoreCount);
-		if(houses[0].getX() + houses[0].getWidth() == kareldolph.getX()) {
-			score++;
+		remove(scoreCount);  // removes previously placed label
+		if(houses[0].getX() + houses[0].getWidth() == kareldolph.getX()) { // if house has passed
+			score++;  // increases score count
 		} 
-		scoreCount = new GLabel(String.valueOf(score));
-		scoreX = getWidth() / 2 - scoreCount.getWidth();
-		scoreY = getHeight() / 2 - 80;
-		scoreCount.setColor(Color.WHITE);
-		scoreCount.setFont(new Font("Arial", Font.BOLD, 38));
-		scoreCount.setLocation(scoreX,scoreY);
-		add(scoreCount); // add label
+		scoreCount = new GLabel(String.valueOf(score));  // creates new score label
+		scoreX = getWidth() / 2 - scoreCount.getWidth();  // x location of label
+		scoreY = getHeight() / 2 - 80;                     // y location of label
+		scoreCount.setColor(Color.WHITE);                // sets color of label
+		scoreCount.setFont(new Font("Arial", Font.BOLD, 38));  // sets font of label
+		scoreCount.setLocation(scoreX,scoreY);             // sets location of label
+		add(scoreCount);                                 // add label
 	}
-	
+/*	
+ * This method adds the drones to the screen and to the drones array
+ */
 	private void createDrones() {
 		double droneY;
-		double droneX = rgen.nextDouble(getWidth(), getWidth() * 2 - PARTY_SPACE);
-		double droneSpace;
-		for(int i = 0; i < 3; i++) {
+		double droneX = rgen.nextDouble(getWidth(), getWidth() * 2 - PARTY_SPACE);  // x location of drone random
+		double droneSpace;   // space between drones so visually appealing
+		for(int i = 0; i < drones.length; i++) {   
 			drone = new Drone();
 			droneSpace = rgen.nextDouble(drone.getWidth() * 2, getWidth() / 2);
 			droneY = rgen.nextDouble(0, getHeight() / 2 - drone.getHeight() * 2);
