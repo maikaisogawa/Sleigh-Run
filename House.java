@@ -136,7 +136,12 @@ public class House extends GCompound {
 		add(sideDeco, 0 - 5, SIDE_HEIGHT / 2 - SIDE_DECO_HEIGHT);
 		add(chimney, SIDE_WIDTH + HOUSE_WIDTH / 2 + 10, 0);
 		
-		add(smokePuff, SIDE_WIDTH + HOUSE_WIDTH / 2 + 17 - smokePuff.getWidth() / 2, 0 - smokePuff.getHeight() - 5);
+		int x = rgen.nextInt(1, MAX_PUFFS);
+		double puffHeight = 0;
+		for(int i = 0; i < x; i++) {
+			add(smokePuff, SIDE_WIDTH + HOUSE_WIDTH / 2 + 17 - smokePuff.getWidth() / 2, 0 - smokePuff.getHeight() - 5 + puffHeight);
+			puffHeight += smokePuff.getHeight() + 30;
+		}
 		
 		add(base, SIDE_WIDTH / 2, SIDE_HEIGHT - HOUSE_HEIGHT);
 		add(doorFront, 0, SIDE_HEIGHT - DOOR_FRONT_HEIGHT);
@@ -277,6 +282,7 @@ public class House extends GCompound {
 	private static final int CHIMNEY_HEIGHT = 40;
 	
 	private static final int NUM_COLORS = 5;
+	private static final int MAX_PUFFS = 5;
 	
 	private GRect base;
 	private GRect fence;
