@@ -47,6 +47,7 @@ public class GraphicsContest extends GraphicsProgram {
 	private Sleighran sleighran;
 	private Kareldolph kareldolph;
 	private Rope rope;
+	private Drone drone;
 	
 	
 	private boolean gameOver = false; 
@@ -81,6 +82,7 @@ public class GraphicsContest extends GraphicsProgram {
 		setTimer();
 		addMouseListeners();
 		addKeyListeners();
+		add(drone, getWidth()/2, getHeight());
 	}
 	
 	Timer timer;
@@ -93,7 +95,13 @@ public class GraphicsContest extends GraphicsProgram {
 	class ThisTask extends TimerTask {
 		public void run() {
 			DELAY = 10;
+			addDrones();
 		}
+	}
+	
+	private void addDrones() {
+		drone = new Drone();
+		add(drone, getWidth()/2, getHeight());
 	}
 	
 	private void checkForCollisions() {
