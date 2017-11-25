@@ -108,6 +108,7 @@ public class GraphicsContest extends GraphicsProgram {
 	
 	private GLabel verse1;
 	private GLabel verse2;
+	private GLabel verse3;
 	
 	private void displayStartScreen() {
 		addMouseListeners();
@@ -127,12 +128,19 @@ public class GraphicsContest extends GraphicsProgram {
 		verse1.setLocation(x1, y1);
 		add(verse1);
 		
-		verse2 = new GLabel ("Not a student had finished, not even those kids who got 120's on the midterm");
+		verse2 = new GLabel ("Not a student had finished, not even those kids who got 120's on the midterm.");
 		verse2.setColor(Color.BLACK);
 		double x2 = getWidth() / 2 - verse2.getWidth() / 2;
 		double y2 = getHeight() / 2 - 40;
 		verse2.setLocation(x2, y2);
 		add(verse2);
+		
+		verse3 = new GLabel ("Not a student had finished, not even those kids who got 120's on the midterm.");
+		verse3.setColor(Color.BLACK);
+		double x3 = getWidth() / 2 - verse3.getWidth() / 2;
+		double y3 = getHeight() / 2 - 20;
+		verse3.setLocation(x3, y3);
+		add(verse3);
 		
 		
 		
