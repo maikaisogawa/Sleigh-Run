@@ -42,7 +42,7 @@ public class GraphicsContest extends GraphicsProgram {
 	private static final int NUM_HOUSE_COLORS = 6;  // number of house colors
 	private static final int PARTY_SPACE = 20; // space between sleigh and left side of screen
 	private static final int MAX_SPEED = 8;  // maximum speed of falling *gravity* so not too fast
-	private static final int TIMER_LENGTH = 34;  // seconds for timer
+	private static final int TIMER_LENGTH = 33;  // seconds for timer
 /*	
  * Instance Variables
  */
