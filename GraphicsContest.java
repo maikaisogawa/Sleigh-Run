@@ -110,10 +110,12 @@ public class GraphicsContest extends GraphicsProgram {
 	private GLabel verse2;
 	private GLabel verse3;
 	private GLabel verse4;
+	private GLabel prompt;
 	
 	private void displayStartScreen() {
 		addMouseListeners();
 		addKeyListeners();
+		
 		GLabel title = new GLabel("SLEIGH RUN");
 		title.setColor(Color.BLACK);
 		title.setFont(new Font("Arial", Font.BOLD, 38));
@@ -149,6 +151,14 @@ public class GraphicsContest extends GraphicsProgram {
 		double y4 = getHeight() / 2 + 40;
 		verse4.setLocation(x4, y4);
 		add(verse4);
+		
+		prompt = new GLabel ("CLICK TO CONTINUE");
+		prompt.setColor(Color.BLACK);
+		title.setFont(new Font("Arial", Font.BOLD, 20));
+		double promptX = getWidth() / 2 - prompt.getWidth() / 2;
+		double promptY = getHeight() / 2 + 100;
+		title.setLocation(promptX,promptY);
+		add(prompt);
 		
 		
 		waitForClick();
