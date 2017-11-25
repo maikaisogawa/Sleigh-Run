@@ -41,7 +41,7 @@ public class House extends GCompound {
 		
 		// fence of house
 		fence = new GRect(FENCE_LENGTH, FENCE_HEIGHT);
-		fence.setColor(Color.BLACK.brighter());
+		fence.setColor(Color.BLACK.brighter().brighter().brighter());
 		fence.setFilled(true);
 		fence.setFillColor(Color.LIGHT_GRAY);
 		
