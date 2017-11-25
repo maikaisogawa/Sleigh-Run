@@ -109,7 +109,15 @@ public class GraphicsContest extends GraphicsProgram {
 	private void displayStartScreen() {
 		addMouseListeners();
 		addKeyListeners();
+		GLabel title = new GLabel("SLEIGH RUN");
+		title.setColor(Color.BLACK);
+		title.setFont(new Font("Arial", Font.BOLD, 38));
+		double x = getWidth() / 2 - title.getWidth() / 2;
+		double y = getHeight() / 2 - title.getHeight();
+		title.setLocation(x,y);
+		add(title);
 		waitForClick();
+		remove(title);
 	}
 /*
  * This method sets up the graphics and creates the objects in the game. It also sets the timer
@@ -118,9 +126,6 @@ public class GraphicsContest extends GraphicsProgram {
 	private void setup() {
 		createWorld();  // adds graphics and objects to screen
 		setTitle("Sleigh Run");  // sets title of game
-//		setTimer();   // sets timer
-//		addMouseListeners();
-//		addKeyListeners();
 	}
 /*	
  * Waits for player's click to play game
