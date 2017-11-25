@@ -127,7 +127,7 @@ public class GraphicsContest extends GraphicsProgram {
 		verse1.setLocation(x1, y1);
 		add(verse1);
 		
-		verse2 = new GLabel ("Twas the night before a CS106A assignment was due, when all through the campus");
+		verse2 = new GLabel ("Not a student had finished, not even those kids who got 120's on the midterm");
 		verse2.setColor(Color.BLACK);
 		double x2 = getWidth() / 2 - verse2.getWidth() / 2;
 		double y2 = getHeight() / 2 - 40;
