@@ -51,6 +51,10 @@ public class House extends GCompound {
 		roof.setFilled(true);
 		roof.setFillColor(walnut);
 		
+		// big roof line
+		roofLine = new GLine(0, 0, ROOF_LINE_SIZE, 0);
+		roofLine.setColor(Color.DARK_GRAY);
+		
 		// attic window
 		atticWindow = new GRect(ATTIC_WINDOW_WIDTH, ATTIC_WINDOW_HEIGHT);
 		atticWindow.setColor(walnut.brighter());
@@ -175,6 +179,7 @@ public class House extends GCompound {
 		add(patioRoof, SIDE_WIDTH / 2 + HOUSE_WIDTH / 2, SIDE_HEIGHT - PATIO_HEIGHT - PATIO_ROOF_HEIGHT / 2);
 		add(patioDecor, SIDE_WIDTH / 2 + HOUSE_WIDTH / 2 - PATIO_DECOR_WIDTH / 2, SIDE_HEIGHT - PATIO_HEIGHT / 2 + 5);
 		add(roof, SIDE_WIDTH / 2 + HOUSE_WIDTH / 2, SIDE_HEIGHT - HOUSE_HEIGHT - ROOF_HEIGHT / 2);
+		add(roofLine, SIDE_WIDTH / 2 + HOUSE_WIDTH / 2, SIDE_HEIGHT - HOUSE_HEIGHT);
 		add(atticWindow, SIDE_WIDTH / 2 + HOUSE_WIDTH / 2 - 5, SIDE_HEIGHT - HOUSE_HEIGHT - ROOF_HEIGHT / 2);
 		add(fence, HOUSE_WIDTH + SIDE_WIDTH / 2, SIDE_HEIGHT - FENCE_HEIGHT);
 		add(window1, SIDE_WIDTH / 2 - WINDOW_WIDTH / 2, 0 + 2);
@@ -286,6 +291,7 @@ public class House extends GCompound {
 	private static final int POST_HEIGHT = 30;
 	private static final int ROOF_WIDTH = 120;
 	private static final int ROOF_HEIGHT = 50;
+	private static final int ROOF_LINE_SIZE = 120;
 	private static final int SIDE_ROOF_WIDTH = 60;
 	private static final int SIDE_ROOF_HEIGHT = 30;
 	private static final int DOOR_ROOF_WIDTH = 50;
@@ -333,6 +339,7 @@ public class House extends GCompound {
 	private GLine windowLine1;
 	private GLine windowLine2;
 	private GLine windowLine3;
+	private GLine roofLine;
 	
 	private GPolygon roof;
 	private GPolygon sideRoof;
