@@ -113,7 +113,7 @@ public class GraphicsContest extends GraphicsProgram {
 		title.setColor(Color.BLACK);
 		title.setFont(new Font("Arial", Font.BOLD, 38));
 		double x = getWidth() / 2 - title.getWidth() / 2;
-		double y = getHeight() / 2 - title.getHeight();
+		double y = getHeight() / 2 - title.getHeight() * 3;
 		title.setLocation(x,y);
 		add(title);
 		waitForClick();
