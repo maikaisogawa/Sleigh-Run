@@ -21,7 +21,6 @@ import acm.util.*;
 import acm.graphics.*;
 
 /*
- * Issue: score count only working after initial houses pass
  * TASKS: make everything look better, top boundary
  */
 
