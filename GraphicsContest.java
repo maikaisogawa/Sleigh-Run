@@ -106,6 +106,8 @@ public class GraphicsContest extends GraphicsProgram {
 		}
 	}
 	
+	private GLabel verse1;
+	
 	private void displayStartScreen() {
 		addMouseListeners();
 		addKeyListeners();
@@ -116,6 +118,18 @@ public class GraphicsContest extends GraphicsProgram {
 		double y = getHeight() / 2 - title.getHeight() * 5;
 		title.setLocation(x,y);
 		add(title);
+		
+		verse1 = new GLabel ("Twas the night before a CS106A assignment was due, when all through the campus");
+		verse1.setColor(Color.BLACK);
+		double x1 = getWidth() / 2 - title.getWidth() / 2;
+		double y1 = getHeight() / 2 - title.getHeight() * 5;
+		verse1.setLocation(x1, y1);
+		add(title);
+		
+		
+		
+		
+		
 		waitForClick();
 		remove(title);
 	}
