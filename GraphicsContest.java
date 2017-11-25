@@ -135,7 +135,7 @@ public class GraphicsContest extends GraphicsProgram {
 		verse2.setLocation(x2, y2);
 		add(verse2);
 		
-		verse3 = new GLabel ("The TA's were waiting by the LAIR with care,");
+		verse3 = new GLabel ("The TAs were waiting by the LAIR with care,");
 		verse3.setColor(Color.BLACK);
 		double x3 = getWidth() / 2 - verse3.getWidth() / 2;
 		double y3 = getHeight() / 2;
