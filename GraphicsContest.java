@@ -166,15 +166,16 @@ public class GraphicsContest extends GraphicsProgram {
 		remove(verse2);
 		remove(verse3);
 		remove(verse4);
+		remove(prompt);
 		
-		verse1 = new GLabel ("The students were crouched all over their laptops,");
+		verse1 = new GLabel ("The deadline to submit was fast approaching,");
 		verse1.setColor(Color.BLACK);
 		x1 = getWidth() / 2 - verse1.getWidth() / 2;
 		y1 = getHeight() / 2 - verse1.getHeight() * 5;
 		verse1.setLocation(x1, y1);
 		add(verse1);
 		
-		verse2 = new GLabel ("While having visions of lines of java and course drops.");
+		verse2 = new GLabel ("You need to give every student some coaching.");
 		verse2.setColor(Color.BLACK);
 		x2 = getWidth() / 2 - verse2.getWidth() / 2;
 		y2 = getHeight() / 2 - 40;
@@ -195,9 +196,22 @@ public class GraphicsContest extends GraphicsProgram {
 		verse4.setLocation(x4, y4);
 		add(verse4);
 		
+		prompt = new GLabel ("CLICK TO START");
+		prompt.setColor(Color.BLACK);
+		prompt.setFont(new Font("Arial", Font.BOLD, 20));
+		promptX = getWidth() / 2 - prompt.getWidth() / 2;
+		promptY = getHeight() / 2 + 100;
+		prompt.setLocation(promptX,promptY);
+		add(prompt);
 		
 		waitForClick();
+		
 		remove(title);
+		remove(verse1);
+		remove(verse2);
+		remove(verse3);
+		remove(verse4);
+		remove(prompt);
 	}
 /*
  * This method sets up the graphics and creates the objects in the game. It also sets the timer
