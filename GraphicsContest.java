@@ -143,7 +143,7 @@ public class GraphicsContest extends GraphicsProgram {
 		verse3.setLocation(x3, y3);
 		add(verse3);
 		
-		verse4 = new GLabel ("The TAs were waiting by the LAIR with care,");
+		verse4 = new GLabel ("In hopes that the weekend would soon be there.");
 		verse4.setColor(Color.BLACK);
 		double x4 = getWidth() / 2 - verse4.getWidth() / 2;
 		double y4 = getHeight() / 2 + 40;
