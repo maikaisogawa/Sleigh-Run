@@ -111,7 +111,7 @@ public class GraphicsContest extends GraphicsProgram {
 	private void setup() {
 		createWorld();  // adds graphics and objects to screen
 		setTitle("Sleigh Run");  // sets title of game
-		setTimer();   // sets timer
+//		setTimer();   // sets timer
 		addMouseListeners();
 		addKeyListeners();
 	}
@@ -135,6 +135,7 @@ public class GraphicsContest extends GraphicsProgram {
 		started = true;         // starts game function
 		musicStarted = true;      // starts music function
 		playMusic();            // plays the music
+		setTimer();   // sets timer
 	}
 /*
  * This method keeps track of the player's score and adds the score label to the screen
