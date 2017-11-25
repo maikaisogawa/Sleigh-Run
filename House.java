@@ -53,9 +53,9 @@ public class House extends GCompound {
 		
 		// attic window
 		atticWindow = new GRect(ATTIC_WINDOW_WIDTH, ATTIC_WINDOW_HEIGHT);
-		atticWindow.setColor(walnut);
+		atticWindow.setColor(walnut.brighter());
 		atticWindow.setFilled(true);
-		atticWindow.setFillColor(lightOn);
+		atticWindow.setFillColor(walnut);
 		
 		// small roof of side
 		sideRoof = createRoof(SIDE_ROOF_WIDTH, SIDE_ROOF_HEIGHT);
