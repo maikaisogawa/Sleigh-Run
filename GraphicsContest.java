@@ -124,7 +124,7 @@ public class GraphicsContest extends GraphicsProgram {
 		title.setLocation(x,y);
 		add(title);
 		
-		verse1 = new GLabel ("Twas the night before a CS106A assignment was due, when all through the campus");
+		verse1 = new GLabel ("Twas the night before a CS106A assignment was due, when all through the campus,");
 		verse1.setColor(Color.BLACK);
 		double x1 = getWidth() / 2 - verse1.getWidth() / 2;
 		double y1 = getHeight() / 2 - verse1.getHeight() * 5;
@@ -138,14 +138,14 @@ public class GraphicsContest extends GraphicsProgram {
 		verse2.setLocation(x2, y2);
 		add(verse2);
 		
-		verse3 = new GLabel ("The TAs were waiting by the LAIR with care,");
+		verse3 = new GLabel ("A legend flew through the air with care,");
 		verse3.setColor(Color.BLACK);
 		double x3 = getWidth() / 2 - verse3.getWidth() / 2;
 		double y3 = getHeight() / 2;
 		verse3.setLocation(x3, y3);
 		add(verse3);
 		
-		verse4 = new GLabel ("In hopes that the weekend would soon be there.");
+		verse4 = new GLabel ("In hopes that they would go find help at the LAIR.");
 		verse4.setColor(Color.BLACK);
 		double x4 = getWidth() / 2 - verse4.getWidth() / 2;
 		double y4 = getHeight() / 2 + 40;
@@ -159,6 +159,41 @@ public class GraphicsContest extends GraphicsProgram {
 		double promptY = getHeight() / 2 + 100;
 		prompt.setLocation(promptX,promptY);
 		add(prompt);
+		
+		waitForClick();
+		
+		remove(verse1);
+		remove(verse2);
+		remove(verse3);
+		remove(verse4);
+		
+		verse1 = new GLabel ("The students were crouched all over their laptops,");
+		verse1.setColor(Color.BLACK);
+		x1 = getWidth() / 2 - verse1.getWidth() / 2;
+		y1 = getHeight() / 2 - verse1.getHeight() * 5;
+		verse1.setLocation(x1, y1);
+		add(verse1);
+		
+		verse2 = new GLabel ("While having visions of lines of java and course drops.");
+		verse2.setColor(Color.BLACK);
+		x2 = getWidth() / 2 - verse2.getWidth() / 2;
+		y2 = getHeight() / 2 - 40;
+		verse2.setLocation(x2, y2);
+		add(verse2);
+		
+		verse3 = new GLabel ("A savior in a sleigh, ");
+		verse3.setColor(Color.BLACK);
+		x3 = getWidth() / 2 - verse3.getWidth() / 2;
+		y3 = getHeight() / 2;
+		verse3.setLocation(x3, y3);
+		add(verse3);
+		
+		verse4 = new GLabel ("In hopes that the weekend would soon be there.");
+		verse4.setColor(Color.BLACK);
+		x4 = getWidth() / 2 - verse4.getWidth() / 2;
+		y4 = getHeight() / 2 + 40;
+		verse4.setLocation(x4, y4);
+		add(verse4);
 		
 		
 		waitForClick();
