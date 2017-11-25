@@ -198,7 +198,7 @@ public class House extends GCompound {
 			GRect fencepost = new GRect(POST_WIDTH, POST_HEIGHT);
 			fencepost.setColor(Color.BLACK);
 			fencepost.setFilled(true);
-			fencepost.setFillColor(Color.LIGHT_GRAY);
+			fencepost.setFillColor(Color.LIGHT_GRAY.darker());
 			add(fencepost, HOUSE_WIDTH + SIDE_WIDTH / 2 + POST_WIDTH * n, SIDE_HEIGHT - POST_HEIGHT);
 			n += 2;
 		}
