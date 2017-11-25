@@ -96,7 +96,9 @@ public class GraphicsContest extends GraphicsProgram {
 			setup();  // sets up game
 			waitForPlayer();  // waits for player to click to start game
 			while(!gameOver) {   // while player has not yet lost
+				if(score > 0) {
 				keepScore();     // tracks score of player
+				}
 				gamePlay();      // provides motion and housekeeping of objects
 				checkForCollisions();   // checks for collisions of kareldolph and anything
 				pause(delay);     // delay in visuals for game play *speed* of game
