@@ -109,6 +109,10 @@ public class House extends GCompound {
 		window2.setFilled(true);
 		window2.setFillColor(lightBlue);
 		
+		// left window line
+		windowLine2 = new GLine(0, 0, WINDOW_LINE_SIZE, 0);
+		windowLine2.setColor(walnut);
+		
 		// right window on main
 		window3 = new GRect(WINDOW_WIDTH, WINDOW_HEIGHT);
 		window3.setColor(walnut);
@@ -160,6 +164,7 @@ public class House extends GCompound {
 		add(window1, SIDE_WIDTH / 2 - WINDOW_WIDTH / 2, 0 + 2);
 		add(windowLine1, SIDE_WIDTH / 2 - WINDOW_WIDTH / 2, 0 + 10);
 		add(window2, HOUSE_WIDTH / 2 + WINDOW_WIDTH, SIDE_HEIGHT - HOUSE_HEIGHT);
+		add(windowLine2, HOUSE_WIDTH / 2 + WINDOW_WIDTH, SIDE_HEIGHT - HOUSE_HEIGHT + 10);
 		add(window3, HOUSE_WIDTH / 2 + WINDOW_WIDTH * 2, SIDE_HEIGHT - HOUSE_HEIGHT);
 		add(door, SIDE_WIDTH / 2 - DOOR_WIDTH / 2, SIDE_HEIGHT - DOOR_HEIGHT - 13);	
 		int k = 0;   // adds three steps leading up to door
@@ -306,6 +311,8 @@ public class House extends GCompound {
 	private GRect chimney;
 	
 	private GLine windowLine1;
+	private GLine windowLine2;
+	private GLine windowLine3;
 	
 	private GPolygon roof;
 	private GPolygon sideRoof;
