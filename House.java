@@ -21,7 +21,7 @@ public class House extends GCompound {
 		// decodes the hexcolor passed through 
 		Color theColor = Color.decode(color);
 		
-		// creates side portion of hosue
+		// creates side portion of house
 		side = new GRect(SIDE_WIDTH, SIDE_HEIGHT);
 		side.setColor(walnut);
 		side.setFilled(true);
@@ -159,6 +159,11 @@ public class House extends GCompound {
 			patioWindow.setFilled(true);
 			patioWindow.setFillColor(walnut);
 			add(patioWindow, SIDE_WIDTH + WINDOW_WIDTH * m, SIDE_HEIGHT - PATIO_HEIGHT - PATIO_ROOF_HEIGHT / 2 + WINDOW_HEIGHT / 2);
+			
+			GLine patioWindowLine = new GLine(0, 0, WINDOW_LINE_SIZE, 0);
+			patioWindowLine.setColor(cream);
+			add(patioWindowLine, SIDE_WIDTH + WINDOW_WIDTH * m, SIDE_HEIGHT - PATIO_HEIGHT - PATIO_ROOF_HEIGHT / 2 + WINDOW_HEIGHT / 2 + 10);
+			
 			m += 1.5;
 		}
 		add(patioRoof, SIDE_WIDTH / 2 + HOUSE_WIDTH / 2, SIDE_HEIGHT - PATIO_HEIGHT - PATIO_ROOF_HEIGHT / 2);
