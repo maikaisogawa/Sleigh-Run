@@ -154,7 +154,7 @@ public class GraphicsContest extends GraphicsProgram {
 		
 		prompt = new GLabel ("CLICK TO CONTINUE");
 		prompt.setColor(Color.BLACK);
-		title.setFont(new Font("Arial", Font.BOLD, 20));
+		prompt.setFont(new Font("Arial", Font.BOLD, 20));
 		double promptX = getWidth() / 2 - prompt.getWidth() / 2;
 		double promptY = getHeight() / 2 + 100;
 		title.setLocation(promptX,promptY);
