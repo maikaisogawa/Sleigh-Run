@@ -84,6 +84,11 @@ public class GraphicsContest extends GraphicsProgram {
 	public GCompound[] drones = new GCompound [3];  // Array of GCompounds for drones
 	private String hexcolor = "#F29352";  // initial hexcolor of house
 	
+	private GLabel verse1;
+	private GLabel verse2;
+	private GLabel verse3;
+	private GLabel verse4;
+	private GLabel prompt;
 	private GLabel finalScore;   // label declaring final score of player
 	private GLabel scoreCount;  // label to display score of player
 	
@@ -91,7 +96,7 @@ public class GraphicsContest extends GraphicsProgram {
  * Run method for Sleigh Run Game
  */
 	public void run() {
-		displayStartScreen();
+		displayStartScreen();  // screen runs before game starts, giving background and explaining game
 		while(true) {  // runs in continuous loop so player can enjoy the game and BE HARDCORE
 			setup();  // sets up game
 			waitForPlayer();  // waits for player to click to start game
@@ -105,13 +110,10 @@ public class GraphicsContest extends GraphicsProgram {
 			waitForRestart();  // waits for player to click to restart game
 		}
 	}
-	
-	private GLabel verse1;
-	private GLabel verse2;
-	private GLabel verse3;
-	private GLabel verse4;
-	private GLabel prompt;
-	
+/*	
+ * This method provides the start screen to the game, providing background/into and information.
+ * It prompts the user before starting the game.
+ */
 	private void displayStartScreen() {
 		addMouseListeners();
 		addKeyListeners();
