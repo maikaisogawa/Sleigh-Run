@@ -157,7 +157,7 @@ public class GraphicsContest extends GraphicsProgram {
 		prompt.setFont(new Font("Arial", Font.BOLD, 20));
 		double promptX = getWidth() / 2 - prompt.getWidth() / 2;
 		double promptY = getHeight() / 2 + 100;
-		title.setLocation(promptX,promptY);
+		prompt.setLocation(promptX,promptY);
 		add(prompt);
 		
 		
