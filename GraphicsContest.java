@@ -181,14 +181,14 @@ public class GraphicsContest extends GraphicsProgram {
 		verse2.setLocation(x2, y2);
 		add(verse2);
 		
-		verse3 = new GLabel ("A savior in a sleigh, ");
+		verse3 = new GLabel ("Don't hit the houses or altitude limit as you soar,");
 		verse3.setColor(Color.BLACK);
 		x3 = getWidth() / 2 - verse3.getWidth() / 2;
 		y3 = getHeight() / 2;
 		verse3.setLocation(x3, y3);
 		add(verse3);
 		
-		verse4 = new GLabel ("In hopes that the weekend would soon be there.");
+		verse4 = new GLabel ("and when the music drops it might get HARDCORE...");
 		verse4.setColor(Color.BLACK);
 		x4 = getWidth() / 2 - verse4.getWidth() / 2;
 		y4 = getHeight() / 2 + 40;
