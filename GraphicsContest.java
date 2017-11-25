@@ -118,7 +118,7 @@ public class GraphicsContest extends GraphicsProgram {
 		
 		GLabel title = new GLabel("SLEIGH RUN");
 		title.setColor(Color.BLACK);
-		title.setFont(new Font("Arial", Font.BOLD, 45));
+		title.setFont(new Font("Arial", Font.BOLD, 60));
 		double x = getWidth() / 2 - title.getWidth() / 2;
 		double y = getHeight() / 2 - title.getHeight() * 5;
 		title.setLocation(x,y);
