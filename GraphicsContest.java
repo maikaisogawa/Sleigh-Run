@@ -124,7 +124,7 @@ public class GraphicsContest extends GraphicsProgram {
 		double x1 = getWidth() / 2 - verse1.getWidth() / 2;
 		double y1 = getHeight() / 2 - verse1.getHeight() * 5;
 		verse1.setLocation(x1, y1);
-		add(title);
+		add(verse1);
 		
 		
 		
