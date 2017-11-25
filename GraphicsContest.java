@@ -20,10 +20,6 @@ import acm.program.*;
 import acm.util.*;
 import acm.graphics.*;
 
-/*
- * TASKS: make everything look better, top boundary
- */
-
 public class GraphicsContest extends GraphicsProgram {
 
 /*
@@ -97,6 +93,7 @@ public class GraphicsContest extends GraphicsProgram {
  */
 	public void run() {
 		displayStartScreen();  // screen runs before game starts, giving background and explaining game
+		
 		while(true) {  // runs in continuous loop so player can enjoy the game and BE HARDCORE
 			setup();  // sets up game
 			waitForPlayer();  // waits for player to click to start game
@@ -281,6 +278,9 @@ public class GraphicsContest extends GraphicsProgram {
  * Any collision ends the game
  */
 	private void checkForCollisions() {
+		if(kareldolph.getX() > 0) {
+			gameOver = true;
+		}
 		for(int i = 0; i < houses.length; i++) { // checks every hosue for collision
 			if(getElementAt(kareldolph.getX(), kareldolph.getY()) == houses[i]) {   // upper left corner of kareldolph
 				gameOver = true;
