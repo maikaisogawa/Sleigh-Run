@@ -96,9 +96,7 @@ public class GraphicsContest extends GraphicsProgram {
 			setup();  // sets up game
 			waitForPlayer();  // waits for player to click to start game
 			while(!gameOver) {   // while player has not yet lost
-				if(score > 0) {
 				keepScore();     // tracks score of player
-				}
 				gamePlay();      // provides motion and housekeeping of objects
 				checkForCollisions();   // checks for collisions of kareldolph and anything
 				pause(delay);     // delay in visuals for game play *speed* of game
@@ -147,13 +145,15 @@ public class GraphicsContest extends GraphicsProgram {
 		if(houses[0].getX() + houses[0].getWidth() == kareldolph.getX()) { // if house has passed
 			score++;  // increases score count
 		} 
+		if(score > 0) {
 		scoreCount = new GLabel(String.valueOf(score));  // creates new score label
 		scoreX = getWidth() / 2 - scoreCount.getWidth();  // x location of label
 		scoreY = getHeight() / 2 - 80;                     // y location of label
 		scoreCount.setColor(Color.WHITE);                // sets color of label
 		scoreCount.setFont(new Font("Arial", Font.BOLD, 38));  // sets font of label
 		scoreCount.setLocation(scoreX,scoreY);             // sets location of label
-		add(scoreCount);                                 // add label
+		add(scoreCount);  
+		}// add label
 	}
 /*
  * This method provides the motion of the objects in the game as well as checks if objects need
