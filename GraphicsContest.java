@@ -131,7 +131,7 @@ public class GraphicsContest extends GraphicsProgram {
 		verse2.setColor(Color.BLACK);
 		double x2 = getWidth() / 2 - verse2.getWidth() / 2;
 		double y2 = getHeight() / 2;
-		verse1.setLocation(x2, y2);
+		verse2.setLocation(x2, y2);
 		add(verse2);
 		
 		
