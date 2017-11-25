@@ -183,7 +183,7 @@ public class House extends GCompound {
 		for(int i = 0; i < 3; i++) {
 			GLine roofLine = new GLine(0, 0, ROOF_LINE_SIZE, 0);
 			roofLine.setColor(Color.LIGHT_GRAY);
-			add(roofLine, SIDE_WIDTH / 2 - 8, SIDE_HEIGHT - HOUSE_HEIGHT - p);
+			add(roofLine, SIDE_WIDTH / 2 - 10, SIDE_HEIGHT - HOUSE_HEIGHT - p);
 			p += 1;
 		}
 		
@@ -301,7 +301,7 @@ public class House extends GCompound {
 	private static final int POST_HEIGHT = 30;
 	private static final int ROOF_WIDTH = 120;
 	private static final int ROOF_HEIGHT = 50;
-	private static final int ROOF_LINE_SIZE = 115;
+	private static final int ROOF_LINE_SIZE = 120;
 	private static final int SIDE_ROOF_WIDTH = 60;
 	private static final int SIDE_ROOF_HEIGHT = 30;
 	private static final int DOOR_ROOF_WIDTH = 50;
