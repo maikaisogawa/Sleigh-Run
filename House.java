@@ -179,12 +179,12 @@ public class House extends GCompound {
 		add(patioRoof, SIDE_WIDTH / 2 + HOUSE_WIDTH / 2, SIDE_HEIGHT - PATIO_HEIGHT - PATIO_ROOF_HEIGHT / 2);
 		add(patioDecor, SIDE_WIDTH / 2 + HOUSE_WIDTH / 2 - PATIO_DECOR_WIDTH / 2, SIDE_HEIGHT - PATIO_HEIGHT / 2 + 5);
 		add(roof, SIDE_WIDTH / 2 + HOUSE_WIDTH / 2, SIDE_HEIGHT - HOUSE_HEIGHT - ROOF_HEIGHT / 2);
-		double k = 0.5;
+		double p = 0.5;
 		for(int i = 0; i < 3; i++) {
 			GLine roofLine = new GLine(0, 0, ROOF_LINE_SIZE, 0);
 			roofLine.setColor(Color.LIGHT_GRAY);
-			add(roofLine, SIDE_WIDTH / 2 - 10, SIDE_HEIGHT - HOUSE_HEIGHT - k);
-			k += 1;
+			add(roofLine, SIDE_WIDTH / 2 - 10, SIDE_HEIGHT - HOUSE_HEIGHT - p);
+			p += 1;
 		}
 		
 		
