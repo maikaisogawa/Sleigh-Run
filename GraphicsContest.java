@@ -278,7 +278,7 @@ public class GraphicsContest extends GraphicsProgram {
  * Any collision ends the game
  */
 	private void checkForCollisions() {
-		if(kareldolph.getY() > 0) {
+		if(kareldolph.getY() <= 0) {
 			gameOver = true;
 		}
 		for(int i = 0; i < houses.length; i++) { // checks every hosue for collision
