@@ -119,6 +119,10 @@ public class House extends GCompound {
 		window3.setFilled(true);
 		window3.setFillColor(lightBlue);
 		
+		// right window line
+		windowLine3 = new GLine(0, 0, WINDOW_LINE_SIZE, 0);
+		windowLine3.setColor(walnut);
+		
 		// door
 		door = new GRect(DOOR_WIDTH, DOOR_HEIGHT);
 		door.setColor(cream);
@@ -166,6 +170,7 @@ public class House extends GCompound {
 		add(window2, HOUSE_WIDTH / 2 + WINDOW_WIDTH, SIDE_HEIGHT - HOUSE_HEIGHT);
 		add(windowLine2, HOUSE_WIDTH / 2 + WINDOW_WIDTH, SIDE_HEIGHT - HOUSE_HEIGHT + 10);
 		add(window3, HOUSE_WIDTH / 2 + WINDOW_WIDTH * 2, SIDE_HEIGHT - HOUSE_HEIGHT);
+		add(windowLine3, HOUSE_WIDTH / 2 + WINDOW_WIDTH * 2, SIDE_HEIGHT - HOUSE_HEIGHT + 10);
 		add(door, SIDE_WIDTH / 2 - DOOR_WIDTH / 2, SIDE_HEIGHT - DOOR_HEIGHT - 13);	
 		int k = 0;   // adds three steps leading up to door
 		for(int i = 0; i < 3; i++) {
