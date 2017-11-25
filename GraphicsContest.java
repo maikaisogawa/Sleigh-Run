@@ -181,7 +181,7 @@ public class GraphicsContest extends GraphicsProgram {
 		verse2.setLocation(x2, y2);
 		add(verse2);
 		
-		verse3 = new GLabel ("Don't hit the houses or altitude limit as you soar,");
+		verse3 = new GLabel ("Don't let Kareldolph hit the houses or altitude limit as you soar,");
 		verse3.setColor(Color.BLACK);
 		x3 = getWidth() / 2 - verse3.getWidth() / 2;
 		y3 = getHeight() / 2;
