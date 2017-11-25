@@ -55,7 +55,7 @@ public class House extends GCompound {
 		atticWindow = new GRect(ATTIC_WINDOW_WIDTH, ATTIC_WINDOW_HEIGHT);
 		atticWindow.setColor(walnut);
 		atticWindow.setFilled(true);
-		atticWindow.setFillColor(Color.BLACK);
+		atticWindow.setFillColor(lightOn);
 		
 		// small roof of side
 		sideRoof = createRoof(SIDE_ROOF_WIDTH, SIDE_ROOF_HEIGHT);
@@ -346,6 +346,7 @@ public class House extends GCompound {
 	Color cream = Color.decode("#F0ECEB");
 	Color walnut = Color.decode("#584E52");
 	Color lightBlue = Color.decode("#8ECBF8");
+	Color lightOn = Color.decode("#E0D39D");
 	
 	private RandomGenerator rgen = RandomGenerator.getInstance();
 	
