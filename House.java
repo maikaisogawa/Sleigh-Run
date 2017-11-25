@@ -161,7 +161,7 @@ public class House extends GCompound {
 			add(patioWindow, SIDE_WIDTH + WINDOW_WIDTH * m, SIDE_HEIGHT - PATIO_HEIGHT - PATIO_ROOF_HEIGHT / 2 + WINDOW_HEIGHT / 2);
 			
 			GLine patioWindowLine = new GLine(0, 0, WINDOW_LINE_SIZE, 0);
-			patioWindowLine.setColor(walnut.brighter());
+			patioWindowLine.setColor(walnut.brighter().brighter());
 			add(patioWindowLine, SIDE_WIDTH + WINDOW_WIDTH * m, SIDE_HEIGHT - PATIO_HEIGHT - PATIO_ROOF_HEIGHT / 2 + WINDOW_HEIGHT / 2 + 10);
 			
 			m += 1.5;
