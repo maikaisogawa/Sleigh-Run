@@ -8,6 +8,7 @@ import javax.imageio.ImageIO;
 import acm.graphics.GArc;
 import acm.graphics.GCompound;
 import acm.graphics.GImage;
+import acm.graphics.GLine;
 import acm.graphics.GOval;
 import acm.graphics.GPolygon;
 import acm.graphics.GRect;
@@ -98,6 +99,10 @@ public class House extends GCompound {
 		window1.setFilled(true);
 		window1.setFillColor(lightBlue);
 		
+		// window  on side line
+		windowLine1 = new GLine(0, 0, WINDOW_LINE_SIZE, 0);
+		windowLine1.setColor(walnut);
+		
 		// left window on main house
 		window2 = new GRect(WINDOW_WIDTH, WINDOW_HEIGHT);
 		window2.setColor(walnut);
@@ -153,6 +158,7 @@ public class House extends GCompound {
 		add(roof, SIDE_WIDTH / 2 + HOUSE_WIDTH / 2, SIDE_HEIGHT - HOUSE_HEIGHT - ROOF_HEIGHT / 2);
 		add(fence, HOUSE_WIDTH + SIDE_WIDTH / 2, SIDE_HEIGHT - FENCE_HEIGHT);
 		add(window1, SIDE_WIDTH / 2 - WINDOW_WIDTH / 2, 0 + 2);
+		add(windowLine1, SIDE_WIDTH / 2 - WINDOW_WIDTH / 2, 0 + 7);
 		add(window2, HOUSE_WIDTH / 2 + WINDOW_WIDTH, SIDE_HEIGHT - HOUSE_HEIGHT);
 		add(window3, HOUSE_WIDTH / 2 + WINDOW_WIDTH * 2, SIDE_HEIGHT - HOUSE_HEIGHT);
 		add(door, SIDE_WIDTH / 2 - DOOR_WIDTH / 2, SIDE_HEIGHT - DOOR_HEIGHT - 13);	
@@ -281,6 +287,7 @@ public class House extends GCompound {
 	private static final int STEP_HEIGHT = 4;
 	private static final int CHIMNEY_WIDTH = 15;
 	private static final int CHIMNEY_HEIGHT = 40;
+	private static final int WINDOW_LINE_SIZE = 10;
 	
 	private static final int NUM_COLORS = 5;
 	private static final int MAX_PUFFS = 5;
@@ -297,6 +304,8 @@ public class House extends GCompound {
 	private GRect window3;
 	private GRect door;
 	private GRect chimney;
+	
+	private GLine windowLine1;
 	
 	private GPolygon roof;
 	private GPolygon sideRoof;
