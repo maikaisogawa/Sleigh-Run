@@ -142,7 +142,7 @@ public class GraphicsContest extends GraphicsProgram {
  */
 	private void keepScore() {
 		remove(scoreCount);  // removes previously placed label
-		if(houses[1].getX() + houses[0].getWidth() == kareldolph.getX()) { // if house has passed
+		if(houses[0].getX() + houses[0].getWidth() == kareldolph.getX()) { // if house has passed
 			score++;  // increases score count
 		} 
 		scoreCount = new GLabel(String.valueOf(score));  // creates new score label
