@@ -91,6 +91,7 @@ public class GraphicsContest extends GraphicsProgram {
  * Run method for Sleigh Run Game
  */
 	public void run() {
+		displayStartScreen();
 		while(true) {  // runs in continuous loop so player can enjoy the game and BE HARDCORE
 			setup();  // sets up game
 			waitForPlayer();  // waits for player to click to start game
@@ -104,6 +105,12 @@ public class GraphicsContest extends GraphicsProgram {
 			waitForRestart();  // waits for player to click to restart game
 		}
 	}
+	
+	private void displayStartScreen() {
+		addMouseListeners();
+		addKeyListeners();
+		waitForClick();
+	}
 /*
  * This method sets up the graphics and creates the objects in the game. It also sets the timer
  * and adds Mouse/Key Listeners
@@ -112,8 +119,8 @@ public class GraphicsContest extends GraphicsProgram {
 		createWorld();  // adds graphics and objects to screen
 		setTitle("Sleigh Run");  // sets title of game
 //		setTimer();   // sets timer
-		addMouseListeners();
-		addKeyListeners();
+//		addMouseListeners();
+//		addKeyListeners();
 	}
 /*	
  * Waits for player's click to play game
