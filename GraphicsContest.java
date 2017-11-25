@@ -142,9 +142,11 @@ public class GraphicsContest extends GraphicsProgram {
  */
 	private void keepScore() {
 		remove(scoreCount);  // removes previously placed label
-		if(houses[0].getX() /*+ houses[0].getWidth()*/ == kareldolph.getX()) { // if house has passed
+		for(int i = 0; i < houses.length; i++) {
+		if(houses[0].getX() + houses[0].getWidth() == kareldolph.getX()) { // if house has passed
 			score++;  // increases score count
 		} 
+		}
 		scoreCount = new GLabel(String.valueOf(score));  // creates new score label
 		scoreX = getWidth() / 2 - scoreCount.getWidth();  // x location of label
 		scoreY = getHeight() / 2 - 80;                     // y location of label
